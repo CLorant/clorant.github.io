@@ -2,7 +2,9 @@
     --primary-background-color: #023c5f;
     --secondary-background-color: #d8deec;
     --footer-background-color: #dadde4;
+    --calculation-background-color: #c6ccdb;
     --primary-text-color: #222d36;
+    --highlight--text-color: #0000db;
     --strong-shadow-color: rgba(0, 0, 25, 0.3);
     --light-shadow-color: rgba(0, 0, 25, 0.1);
 }
@@ -22,7 +24,7 @@ main {
 section {
     display: block;
     margin: 2rem auto 2rem auto;
-    padding: 3rem 3rem 3rem 3rem;
+    padding: 3rem;
     border-radius: 1rem;
     max-width: 1000px;
     background-color: var(--secondary-background-color);
@@ -30,6 +32,10 @@ section {
 
 h1 {
     margin-bottom: 3rem;
+}
+
+h4 {
+    margin-top: 3rem;
 }
 
 canvas {
@@ -51,14 +57,35 @@ input[type="range"] {
     width: 100%;
     max-width: 600px;
     margin-bottom: 20px;
-    background-color: #43e5f7;
 }
 
 span {
     display: inline-block;
     margin-bottom: 20px;
-    font-size: 16px;
+}
+
+span, sup {
+    font-size: 1rem;
     font-weight: bold;
+}
+
+.calculation {
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    border-radius: 0.5rem;
+    background-color: var(--calculation-background-color);
+}
+
+code {
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.highlighted {
+    color: var(--highlight--text-color);
 }
 
 footer {
@@ -77,5 +104,18 @@ canvas {
 @media screen and (max-width: 750px) {
     canvas {
         width: 100%;
+    }
+
+    #calculation {
+        padding: 0;
+    }
+
+    code, code span, sup {
+        padding: 0;
+        font-size: 0.7rem;
+    }
+
+    section {
+        padding: 3rem 0.5rem 3rem 0.5rem;
     }
 }

@@ -4,7 +4,7 @@ const depthRange = document.getElementById('depthRange');
 const depthValue = document.getElementById('depthValue');
 const sideRange = document.getElementById('sideRange');
 const sideValue = document.getElementById('sideValue');
-const areaElement = document.getElementById('area');
+const area = document.getElementById('area');
 
 ctx.imageSmoothingEnabled = false;
 
@@ -38,29 +38,63 @@ function calculateArea(sideLength, iterations) {
     return carpetArea;
 }
 
-function updateDepth() {
+function formatNumber(number) {
+    if (Number.isInteger(number)) {
+        return number;
+    }
+    else {
+        return `${parseFloat(number).toFixed(4)}...`;
+    }
+}
+
+function updateFormula(depth, side, area) {
+    const formulaDepthValues = document.querySelectorAll('.formulaDepthValue');
+    const formulaSideValues = document.querySelectorAll('.formulaSideValue');
+    const formulaFractionValues = document.querySelectorAll('.formulaFractionValue');
+    const formulaAreaValues = document.querySelectorAll('.formulaAreaValue');
+    const formulaSquareValue = document.getElementById('formulaSquareValue');
+
+    for (const fdv of formulaDepthValues) {
+        fdv.textContent = depth;
+    }
+
+    for (const fsv of formulaSideValues) {
+        fsv.textContent = side;
+    }
+
+    const fraction = formatNumber((8 / 9) ** depth);
+    for (const ffv of formulaFractionValues) {
+        ffv.textContent = formatNumber(fraction);
+    }
+
+    for (const fav of formulaAreaValues) {
+        fav.textContent = area;
+    }
+
+    formulaSquareValue.textContent = side ** 2;
+}
+
+function updateValues() {
     const depth = parseInt(depthRange.value);
     const side = parseInt(sideRange.value);
     depthValue.textContent = depth;
+    sideValue.textContent = side;
+    const estimatedArea = formatNumber(calculateArea(side, depth));
+    area.textContent = estimatedArea;
+    updateFormula(depth, side, estimatedArea);
+}
 
+function updateDepth() {
+    updateValues();
+
+    // Újrarajzolja a Sierpinski-szőnyeget
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     requestAnimationFrame(() => {
-        drawSierpinskiCarpet(0, 0, canvas.width, depth);
-        const estimatedArea = calculateArea(side, depth);
-        areaElement.textContent = Number.isInteger(estimatedArea) ? estimatedArea : estimatedArea.toFixed(2);
+        drawSierpinskiCarpet(0, 0, canvas.width, parseInt(depthRange.value));
     });
 }
 
-function updateSide() {
-    const side = parseInt(sideRange.value);
-    sideValue.textContent = side;
-
-    const estimatedArea = calculateArea(side, depthRange.value);
-    areaElement.textContent = Number.isInteger(estimatedArea) ? estimatedArea : estimatedArea.toFixed(2);
-}
-
 updateDepth();
-updateSide();
 
 depthRange.addEventListener('input', updateDepth);
-sideRange.addEventListener('input', updateSide);
+sideRange.addEventListener('input', updateValues);
