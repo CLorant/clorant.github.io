@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Sierpiński-szőnyeg</title>
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Sierpiński-szőnyeg és területe</h1>
+            <label for="depthRange">Iteráció:</label>
+            <input type="range" id="depthRange" min="0" max="7" step="1" value="5">
+            <span id="depthValue">5</span>
+
+            <label for="sideRange">Oldalhossz (cm):</label>
+            <input type="range" id="sideRange" min="1" max="50" step="1" value="10">
+            <span id="sideValue">10</span>
+
+            <canvas id="sierpinskiCanvas" width="600" height="600"></canvas>
+
+            <b>Terület: <span id="area">0</span> cm<sup>2</sup></b>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <p>Készítette: <b>Czibik Lóránt Patrik</b></p>
+            <p>Neptunkód: <b>K1IFAB</b></p>
+        </div>
+    </footer>
+
+    <script src="./sierpinksi.js"></script>
+</body>
+</html>
