@@ -56,7 +56,7 @@ function updateSide() {
     sideValue.textContent = side;
 
     const estimatedArea = calculateArea(side, depthRange.value);
-    areaElement.textContent = estimatedArea.toFixed(2);
+    areaElement.textContent = Number.isInteger(estimatedArea) ? estimatedArea : estimatedArea.toFixed(2);
 }
 
 updateDepth();
