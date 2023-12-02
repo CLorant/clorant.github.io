@@ -4,7 +4,7 @@
     --footer-background-color: #dadde4;
     --calculation-background-color: #c6ccdb;
     --primary-text-color: #222d36;
-    --highlight--text-color: #0000db;
+    --highlight-text-color: #0000db;
     --strong-shadow-color: rgba(0, 0, 25, 0.3);
     --light-shadow-color: rgba(0, 0, 25, 0.1);
 }
@@ -85,7 +85,7 @@ code {
 }
 
 .highlighted {
-    color: var(--highlight--text-color);
+    color: var(--highlight-text-color);
 }
 
 footer {

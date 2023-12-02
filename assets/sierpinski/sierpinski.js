@@ -5,22 +5,19 @@ const depthValue = document.getElementById('depthValue');
 const sideRange = document.getElementById('sideRange');
 const sideValue = document.getElementById('sideValue');
 const area = document.getElementById('area');
+const fractionConstant = 8 / 9;
 
 ctx.imageSmoothingEnabled = false;
-
-function drawSquare(x, y, size) {
-    ctx.fillStyle = '#d8deec';
-    ctx.fillRect(x, y, size, size);
-}
+ctx.fillStyle = '#d8deec';
 
 function drawSierpinskiCarpet(x, y, size, depth) {
     if (depth === 0) {
-        return 1;
+        return;
     }
 
     const newSize = size / 3;
+    ctx.fillRect(x + newSize, y + newSize, newSize, newSize); // Rajzol egy négyzetet
 
-    drawSquare(x + newSize, y + newSize, newSize);
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             if (i !== 1 || j !== 1) {
@@ -33,18 +30,14 @@ function drawSierpinskiCarpet(x, y, size, depth) {
 // A Sierpinski-szőnyeg megközelítő területének kiszámítása
 function calculateArea(sideLength, iterations) {
     const squareArea = sideLength ** 2;
-    const carpetArea = (8 / 9) ** iterations * squareArea;
+    const fractionPower = fractionConstant ** iterations;
+    const carpetArea = fractionPower * squareArea;
 
     return carpetArea;
 }
 
 function formatNumber(number) {
-    if (Number.isInteger(number)) {
-        return number;
-    }
-    else {
-        return `${parseFloat(number).toFixed(4)}...`;
-    }
+    return Number.isInteger(number) ? number : number.toFixed(4) + '...';
 }
 
 function updateFormula(depth, side, area) {
@@ -53,6 +46,7 @@ function updateFormula(depth, side, area) {
     const formulaFractionValues = document.querySelectorAll('.formulaFractionValue');
     const formulaAreaValues = document.querySelectorAll('.formulaAreaValue');
     const formulaSquareValue = document.getElementById('formulaSquareValue');
+    const fraction = formatNumber(fractionConstant ** depth);
 
     for (const fdv of formulaDepthValues) {
         fdv.textContent = depth;
@@ -61,10 +55,9 @@ function updateFormula(depth, side, area) {
     for (const fsv of formulaSideValues) {
         fsv.textContent = side;
     }
-
-    const fraction = formatNumber((8 / 9) ** depth);
+    
     for (const ffv of formulaFractionValues) {
-        ffv.textContent = formatNumber(fraction);
+        ffv.textContent = fraction;
     }
 
     for (const fav of formulaAreaValues) {
