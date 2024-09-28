@@ -1,0 +1,19 @@
+section {
+    margin: 32px 0;
+}
+
+section div {
+    margin-bottom: 32px;
+}
+
+ul li {
+    margin-bottom: 16px;
+}
+
+.title {
+    margin-bottom: 32px;
+}
+
+.text-center {
+    text-align: center;
+}
