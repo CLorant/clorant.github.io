@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vízió</title>
     <link rel="stylesheet" href="../assets/szoftvertech/document.css">
 </head>
+
 <body>
     <!-- Copy start -->
 
@@ -34,8 +36,8 @@
     </p>
     <p style="margin-bottom: 0cm;" align="center" lang="hu-HU">
         <font style="font-size: 26pt;" size="6"><b><span lang="hu-HU">
-            Vízió
-        </span></b></font>
+                    Vízió
+                </span></b></font>
     </p>
     <p style="margin-bottom: 0cm;" align="center"><br>
     </p>
@@ -163,11 +165,13 @@
     <h2 align="center">Történet</h2>
 
     <table cellspacing="3" cellpadding="4" border="1" width="90%">
-        <colgroup><col width="64">
-        <col width="29">
-        <col width="89">
-        <col width="74">
-        </colgroup><thead>
+        <colgroup>
+            <col width="64">
+            <col width="29">
+            <col width="89">
+            <col width="74">
+        </colgroup>
+        <thead>
             <tr valign="top">
                 <th width="25%">
                     <p>Dátum</p>
@@ -193,7 +197,7 @@
                 </td>
                 <td width="35%">
                     <p>
-                        Első verzió (Struktúra feltöltése)
+                        Struktúra feltöltése
                     </p>
                 </td>
                 <td width="29%">
@@ -202,26 +206,176 @@
                     </p>
                 </td>
             </tr>
+            <tr valign="top">
+                <td width="25%" sdval="117974" sdnum="1038;0;@">
+                    <p align="left">2024. 10. 05.</p>
+                </td>
+                <td width="11%">
+                    <p align="left">1.0</p>
+                </td>
+                <td width="35%">
+                    <p>
+                        Első verzió
+                    </p>
+                </td>
+                <td width="29%">
+                    <p style="margin-right: 0.08cm;">
+                        Demján Botond (szerző)<br>
+                        Czibik Lóránt Patrik (szerkesztő)
+                    </p>
+                </td>
+            </tr>
         </tbody>
     </table>
     <p style="margin-bottom: 0cm;"><br></p>
     <p style="margin-bottom: 0cm;"><br></p>
     <h2>Tartalomjegyzék</h2>
-    
-    <div>
-        <a href="#">
-            <!-- Számozással -->
+
+    <div class="tartalomjegyzek">
+        <a href="#jatek-bemutatasa">
+            1. Játék bemutatása
+        </a>
+        
+        <a href="#tema-vilag" class="text-indent">
+        1.1. Téma és világ
+        </a>
+        
+        <a href="#jatekmenet" class="text-indent">
+            1.2. Játékmenet és mechanikák
+        </a>
+        
+        <a href="#grafika" class="text-indent">
+            1.3. Grafika és vizuális dizájn
+        </a>
+        
+        <a href="#hangok" class="text-indent">
+            1.4. Hangok és Zene
+        </a>
+        
+        <a href="#kinek-ajanljuk">
+            2. Kinek ajánljuk, honnan lehetne elérhető
+        </a>
+        
+        <a href="#godot-szoftver">
+            3. Godot szoftver jellemzése, miben íródik, készül a program
+        </a>
+        
+        <a href="#vegtermek">
+            4. Végtermék jellemzői mit akarunk megvalósítani a játékban
+        </a>
+        
+        <a href="#elvarasok">
+            5. Elvárások a játékkal szemben
+        </a>
+        
+        <a href="#szotar">
+            6. Szótár (idegen szavak, szakszavak leírása)
         </a>
     </div>
 
     <!-- Copy end -->
 
-    <section id="">
-        <h2></h2>
+    <section id="jatek-bemutatasa">
+        <h2 class="title">1. Játék bemutatása</h2>
+        <div>
+            <b id="tema-vilag">1.1 Téma és világ</b>
+            <p>
+                A játék, “2D platformer survival” stílusú, amit a godot engine szoftver segítségével fejlesztünk. Téma
+                szempontjából egy “fantasy” világot és érzést akar átadni a játék, aminek a főszereplője Sir George AKA
+                a legerősebb lovag a megyében. A Király azzal a feladattal bízta meg, ha már ő a legkiválóbb harcos,
+                hogy találja meg és szabadítsa ki a fogságba esett Malenia hercegnőt az egyetlen lányát.
+            </p>
+
+            <b id="jatekmenet">1.2 Játékmenet és mechanikák</b>
+            <p>
+                Mint a legtöbb játék a menüből áttérve a “New Game” felületre kattintva elsősorban a játékos egy
+                “Tutorial”-ban találja magát, ami elmagyarázza az alapvető mechanikákat. Ennek eredménye, hogy a játékos
+                egyből szembesül, hogy melyik gombot is kell lenyomnia az egyes mozgások érdekében.
+                <br><br>
+                Összesen hét pálya lesz a tutorial-al együtt, minden pálya végén található lesz egy “bonfire”, ami
+                átvisz a következő pályára. Alapvetően, ha esetleg elfogyna a rendelkezésre álló életerőnk, azaz a
+                karakterünk meghal, akkor az elkezdett pálya legelejétől kell majd újrakezdenie a játékosnak. A tutorial
+                után lesz a kezdő rész, ami a Király vára mellett lévő setét erdő, ahol elátkozott mágikus lényeken kell
+                átjutnia a lovagnak (általában ilyen séma szerint fognak elkészülni a többi pályarészek is). A további
+                pályák egy elhagyatott és bomladozó régi vár maradványai, aminek a végén lesz egy várbörtön, amely a
+                következő pályának a helyszínét adja. A várbörtön után lesz egy földalatti helység, mely két részből fog
+                állni. Legutolsó sorban meg a főellenség kapuja, ahol található HD Boss creature.
+                <br><br>
+                A karakterünk rendelkezik néhány alapképességgel, ami az ugrás, futás, guggolás, támadás. Későbbiekben a
+                bevezető turoriál-ról áttérve az összes pályán lehetőségünk lesz megszerezni egy mágikus gyűrűt (ezek
+                közül négy lényeges lesz, amit könnyen meg lehet találni és a maradék egy viszont elrejtett), mely
+                segítségével újabb képességekre tehetünk szert, ami segítségével könnyebben meg tudjuk oldani a
+                következő pályákat.
+                <br><br>
+                Ezek közé tartozik a “big jumpy magic ring”, ami a dupla ugrásért felelős, “dashy dash dash ring”, ami
+                megengedi a karakternek, hogy könnyebben el tudjon szökkeni az ellenség támadásaitól, de akár a
+                levegőben is használhatja ugrás után, nem legutolsó sorban a “parkourbeast ring”, a falakon lévő ugrást
+                biztosítja. Legutolsó gyűrű a földalatti helység második részének végén lesz található HD Boss creature
+                kapuja előtt, amit egy “mini-boss” szerű “Gatekeeper” legyőzése után kapunk meg, ez kell ahhoz, hogy a
+                kapunk átjussunk a “final boss” helységére. Ahogy említettem lesz egy titkos gyűrű is, ez csak egy
+                “easter egg” szerű érdekesség lesz.
+            </p>
+
+            <b id="grafika">1.3 Grafika és vizuális dizájn</b>
+            <p>
+                A vizuális stílus neve pixelart, mindenképpen ezen a vonalon haladunk, ez az alapvető dizájnja a 2D
+                platformer játékok nagy részének főleg, ha még fantasy is. “Sprite”-ok animációk, kinézetek a játékon
+                belül lévő főszereplő, ellenségek, háttér, blockok színe, mini-boss, final boss az internetről
+                ingyenesen letölhetőek, nem mi készítettük.
+            </p>
+
+            <b id="hangok">1.4 Hangok és Zene</b>
+            <p>
+                Minden pályának lesz különböző zene aláfestése, emellett a további karakterek és ezeknek az
+                animációjának is szeretnék valamilyen hangot biztosítani. További eseteknél is, mint például, mikor
+                ugrunk, guggolunk, sebzést szenved a karakterünk vagy esetleg az ellenséget támadjuk. Ezek a hangok
+                részét lehet mi találjuk ki, de javarészt az internetről ingyenesen letölthetőek közül fogunk nézelődni.
+            </p>
+        </div>
+        <div>
+
+        </div>
+    </section>
+
+    <section id="kinek-ajanljuk">
+        <h2 class="title">2. Kinek ajánljuk, honnan lehetne elérhető</h2>
+        <div>
+            <b></b>
+            <p></p>
+        </div>
+    </section>
+
+    <section id="godot-szoftver">
+        <h2 class="title">3. Godot szoftver jellemzése, miben íródik, készül a program</h2>
+        <div>
+            <b></b>
+            <p></p>
+        </div>
+    </section>
+
+    <section id="vegtermek">
+        <h2 class="title">4. Végtermék jellemzői mit akarunk megvalósítani a játékban</h2>
+        <div>
+            <b></b>
+            <p></p>
+        </div>
+    </section>
+
+    <section id="elvarasok">
+        <h2 class="title">5. Elvárások a játékkal szemben</h2>
+        <div>
+            <b></b>
+            <p></p>
+        </div>
+    </section>
+
+    <section id="szotar">
+        <h2 class="title">6. Szótár (idegen szavak, szakszavak leírása)</h2>
         <div>
             <b></b>
             <p></p>
         </div>
     </section>
 </body>
+
 </html>

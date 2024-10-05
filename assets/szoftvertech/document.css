@@ -1,3 +1,9 @@
+:root {
+    --color-primary: #f4f4f9;
+    --color-secondary: #d6d6d6;
+    --color-ternary: #2f3640;
+}
+
 section {
     margin: 32px 0;
 }
@@ -6,8 +12,25 @@ section div {
     margin-bottom: 32px;
 }
 
+section div p {
+    margin-bottom: 32px;
+}
+
 ul li {
     margin-bottom: 16px;
+}
+
+.tartalomjegyzek {
+    display: flex;
+    flex-direction: column;
+}
+
+b {
+    font-size: 24px;
+}
+
+a {
+    margin: 8px 0;
 }
 
 .title {
@@ -16,4 +39,29 @@ ul li {
 
 .text-center {
     text-align: center;
+}
+
+.text-indent {
+    text-indent: 20px;
+    display: inline-block;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+}
+
+#munkanaplo {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#munkanaplo th,
+#munkanaplo td {
+    padding: 8px;
+    border: 1px solid black;
+}
+
+#munkanaplo th {
+    background-color: var(--color-secondary);
 }
