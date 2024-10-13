@@ -225,6 +225,26 @@
                     </p>
                 </td>
             </tr>
+            <tr valign="top">
+                <td width="25%" sdval="117974" sdnum="1038;0;@">
+                    <p align="left">2024. 10. 13.</p>
+                </td>
+                <td width="11%">
+                    <p align="left">2.0</p>
+                </td>
+                <td width="35%">
+                    <p>
+                        Második verzió
+                    </p>
+                </td>
+                <td width="29%">
+                    <p style="margin-right: 0.08cm;">
+                        Demján Botond (szerző)<br>
+                        Behinya Ádám (szerző)<br>
+                        Czibik Lóránt Patrik (szerkesztő)
+                    </p>
+                </td>
+            </tr>
         </tbody>
     </table>
     <p style="margin-bottom: 0cm;"><br></p>
@@ -294,13 +314,22 @@
             3.6. Közösség
         </a>
 
-        <a href="#vegtermek">
-            4. Végtermék jellemzői mit akarunk megvalósítani a játékban
+
+        <a href="#jatekmechanika">
+            4. Játékmechanika és megvalósítások
         </a>
 
-        <a href="#elvarasok">
-            5. Elvárások a játékkal szemben
+        <a href="#allapotok-funkcioik" class="text-indent">
+            4.1. Állapotok és Funkcióik
         </a>
+
+
+        <a href="#elvarasok">
+            5. A játékkal szembeni elvárásaink és a rendszerkövetelmények
+        </a>
+
+
+
 
         <a href="#szotar">
             6. Szótár (idegen szavak, szakszavak leírása)
@@ -456,27 +485,188 @@
             </p>
         </div>
     </section>
-    
-    <section id="vegtermek">
+
+    <section id="jatekmechanika">
         <h2 class="title">4. Játékmechanika és megvalósítások</h2>
         <div>
-            <b id="allapotok-funkcioik">Állapotok és Funkcióik</b>
+            <b id="allapotok-funkcioik">4.1 Állapotok és Funkcióik</b>
             <p>
-                1.	state_manager.gd : ez a script az állapotok kezelését valósítja meg a játék során
+                <strong>1. state_manager.gd:</strong> Ez a script az állapotok kezelését valósítja meg a játék során
+                <br><br>
+                Főbb jellemzői:
             </p>
-
-            <b id="allapotok-funkcioik">Állapotok és Funkcióik</b>
+            <ul>
+                <li>
+                    <strong>Állapotok tárolása:</strong> A states változó tárolja az összes elérhető állapot példányait,
+                    lehetővé
+                    téve a könnyű állapotváltást.
+                </li>
+                <li>
+                    <strong>Állapot váltás:</strong> A set_state(state_name: String) metódus lehetővé teszi az aktuális
+                    állapot
+                    váltását, kezelve a belépési (enter_state()) és kilépési (exit_state()) műveleteket.
+                </li>
+                <li>
+                    <strong>Állapot frissítése:</strong> Az update_state(delta) metódus folyamatosan frissíti az
+                    aktuális
+                    állapotot, biztosítva a megfelelő működést a játék során.
+                </li>
+            </ul>
             <p>
-                
+                <strong>2. global.gd:</strong> a script globális változókat és metódusokat definiál, amelyek a játékban
+                a játékos karakter elérésére
+                és a gravitáció beállítására szolgálnak.
+                <br><br>
+                Főbb jellemzői:
             </p>
+            <ul>
+                <li>
+                    <strong>Globális változók:</strong> A player változó típusának megadása (CharacterBody2D = null)
+                    segít a játékos karakter példányának tárolásában, amely a játék különböző részein elérhető. A
+                    gravity változó tárolja a gravitációs erő értékét, amely a játékos mozgására hat.
+                </li>
+                <li>
+                    <strong>Játékos beállítása:</strong> A set_player(new_player: CharacterBody2D) metódus lehetővé
+                    teszi a globális player változó beállítását. Ez a funkció különösen hasznos, amikor a játékos
+                    példány létrejön, így minden más script könnyen hivatkozhat a játékos karakterre.
+                </li>
+                <li>
+                    <strong>Játékos lekérése:</strong> A get_player() -> CharacterBody2D metódus (opcionális)
+                    biztosítja a játékos elérését a globális változóból. Ez a funkció hasznos lehet, ha más scriptben
+                    szükség van a játékos objektumra.
+                </li>
+            </ul>
+            <p>
+                <strong>Használati minta:</strong> A script a játékban minden más script számára elérhető, így a játékos objektumát bármikor elérhetjük a Global.get_player() hívással. Ez lehetővé teszi a játékos mozgásának, állapotának és interakcióinak egyszerű kezelését, anélkül hogy minden egyes scriptben újra kellene példányosítani a játékost.
+            </p>
+            <p>
+                <strong>3. player.gd:</strong> karakter vezérléséhez tartozó script
+                <br><br>
+                Főbb jellemzői:
+            </p>
+            <ul>
+                <li>
+                    <strong>Állapotkezelő:</strong> A state_manager változó tárolja a játékos aktuális állapotát, lehetővé téve az állapotok közötti váltást.
+                </li>
+                <li>
+                    <strong>Sebesség és ugrás:</strong> Különböző változók tárolják a játékos mozgási sebességét, ugrás erejét, guggolás sebességét és a dash jellemzőit.
+                </li>
+                <li>
+                    <strong>Globális játékos beállítás:</strong> A _ready() metódusban példányosítja a StateManager-t és beállítja a kezdő állapotot, valamint betölti a képességek beállításait.
+                </li>
+            </ul>
+            <p>
+                <strong>4. idle_state.gd:</strong> tétlen állapot kezelése, és bemeneti értékek figyelése
+                <br><br>
+                Főbb jellemzői:
+            </p>
+            <ul>
+                <li>
+                    <strong>Globális játékos változó:</strong> A player változó a globális Global.get_player() metódussal kerül beállításra.
+                </li>
+                <li>
+                    <strong>Tétlen animáció:</strong> Az update_state(_delta) metódusban a player.animated_sprite.play("idle") hívás elindítja a tétlen animációt, ha a játékos nem mozog.
+                </li>
+                <li>
+                    <strong>Állapotváltás:</strong> Figyeli a bemenetet, és ennek megfelelően vált az állapotok között (pl. MoveState, JumpState, CrouchState, AttackState).
+                </li>
+            </ul>
+            <p>
+                <strong>5. attack_state.gd:</strong> támadás állapotáért felelős script
+                <br><br>
+                Főbb jellemzői:
+            </p>
+            <ul>
+                <li>
+                    <strong>Támadási animáció:</strong> Az enter_state() metódusban elindítja a játékos támadó animációját, a attack_counter változó értékének függvényében.
+                </li>
+                <li>
+                    <strong>Állapotváltás:</strong> A támadás befejezése után az állapotot visszaállítja az IdleState-be.
+                </li>
+                <li>
+                    <strong>Számláló:</strong> Az attack_counter változó váltakozik, lehetővé téve a különböző támadási animációk lejátszását
+                </li>
+            </ul>
+            <p>
+                <strong>6. crouch_state.gd:</strong> guggolás állapotáért felelős script
+                <br><br>
+                Főbb jellemzői:
+            </p>
+            <ul>
+                <li>
+                    <strong>Guggoló animáció:</strong> Az enter_state() metódusban elindítja a guggoló animációt.
+                </li>
+                <li>
+                    <strong>Bemenetkezelés:</strong> Az update_state() metódus figyeli a guggolás, támadás és mozgás bemeneteit, és váltja az állapotokat ennek megfelelően.
+                </li>
+                <li>
+                    <strong>Irányfigyelés:</strong> A játékos mozgásának irányát figyeli, és az animációt ennek megfelelően játssza le.
+                </li>
+                <li>
+                    <strong>Sebesség:</strong> A játékos guggolás sebességét a player.crouch_speed változó határozza meg.
+                </li>
+            </ul>
+            <p>
+                <strong>7. dash_state.gd:</strong> dash, azaz a szökkenés az állapotáért felelős script
+                <br><br>
+                Főbb jellemzői:
+            </p>
+            <ul>
+                <li>
+                    <strong>Dash animáció:</strong> Az enter_state() metódusban elindítja a dash animációját, meghatározza a dash irányát és kezdő pozícióját.
+                </li>
+                <li>
+                    <strong>Távolság és ütközés:</strong> Az update_state() metódus figyeli a távolságot, amit a játékos megtett a dash során, és megállítja a dash-t, ha elérte a maximális távolságot vagy ütközik a fallal.
+                </li>
+                <li>
+                    <strong>Sebesség és gravitáció:</strong> A játékos sebességét és gravitációs hatását kezeli a dash állapotában, biztosítva a megfelelő mozgást.
+                </li>
+            </ul>
+            <p>
+                <strong>8. jump_state.gd:</strong> ugrás állapotáért felelős script
+                <br><br>
+                Főbb jellemzői:
+            </p>
+            <ul>
+                <li>
+                    <strong>Ugrás animáció:</strong> Az enter_state() metódusban beállítja az ugrás erősségét.
+                </li>
+                <li>
+                    <strong>Gravitáció:</strong> Az update_state() metódus folyamatosan alkalmazza a gravitációt a játékosra ugrás közben, és kezeli az ugrás visszafogását.
+                </li>
+                <li>
+                    <strong>Irány és sebesség:</strong> Figyeli a bemeneti irányt, és ennek megfelelően irányítja a játékos mozgását, beleértve a sebesség beállítását és a sprite forgatását.
+                </li>
+            </ul>
         </div>
+        <small>
+            FONTOS: A dokumentáció ezen része bármikör bővítésre kerülhet, azaz nem fedi le a játék végleges
+            mechanikáinak a listáját.
+        </small>
     </section>
 
     <section id="elvarasok">
-        <h2 class="title">5. Elvárások a játékkal szemben</h2>
+        <h2 class="title">5. A játékkal szembeni elvárásaink és a rendszerkövetelmények</h2>
         <div>
-            <b></b>
-            <p></p>
+            <p>
+                Mint minden más játéktervező mi is arra törekszünk, hogy a játékunk minél jobb minőségben fusson, de
+                ehhez minél kisebb teljesítményű géphez legyen szükség. Szeretnénk mind ezek mellett a játékosok
+                számára, egy igazi középkori stílusban megalkotott, akció dús és kihívásokkal teli élményt nyújtani,
+                amit egy lovaggal tehetnek majd meg, mitikus és legendás szörnyek ellen.
+                <br><br>
+                Szeretnénk egy olyan játékot megalkotni, amellyel, ha az ember leül játszani, akkor nem a billentyűzetét
+                és az egerét össze törve fog távozni a gépe elől egy fél óra játék után. Tehát igyekszünk minél
+                kezelhetőbb nehézséget elé állítani a játékosokat, ami persze terveink szerint arányosan fog egyre nőni,
+                minél többet játszik vele a felhasználó. De ez természetesen nem azt jelenti, hogy gyerek játék lesz,
+                mert, ahogy haladunk a játékban, egyre nehezebb és több életerővel rendelkező ellenségekkel kerülünk
+                szembe.
+                <br><br>
+                Szeretnénk, hogy a játékélményt ne rontsa, hogy egy erősebb azaz költségesebb rendszeren lehessen csak
+                ezt a játékot futtatni. Pontosan az a célunk vele, hogy hétköznapi számítógépeken és akár laptopokon is
+                futtatható legyen, minél jobb minőségben. Igyekszünk optimalizálni annyira mind a grafikai elemeket és a
+                játék futásának minőségét, hogy a rendszerkövetelménynek valóban megfeleljen egy hétköznapi használatra
+                épített eszköz is.
+            </p>
         </div>
     </section>
 
