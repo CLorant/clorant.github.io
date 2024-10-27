@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SRS</title>
     <link rel="stylesheet" href="../assets/szoftvertech/document.css">
 </head>
+
 <body>
     <!-- Copy start -->
 
@@ -34,8 +36,8 @@
     </p>
     <p style="margin-bottom: 0cm;" align="center" lang="hu-HU">
         <font style="font-size: 26pt;" size="6"><b><span lang="hu-HU">
-            Software követelmény analízis
-        </span></b></font>
+                    Software követelmény analízis
+                </span></b></font>
     </p>
     <p style="margin-bottom: 0cm;" align="center"><br>
     </p>
@@ -154,7 +156,7 @@
     </p>
     <p style="margin-bottom: 0cm;" align="right" lang="hu-HU">
         <font size="4">
-            <!-- Dátum -->
+            2024. 10. 27.
         </font>
     </p>
     <p style="margin-bottom: 0cm;" align="center"><br></p>
@@ -163,11 +165,13 @@
     <h2 align="center">Történet</h2>
 
     <table cellspacing="3" cellpadding="4" border="1" width="90%">
-        <colgroup><col width="64">
-        <col width="29">
-        <col width="89">
-        <col width="74">
-        </colgroup><thead>
+        <colgroup>
+            <col width="64">
+            <col width="29">
+            <col width="89">
+            <col width="74">
+        </colgroup>
+        <thead>
             <tr valign="top">
                 <th width="25%">
                     <p>Dátum</p>
@@ -202,26 +206,1635 @@
                     </p>
                 </td>
             </tr>
+            <tr valign="top">
+                <td width="25%" sdval="117974" sdnum="1038;0;@">
+                    <p align="left">2024. 10. 27.</p>
+                </td>
+                <td width="11%">
+                    <p align="left">1.0</p>
+                </td>
+                <td width="35%">
+                    <p>
+                        Második verzió
+                    </p>
+                </td>
+                <td width="29%">
+                    <p style="margin-right: 0.08cm;">
+                        Behinya Ádám<br>Czibik Lóránt Patrik<br>Tolnay Benke Tamás<br>Dudás Dániel<br>Demján Botond
+                    </p>
+                </td>
+            </tr>
         </tbody>
     </table>
     <p style="margin-bottom: 0cm;"><br></p>
     <p style="margin-bottom: 0cm;"><br></p>
     <h2>Tartalomjegyzék</h2>
-    
-    <div>
-        <a href="#">
-            <!-- Számozással együtti szöveg -->
+
+    <div class="tartalomjegyzek">
+        <a href="#bevezetes">
+            1. Bevezetés
+        </a>
+
+        <a href="#celkituzesek" class="text-indent">
+            1.1. Célkitűzések
+        </a>
+
+        <a href="#alkalmazasi-terulet" class="text-indent">
+            1.2. Alkalmazási Terület
+        </a>
+
+        <a href="#bevezetes-fogalmak" class="text-indent">
+            1.3. Fogalmak és Rövidítések a Bevezetéshez
+        </a>
+
+        <a href="#attekintes">
+            2. Áttekintés
+        </a>
+
+        <a href="#termek-kornyezete" class="text-indent">
+            2.1. Termék Környezete
+        </a>
+
+        <a href="#legfontosabb-funkciok" class="text-indent">
+            2.2. Legfontosabb Funkciók
+        </a>
+
+        <a href="#felhasznalok-jellemzoi" class="text-indent">
+            2.3. A Felhasználók Jellemzői
+        </a>
+
+        <a href="#korlatozasok" class="text-indent">
+            2.4. Korlátozások
+        </a>
+
+        <a href="#feltetelezesek-fuggosegek" class="text-indent">
+            2.5. Feltételezések és Függőségek
+        </a>
+
+        <a href="#kovetelmenyek-csoportositasa" class="text-indent">
+            2.6. A Követelmények Csoportosításának Szempontjai
+        </a>
+
+        <a href="#funkcionalis-kovetelmenyek" class="text-indent-lg">
+            2.6.1. Funkcionális Követelmények
+        </a>
+
+        <a href="#nem-funkcionalis-kovetelmenyek" class="text-indent-lg">
+            2.6.2. Nem-Funkcionális Követelmények
+        </a>
+
+        <a href="#jatekelmeny-kovetelmenyek" class="text-indent-lg">
+            2.6.3. Játékélményre Vonatkozó Követelmények
+        </a>
+
+        <a href="#rendszer-kovetelmenyek" class="text-indent-lg">
+            2.6.4. Rendszer Követelmények
+        </a>
+
+        <a href="#rendszer-funkcioi">
+            3. A rendszer funkciói
+        </a>
+
+        <a href="#jatek-inditasa" class="text-indent">
+            3.1. Játék Indítása
+        </a>
+
+        <a href="#jatek-kozben" class="text-indent">
+            3.2. Játék Közben
+        </a>
+
+        <a href="#mentes" class="text-indent">
+            3.3. Mentés
+        </a>
+
+        <a href="#betoltes" class="text-indent">
+            3.4. Betöltés
+        </a>
+
+        <a href="#jatek-beallitas-modositas" class="text-indent">
+            3.5. Játék Beállítások Módosítása
+        </a>
+
+        <a href="#statisztika-megtekintese" class="text-indent">
+            3.6. Statisztikák Megtekintése
+        </a>
+
+        <a href="#kuldetesek-teljesitese" class="text-indent">
+            3.7. Küldetések Teljesítése
+        </a>
+
+        <a href="#hasznalhatosag">
+            4. Használhatóság
+        </a>
+
+        <a href="#megbizhatosag">
+            5. Megbízhatóság
+        </a>
+
+        <a href="#teljesitmeny">
+            6. Teljesítmény
+        </a>
+
+        <a href="#valaszidok" class="text-indent">
+            6.1. Válaszidők
+        </a>
+
+        <a href="#ateresztokepesseg" class="text-indent">
+            6.2. Áteresztőképesség (Tranzakciók/másodperc)
+        </a>
+
+        <a href="#kapacitas" class="text-indent">
+            6.3. Kapacitás
+        </a>
+
+        <a href="#korlatozott-hasznalhatosag" class="text-indent">
+            6.4 Korlátozott használhatóság idején elvárható mutatók
+        </a>
+
+        <a href="#eroforrasigenyek" class="text-indent">
+            6.5 Erőforrásigények
+        </a>
+
+        <a href="#tamogatottsag">
+            7. Támogatottság
+        </a>
+
+        <a href="#tervezesi-korlatozasok">
+            8. Tervezési korlátozások
+        </a>
+
+        <a href="#online-dokumentacio-help-rendszer">
+            9. On-line dokumentáció és Help rendszer
+        </a>
+
+        <a href="#online-dokumentacio" class="text-indent">
+            9.1. On-line dokumentáció
+        </a>
+
+        <a href="#help-rendszer" class="text-indent">
+            9.2. Help rendszer
+        </a>
+
+        <a href="#felhasznalt-komponensek">
+            10. Felhasznált kész komponensek
+        </a>
+
+        <a href="#interfeszek">
+            11. Interfészek
+        </a>
+
+        <a href="#felhasznaloi-interfeszek" class="text-indent">
+            11.1. Felhasználói interfészek
+        </a>
+
+        <a href="#hardware-interfeszek" class="text-indent">
+            11.2. Hardware interfészek – Kontroller támogatás
+        </a>
+
+        <a href="#software-interfeszek" class="text-indent">
+            11.3. Software interfészek – Lokális mentés és betöltés
+        </a>
+
+        <a href="#kommunikacios-interfeszek" class="text-indent">
+            11.4. Kommunikációs interfészek – Lokális interakciók
+        </a>
+
+        <a href="#alkalmazott-szabvanyok">
+            12. Alkalmazott szabványok
+        </a>
+
+        <a href="#kotelezo-szabvanyok" class="text-indent">
+            12.1. Kötelezően alkalmazandó szabványok
+        </a>
+
+        <a href="#valaszthato-szabvanyok" class="text-indent">
+            12.2. Választás alapján alkalmazott szabványok
+        </a>
+
+        <a href="#mellekletek">
+            13. Mellékletek
         </a>
     </div>
 
     <!-- Copy end -->
 
-    <section id="">
-        <h2></h2>
+    <section id="bevezetes">
+        <h2>1. Bevezetés</h2>
+        <div>
+            <p>
+                Ez a dokumentáció a Godot játékmotor használatával fejlesztett „George Fergen's Last Adventure” játékunk
+                specifikációit és követelményeit mutatja be. Az SRS (Software Requirements Specification) célja, hogy
+                átfogó képet nyújtson a játék felépítéséről, működéséről és fejlesztési irányelveiről, valamint
+                meghatározza a rendszerrel szembeni követelményeket.
+            </p>
+
+            <b id="celkituzesek">1.1 Célkitűzések</b>
+            <p>
+                A játék egy klasszikus, pixelart stílusú platformjáték, amely egy középkori fantasy világba kalauzolja a
+                játékosokat. A játék célja egy akciódús, kihívásokkal teli élmény nyújtása, amely emlékeztet a régi,
+                klasszikus platformerekre, ugyanakkor modern mechanikákkal és dizájnnal frissítve. A játékos egy lovag
+                szerepét ölti magára, akinek küldetése, hogy átküzdve magát különféle akadályokon és ellenségeken, végig
+                haladjon a pályán és teljesítse a kalandját, azaz végig vigye a játékot.
+            </p>
+
+            <b id="alkalmazasi-terulet">1.2 Alkalmazási Terület</b>
+            <p>
+                A dokumentum a fejlesztők, dizájnerek és tesztelők számára készült, hogy megértsék a játék működését és
+                alapvető funkcióit. Ezenkívül hasznos lehet a projekt menedzserek és befektetők számára, akik átfogó
+                képet szeretnének kapni a projekt részleteiről. A dokumentáció részletesen kitér a játékmechanikákra és
+                a játék futtatásához szükséges hardver- és szoftverkövetelményekre.
+            </p>
+
+            <b id="bevezetes-fogalmak">1.3 Fogalmak és Rövidítések a Bevezetéshez</b>
+            <ul>
+                <li>
+                    <strong>SRS:</strong> Software Requirements Specification, azaz szoftverkövetelmény-specifikáció.
+                </li>
+                <li>
+                    <strong>Godot:</strong> Nyílt forráskódú játékfejlesztő motor, amelyet a játék fejlesztéséhez
+                    használunk.
+                </li>
+                <li>
+                    <strong>Pixelart:</strong> Grafikai stílus, amely kis, 16x16 pixeles blokkokból építkezik, retro,
+                    klasszikus megjelenést biztosítva.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="attekintes">
+        <h2>2. Áttekintés</h2>
+        <div>
+            <p>
+                Ez a fejezet összefoglalja a „George Fergen's Last Adventure” játék szempontjából fontos általános
+                körülményeket, melyek segítenek megérteni a későbbi fejezetekben részletezett követelményeket. A cél,
+                hogy átfogó képet adjunk a termék környezetéről, funkcióiról, felhasználóiról, valamint a fejlesztés
+                során figyelembe vett korlátozásokról, feltételezésekről és függőségekről.
+            </p>
+
+            <b id="termek-kornyezete">2.1 Termék Környezete</b>
+            <p>
+                A "George Fergen's Last Adventure" egy Godot játékmotor segítségével fejlesztett, 2D platformer játék,
+                amely egy középkori fantasy világban játszódik. A játék egy retro, pixelart grafikai stílust alkalmaz,
+                és különböző akadályokkal, ellenségekkel és kihívásokkal teli pályákon keresztül vezeti végig a
+                játékost. A játékot egyjátékos üzemmódban lehet játszani, és célja, hogy egy szórakoztató, nosztalgikus
+                játékélményt nyújtson modern elemekkel ötvözve. A játék fejlesztése során nyílt forráskódú szoftvereket
+                használunk, amelyek könnyen integrálhatóak a projektbe.
+            </p>
+
+            <b id="legfontosabb-funkciok">2.2 Legfontosabb Funkciók</b>
+            <br><br>
+            A játék legfontosabb funkciói a következők:
+            <ul>
+                <li>
+                    <strong>Platformer Játékmenet:</strong> A játékos irányítja a karakterét, ugrásokkal, futásokkal és
+                    támadásokkal navigálva a különféle akadályok és ellenfelek között.
+                </li>
+                <li>
+                    <strong>Küzdelem:</strong> A játékos különféle fegyverekkel és képességekkel harcol az ellenségek és
+                    a pályák végén található bossok ellen.
+                </li>
+                <li>
+                    <strong>Gyűjtögetés és Felfedezés:</strong> A játék során a játékos különböző tárgyakat és
+                    erőforrásokat gyűjthet össze, amelyek segítik a további szintek teljesítésében.
+                </li>
+                <li>
+                    <strong>Több Szint:</strong> Különféle pályák és szintek állnak rendelkezésre, melyek egyre nagyobb
+                    kihívást jelentenek. Minden szint új környezetet, akadályokat és ellenségeket kínál.
+                </li>
+                <li>
+                    <strong>Pixelart Grafika:</strong> Klasszikus pixelart stílusú látványvilág, amely nosztalgikus
+                    hangulatot teremt a játékosok számára.
+                </li>
+                <li>
+                    <strong>Audiovizuális Élmény:</strong> A játékhoz megfelelő, dinamikus hanghatások és zenék
+                    tartoznak, amelyek fokozzák az élményt és az atmoszférát.
+                </li>
+            </ul>
+
+            <b id="felhasznalok-jellemzoi">2.3 A Felhasználók Jellemzői</b>
+            <br><br>
+            A játék célközönsége:
+            <ul>
+                <li>
+                    <strong>Retro Játékok Kedvelői:</strong> Olyan játékosok, akik szeretik a régi, klasszikus
+                    platformer játékokat, és nosztalgikus élményre vágynak.
+                </li>
+                <li>
+                    <strong>Kihívást Kereső Játékosok:</strong> Azok a játékosok, akik szeretik a kihívásokkal teli,
+                    gyors reakciót és ügyességet igénylő játékokat.
+                </li>
+                <li>
+                    <strong>Kezdő és Haladó Játékosok:</strong> A játék nehézségi szintjei fokozatosan nőnek, így mind a
+                    kezdők, mind a tapasztalt játékosok számára biztosít megfelelő kihívást.
+                </li>
+            </ul>
+
+            <b id="korlatozasok">2.4 Korlátozások</b>
+            <br><br>
+            A játék fejlesztése során figyelembe vett korlátozások:
+            <ul>
+                <li>
+                    <strong>Technológiai Korlátozások:</strong> A játékot a Godot játékmotorral fejlesztjük, amely
+                    bizonyos korlátokkal rendelkezhet a grafikai és mechanikai megvalósítás terén. Emellett a játék
+                    teljesítménye nagyban függ a játékosok hardveres képességeitől, ezért a játék optimalizálása
+                    különösen fontos.
+                </li>
+                <li>
+                    <strong>Erőforrás Korlátok:</strong> A fejlesztési csapat korlátozott erőforrásokkal dolgozik, így a
+                    projekt időben és költségvetésben is meghatározott keretek között mozog.
+                </li>
+                <li>
+                    <strong>Platform Korlátozások:</strong> A játék elsősorban PC platformra, és azon belül Windows
+                    operációs rendszerre készül, de a jövőben tervezhetők más platformokra történő portolások is.
+                </li>
+            </ul>
+
+            <b id="feltetelezesek-fuggosegek">2.5 Feltételezések és Függőségek</b>
+            <br><br>
+            A játék fejlesztése során az alábbi feltételezéseket és függőségeket vettük figyelembe:
+            <ul>
+                <li>
+                    <strong>Hardverkompatibilitás:</strong> Feltételezzük, hogy a játékosok rendelkeznek olyan
+                    számítógéppel, amely megfelel a játék minimális rendszerkövetelményeinek.
+                </li>
+                <li>
+                    <strong>Godot Verzió:</strong> A játékot egy konkrét Godot verzióra fejlesztjük, amelynek
+                    frissítései és hibajavításai közvetlen hatással lehetnek a játék fejlesztésére és működésére.
+                </li>
+                <li>
+                    <strong>Külső Erőforrások:</strong> A játék egyes elemei, például a zenei és grafikai tartalmak,
+                    külső forrásokból származnak, ezért a megfelelő licencek és jogok biztosítása szükséges a fejlesztés
+                    során.
+                </li>
+            </ul>
+
+            <b id="kovetelmenyek-csoportositasa">2.6 A Követelmények Csoportosításának Szempontjai</b>
+            <br><br>
+            A követelmények csoportosításának alapelvei a következők:
+            <ul>
+                <li>
+                    <a href="#funkcionalis-kovetelmenyek">2.6.1 - Funkcionális Követelmények</a>: Ezek a követelmények
+                    meghatározzák a játék konkrét funkcióit, mechanikáit és a felhasználói interakciókat.
+                </li>
+                <li>
+                    <a href="#nem-funkcionalis-kovetelmenyek">2.6.2 - Nem-Funkcionális Követelmények</a>: A
+                    követelmények, amelyek a játék teljesítményére, megbízhatóságára, karbantarthatóságára és
+                    kompatibilitására vonatkoznak.
+                </li>
+                <li>
+                    <a href="#jatekelmeny-kovetelmenyek">2.6.3 - Játékélményre Vonatkozó Követelmények</a>: A játék
+                    grafikájára, hangzására és általános hangulatára vonatkozó követelmények, amelyek az élményt
+                    fokozzák.
+                </li>
+                <li>
+                    <a href="#rendszer-kovetelmenyek">2.6.4 - Rendszerkövetelmények</a>: A játék futtatásához és
+                    fejlesztéséhez szükséges hardver- és szoftverfeltételek.
+                </li>
+            </ul>
+
+            <b id="funkcionalis-kovetelmenyek">2.6.1 Funkcionális Követelmények</b>
+            <ol>
+                <li>
+                    <strong>Karaktervezérlés:</strong>
+                    <ul>
+                        <li>
+                            A játékosnak lehetősége van a karakter irányítására billentyűzettel (WASD vagy
+                            nyílbillentyűk) és az egérrel a támadások végrehajtásához.
+                        </li>
+                        <li>
+                            A karakternek rendelkeznie kell különböző mozgási képességekkel (futás, ugrás, mászás).
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Ellenségek:</strong>
+                    <ul>
+                        <li>
+                            Az ellenségeknek alapvető intelligenciával kell rendelkezniük, amely lehetővé teszi
+                            számukra, hogy kövessék a játékost, támadjanak, vagy védekezzenek.
+                        </li>
+                        <li>
+                            Az ellenségeknek különböző típusai és viselkedési mintái kell, hogy legyenek (pl. távolsági
+                            támadók, közelharci harcosok).
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Pályák és Szintek:</strong>
+                    <ul>
+                        <li>
+                            A játékban legalább 3 különböző pálya és szint található, amelyek egyre nagyobb kihívást
+                            jelentenek.
+                        </li>
+                        <li>
+                            Minden pályán legyenek titkos területek és gyűjthető tárgyak.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Küzdelmi Rendszer:</strong>
+                    <ul>
+                        <li>
+                            A játékosnak különböző fegyverek és képességek közül kell választania, amelyek eltérő
+                            támadási módszereket kínálnak (pl. közelharci fegyverek, távolsági fegyverek).
+                        </li>
+                        <li>
+                            A játékosnak lehetősége van kombinált támadások végrehajtására (pl. ugrás vagy guggolás
+                            közben támadni).
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Gyűjtögetési Mechanika:</strong>
+                    <ul>
+                        <li>
+                            A játékosnak lehetősége van különböző erőforrások (pl. életerő, fegyverek, gyógyítók)
+                            gyűjtésére, amelyeket a pályákon található ládákban és ellenfelek legyőzésével szerezhet
+                            meg.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+
+            <b id="nem-funkcionalis-kovetelmenyek">2.6.2 - Nem-Funkcionális Követelmények</b>
+            <ol>
+                <li>
+                    <strong>Teljesítmény:</strong>
+                    <ul>
+                        <li>
+                            A játék minimum 30 FPS (képkocka/másodperc) sebességgel kell, hogy fusson közepes
+                            beállítások mellett egy átlagos játékos számítógépén.
+                        </li>
+                        <li>
+                            A játékbetöltési idő nem haladhatja meg a 5 másodpercet.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Grafikai Minőség:</strong>
+                    <ul>
+                        <li>
+                            A játék pixelart grafikai stílusa a retro platformerek hagyományait követi, és a részletek
+                            gazdagok legyenek, hogy vizuálisan vonzó élményt nyújtsanak.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Karbantarthatóság:</strong>
+                    <ul>
+                        <li>
+                            A kódnak jól dokumentáltnak kell lennie, hogy a jövőbeli frissítések és hibajavítások
+                            egyszerűek legyenek.
+                        </li>
+                        <li>
+                            A játék moduláris felépítése lehetővé teszi új funkciók könnyű integrálását.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Kompatibilitás:</strong>
+                    <ul>
+                        <li>
+                            A játék a Windows operációs rendszeren működjön, valamint a legfrissebb Godot motor
+                            verzióval kompatibilis legyen.
+                        </li>
+                        <li>
+                            A játék támogatja az alacsony teljesítményű eszközöket is, hogy széles közönséget
+                            elérhessen.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Hang- és Zeneélmény:</strong>
+                    <ul>
+                        <li>
+                            A játékban dinamikus háttérzenék és hanghatások legyenek, amelyek a játékmenethez és a
+                            pályákhoz illeszkednek.
+                        </li>
+                        <li>
+                            A hangoknak kiváló minőségűeknek és az akcióknak megfelelőeknek kell lenniük (pl. támadások,
+                            ugrások, gyűjtögetés).
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+
+            <b id="jatekelmeny-kovetelmenyek">2.6.3 - Játékélményre Vonatkozó Követelmények</b>
+            <ol>
+                <li>
+                    <strong>UI / UX Design:</strong>
+                    <ul>
+                        <li>
+                            A felhasználói felületnek intuitívnak és könnyen navigálhatónak kell lennie, a játékos
+                            számára átlátható információkat biztosítva (pl. élet, erőforrások, szint információk).
+                        </li>
+                        <li>
+                            A játékban legyenek tutorial elemek, amelyek segítik a kezdő játékosokat a mechanikák
+                            megértésében.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Nehezedési Szintek:</strong>
+                    <ul>
+                        <li>
+                            A játékosok nehézségi szintjei fokozatosan nőjenek, kezdve a könnyű szinttől a nehezen
+                            legyőzhető bossokig, hogy minden szint játékosai megtalálják a számukra megfelelő kihívást.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+
+            <b id="rendszer-kovetelmenyek">2.6.4 - Rendszerkövetelmények</b>
+            <ol>
+                <li>
+                    <strong>Minimum Rendszerkövetelmények</strong>
+                    <br><br>
+                    <ul>
+                        <li>
+                            <strong>Operációs Rendszer:</strong> Windows 10 vagy újabb
+                        </li>
+                        <li>
+                            <strong>Processzor:</strong> Intel Core i3-2100 / AMD Phenom II X4 945
+                        </li>
+                        <li>
+                            <strong>Memória:</strong> 4 GB RAM
+                        </li>
+                        <li>
+                            <strong>Grafika:</strong> NVIDIA GeForce GTX 460 / AMD Radeon HD 6850
+                        </li>
+                        <li>
+                            <strong>DirectX:</strong> Verzió 11
+                        </li>
+                        <li>
+                            <strong>Tárhely:</strong> Legalább 1 GB szabad hely
+                        </li>
+                        <li>
+                            <strong>Hang:</strong> DirectX-kompatibilis hangkártya
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <strong>Ajánlott Rendszerkövetelmények</strong>
+                    <br><br>
+                    <ul>
+                        <li>
+                            <strong>Operációs Rendszer:</strong> Windows 10 vagy újabb
+                        </li>
+                        <li>
+                            <strong>Processzor:</strong> Intel Core i5-2400 / AMD Ryzen 3 1200
+                        </li>
+                        <li>
+                            <strong>Memória:</strong> 8 GB RAM
+                        </li>
+                        <li>
+                            <strong>Grafika:</strong> NVIDIA GeForce GTX 960 / AMD Radeon RX 560
+                        </li>
+                        <li>
+                            <strong>DirectX:</strong> Verzió 12
+                        </li>
+                        <li>
+                            <strong>Tárhely:</strong> Legalább 2 GB szabad hely
+                        </li>
+                        <li>
+                            <strong>Hang:</strong> DirectX-kompatibilis hangkártya
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="rendszer-funkcioi">
+        <h2>3. A rendszer funkciói</h2>
+        <p>
+            A rendszer funkciót bemutató use case diagram:
+        </p>
+        <img src="../assets/szoftvertech/img/use-case-diagram.png" alt="use case diagram">
+        <div>
+            <b id="jatek-inditasa">3.1. Játék Indítása</b>
+            <ul>
+                <li>
+                    <strong>Rövid leírás:</strong> A felhasználó elindítja a játékot.
+                </li>
+                <li>
+                    <strong>Prekondíciók:</strong> A felhasználónak be kell jelentkeznie a rendszerbe.
+                </li>
+                <li>
+                    <strong>Post kondíciók:</strong> A játék elindul, és a főmenü megjelenik.
+                </li>
+                <li>
+                    <strong>Szokásos működés (Main Flow):</strong>
+                    <ul>
+                        <li>A felhasználó elindítja az alkalmazást.</li>
+                        <li>A rendszer betölti a játék fájlokat.</li>
+                        <li>Megjelenik a főmenü.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Alternatív esetek (Alternate Flows):</strong> Ha a felhasználó nem jelentkezik be, a
+                    rendszer figyelmezteti őt.
+                </li>
+                <li>
+                    <strong>Kivételes esetek (Exception Flows):</strong> Ha a játékfájlok sérültek, a rendszer
+                    hibaüzenetet jelenít meg.
+                </li>
+            </ul>
+
+            <b id="jatek-kozben">3.2. Játék Közben</b>
+            <ul>
+                <li>
+                    <strong>Rövid leírás:</strong> A játékos interakcióba lép a játék világával.
+                </li>
+                <li>
+                    <strong>Prekondíciók:</strong> A játékosnak el kell indítania a játékot.
+                </li>
+                <li>
+                    <strong>Post kondíciók:</strong> A játékos előrehalad a játékban, és a világ állapota frissül.
+                </li>
+                <li>
+                    <strong>Szokásos működés (Main Flow):</strong>
+                    <ul>
+                        <li>A játékos irányítja a karaktert.</li>
+                        <li>A rendszer reagál a játékos akcióira (mozgás, harc, stb.).</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Alternatív esetek (Alternate Flows):</strong> Ha a játékos elhagyja a játékterületet, a
+                    rendszer figyelmeztetést ad.
+                </li>
+                <li>
+                    <strong>Kivételes esetek (Exception Flows):</strong> Ha a játék összeomlik, a rendszer automatikusan
+                    újraindítja.
+                </li>
+            </ul>
+
+            <b id="mentes">3.3. Mentés</b>
+            <ul>
+                <li>
+                    <strong>Rövid leírás:</strong> A játékos elmenti a játék aktuális állapotát.
+                </li>
+                <li>
+                    <strong>Prekondíciók:</strong> A játékosnak aktív játék közben kell lennie.
+                </li>
+                <li>
+                    <strong>Post kondíciók:</strong> A játék aktuális állapota elmentésre kerül a rendszerben.
+                </li>
+                <li>
+                    <strong>Szokásos működés (Main Flow):</strong>
+                    <ul>
+                        <li>A játékos megnyomja a mentés gombot.</li>
+                        <li>A rendszer megkérdezi a mentés helyét.</li>
+                        <li>A játékos kiválasztja a mentés helyét, és a rendszer elmenti az állapotot.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Alternatív esetek (Alternate Flows):</strong> Ha a játékos megszakítja a mentést, a rendszer
+                    visszatér a játékhoz.
+                </li>
+                <li>
+                    <strong>Kivételes esetek (Exception Flows):</strong> Ha a mentési folyamat hibát jelez, a rendszer
+                    hibaüzenetet küld.
+                </li>
+            </ul>
+
+            <b id="betoltes">3.4. Betöltés</b>
+            <ul>
+                <li>
+                    <strong>Rövid leírás:</strong> A játékos betölti a korábban elmentett játék állapotot.
+                </li>
+                <li>
+                    <strong>Prekondíciók:</strong> A játékosnak el kell indítania a játékot.
+                </li>
+                <li>
+                    <strong>Post kondíciók:</strong> A játék állapota a korábban elmentett állapotnak megfelelően
+                    frissül.
+                </li>
+                <li>
+                    <strong>Szokásos működés (Main Flow):</strong>
+                    <ul>
+                        <li>A játékos megnyomja a betöltés gombot.</li>
+                        <li>A rendszer megjeleníti a korábbi mentések listáját.</li>
+                        <li>A játékos kiválasztja a mentést, amit be szeretne tölteni.</li>
+                        <li>A rendszer betölti a választott állapotot.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Alternatív esetek (Alternate Flows):</strong> Ha a játékos nem talál mentést, a rendszer
+                    figyelmeztetést ad.
+                </li>
+                <li>
+                    <strong>Kivételes esetek (Exception Flows):</strong> Ha a betöltés során hiba lép fel, a rendszer
+                    értesíti a játékost.
+                </li>
+            </ul>
+
+            <b id="jatek-beallitas-modositas">3.5. Játék Beállítások Módosítása</b>
+            <ul>
+                <li>
+                    <strong>Rövid leírás:</strong> A játékos módosíthatja a játék beállításait (pl. grafika, hang,
+                    irányítás).
+                </li>
+                <li>
+                    <strong>Prekondíciók:</strong> A játékosnak a főmenübe kell lépnie.
+                </li>
+                <li>
+                    <strong>Post kondíciók:</strong> A játék beállításai frissülnek a játékos által megadott értékek
+                    szerint.
+                </li>
+                <li>
+                    <strong>Szokásos működés (Main Flow):</strong>
+                    <ul>
+                        <li>A játékos megnyitja a beállítások menüt.</li>
+                        <li>A rendszer megjeleníti a módosítható beállításokat.</li>
+                        <li>A játékos változtatásokat végez.</li>
+                        <li>A rendszer menti a változtatásokat.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Alternatív esetek (Alternate Flows):</strong> Ha a játékos vissza szeretne lépni, a rendszer
+                    visszatér a főmenübe.
+                </li>
+                <li>
+                    <strong>Kivételes esetek (Exception Flows):</strong> Ha a beállítások mentése során hiba lép fel, a
+                    rendszer értesíti a játékost.
+                </li>
+            </ul>
+
+            <b id="statisztika-megtekintese">3.6. Statisztikák Megtekintése</b>
+            <ul>
+                <li>
+                    <strong>Rövid leírás:</strong> A játékos megtekintheti a játék statisztikáit és teljesítményét.
+                </li>
+                <li>
+                    <strong>Prekondíciók:</strong> A játékosnak aktív játékban kell lennie.
+                </li>
+                <li>
+                    <strong>Post kondíciók:</strong> A rendszer megjeleníti a statisztikákat.
+                </li>
+                <li>
+                    <strong>Szokásos működés (Main Flow):</strong>
+                    <ul>
+                        <li>A játékos a menüben kiválasztja a statisztikák megtekintését.</li>
+                        <li>A rendszer betölti és megjeleníti a statisztikákat.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Alternatív esetek (Alternate Flows):</strong> Ha nincsenek elérhető statisztikák, a rendszer
+                    figyelmeztetést ad.
+                </li>
+                <li>
+                    <strong>Kivételes esetek (Exception Flows):</strong> Ha a statisztikák betöltése során hiba lép fel,
+                    a rendszer értesíti a játékost.
+                </li>
+            </ul>
+
+            <b id="kuldetesek-teljesitese">3.7. Küldetések Teljesítése</b>
+            <ul>
+                <li>
+                    <strong>Rövid leírás:</strong> A játékos végrehajtja a játékban kijelölt küldetéseket.
+                </li>
+                <li>
+                    <strong>Prekondíciók:</strong> A játékosnak be kell lépnie a játékba.
+                </li>
+                <li>
+                    <strong>Post kondíciók:</strong> A küldetések állapota frissül, és a játékos jutalmakat kap.
+                </li>
+                <li>
+                    <strong>Szokásos működés (Main Flow):</strong>
+                    <ul>
+                        <li>A játékos kiválaszt egy küldetést.</li>
+                        <li>A rendszer megjeleníti a küldetés részleteit.</li>
+                        <li>A játékos végrehajtja a küldetést.</li>
+                        <li>A rendszer frissíti a küldetés állapotát és jutalmat ad.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Alternatív esetek (Alternate Flows):</strong> Ha a játékos nem teljesíti a küldetést, a
+                    rendszer figyelmeztetést ad.
+                </li>
+                <li>
+                    <strong>Kivételes esetek (Exception Flows):</strong> Ha a küldetés teljesítése során hiba lép fel, a
+                    rendszer értesíti a játékost.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="hasznalhatosag">
+        <h2>4. Használhatóság</h2>
+        <div>
+            <strong>Betanulási idő</strong>
+            <ul>
+                <li>
+                    <strong>Kezdő felhasználók számára:</strong> A rendszer hatékony használatához a kezdő
+                    felhasználóknak körülbelül 1-2 órás betanulási időre van szükségük. Ez idő alatt megismerkednek a
+                    játék alapvető mechanikáival, a felhasználói felülettel és a karakterek kezelésével.
+                </li>
+                <li>
+                    <strong>Gyakorlott felhasználók számára:</strong> A tapasztalt játékosok számára a betanulási idő
+                    jelentősen csökken, körülbelül 10-30 percre. Azok, akik már ismerik a hasonló játékokat, könnyen
+                    navigálnak a rendszerben.
+                </li>
+            </ul>
+
+            <strong>Tevékenységek végrehajtási ideje</strong>
+            <ul>
+                <li>
+                    <strong>Jelenlegi módszerrel:</strong> Egy átlagos felhasználó körülbelül 10-15 percet tölt egy
+                    küldetés teljesítésével a meglévő rendszerek segítségével.
+                </li>
+                <li>
+                    <strong>Fejlesztendő rendszerrel:</strong> A tervezett rendszer segítségével ez az idő 5-10 percre
+                    csökkenhet, mivel a felhasználói felület intuitívabb és gyorsabb navigálást biztosít.
+                </li>
+            </ul>
+
+            <strong>Rendszer tulajdonságai a kezdő felhasználók számára</strong>
+            <ul>
+                <li>
+                    A rendszer rendelkezik tutorial módokkal, amelyek lépésről lépésre útmutatást nyújtanak a játék
+                    elemeinek megismeréséhez.
+                </li>
+                <li>
+                    A segítő popup ablakok és tippek megjelenítése játék közben, amelyek segítik a felhasználót a
+                    megfelelő döntések meghozatalában.
+                </li>
+                <li>
+                    A testreszabható vezérlés lehetővé teszi a felhasználók számára, hogy a számukra legkényelmesebb
+                    beállításokat válasszák.
+                </li>
+            </ul>
+
+            <strong>Betanulás elősegítése</strong>
+            <ul>
+                <li>
+                    <strong>Tréningek:</strong> A felhasználók számára elérhetőek online tréningek, amelyek különböző
+                    játékmechanikákat és stratégiákat tanítanak.
+                </li>
+                <li>
+                    <strong>Dokumentációk:</strong> Részletes felhasználói kézikönyv és FAQ szekció áll rendelkezésre a
+                    rendszer használatáról.
+                </li>
+                <li>
+                    <strong>Demonstrációs prototípusok:</strong> A fejlesztés korai szakaszában bemutatott prototípusok
+                    lehetővé teszik a felhasználók számára, hogy a rendszer alapvető funkcióit kipróbálják.
+                </li>
+            </ul>
+
+            <strong>Felhasználói felület hasonlósága</strong>
+            <p>
+                A felhasználói felület tervezése során figyelembe lett véve a hasonló játékok elterjedt felhasználói
+                felülete. Ennek eredményeként a felhasználók számára ismerős elrendezést és navigációt biztosít, így
+                gyorsabb betanulást segíti elő.
+            </p>
+
+            <strong>Párhuzamos alkalmazások összhangja</strong>
+            <p>
+                A fejlesztés során figyelmet fordítottunk arra, hogy a rendszer felhasználói felülete összhangban legyen
+                a leggyakrabban használt alkalmazásokkal. A felhasználók számára így gördülékeny átmenetet biztosítunk,
+                amikor a rendszer mellett más alkalmazásokat is használnak, például üzenetküldő vagy közösségi média
+                platformok.
+            </p>
+        </div>
+    </section>
+
+    <section id="megbizhatosag">
+        <h2>5. Megbízhatóság</h2>
+        <div>
+            <strong>Rendelkezésre állás</strong>
+            <ul>
+                <li>
+                    A rendszernek 99,5%-os rendelkezésre állást kell biztosítania, amely magában foglalja a teljes
+                    használhatóságot a játékosok számára.
+                </li>
+                <li>
+                    A karbantartási idő nem haladhatja meg a havi 2 órát, és a karbantartási tevékenységeket a lehető
+                    legkisebb zavarás mellett kell elvégezni.
+                </li>
+                <li>
+                    A korlátozott használhatóság esetén a felhasználóknak egyértelmű tájékoztatást kell kapniuk a
+                    lehetséges korlátozásokról, valamint alternatív lehetőségekről.
+                </li>
+            </ul>
+
+            <strong>MTBF (Mean Time Between Failures)</strong>
+            <p>
+                A rendszer esetében a hibák között eltelt átlagos idő (MTBF) legalább 500 üzemóra kell, hogy legyen. Ez
+                biztosítja, hogy a felhasználók hosszú időn keresztül zavartalanul élvezhessék a játékot, mielőtt
+                bármilyen hiba fellépne.
+            </p>
+
+            <strong>MTTR (Mean Time To Repair)</strong>
+            <p>
+                A rendszer javítására vonatkozóan a hiba utáni javítás átlagos ideje (MTTR) nem haladhatja meg a 30
+                percet. Ez magában foglalja a hibák diagnosztizálását és a javítások elvégzését, hogy a felhasználók
+                minél hamarabb visszatérhessenek a játékhoz.
+            </p>
+
+            <strong>Eredmények pontossága és felbontás</strong>
+            <ul>
+                <li>
+                    A rendszernek a játék eredményeit a lehető legnagyobb pontossággal kell visszaadnia. Minden
+                    statisztikai adat, például a pontszámok, gyűjtött erőforrások és elért szintek legalább 95%-os
+                    pontossággal kell, hogy rendelkezzen.
+                </li>
+                <li>
+                    Az eredmények felbontásának minimuma 0,01 pont, hogy a felhasználók pontosan nyomon követhessék a
+                    fejlődésüket és a teljesítményüket.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="teljesitmeny">
+        <h2>6. Teljesítmény</h2>
+        <div>
+            <p>Ebben a részben a rendszer által megkövetelt teljesítménymutatók kerülnek bemutatásra, különböző
+                szempontok szerint.</p>
+
+            <b id="valaszidok">6.1. Válaszidők</b>
+            <p>
+                A válaszidők kritikusak a játék gördülékeny működésének biztosításában, mivel a felhasználói bevitelekre
+                adott gyors és folyamatos reakció elengedhetetlen a jó játékélményhez. Az optimális válaszidők betartása
+                különösen a gyors mozgásokat és gyakori állapotváltásokat érintő helyzetekben fontos, mert a mozgásnak
+                közvetlenül követnie kell a gombnyomást, hogy a játékos elkerülhesse az egyes akadályokat vagy időben
+                reagálhasson az ellenfelek támadásaira.
+            </p>
+            <ul>
+                <li>
+                    <strong>Állapotváltás válaszideje:</strong> Az olyan állapotváltások, mint például az IdleState-ből
+                    MoveState-be vagy AttackState-be történő váltás optimális válaszideje ≤50 ms. Ennek a gyors
+                    válaszidőnek köszönhetően a játék vizuálisan és funkcionálisan gördülékeny marad, mivel a váltások
+                    szinte azonnal megtörténnek, amikor a játékos beavatkozást kezdeményez. A 50 ms-nál hosszabb késés
+                    már érezhetően lassítja a játékot, így romlik a felhasználói élmény.
+                </li>
+                <li>
+                    <strong>Válaszidő egyes mozgásoknál:</strong> Az olyan gyakori és dinamikus mozgások, mint a jump és
+                    dash funkciók, válaszideje ≤30 ms. Ez a rendkívül gyors válaszidő lehetővé teszi, hogy ezek a
+                    mozgások azonnal reagáljanak a felhasználói bemenetre, biztosítva, hogy a játékos pontosan a
+                    megfelelő időpontban végezze el a kívánt akciót.
+                </li>
+            </ul>
+
+            <b id="ateresztokepesseg">6.2. Áteresztőképesség (Tranzakciók/másodperc)</b>
+            <p>
+                Az áteresztőképesség határozza meg, hogy a játék képes-e nagy mennyiségű felhasználói interakció és
+                játékmechanika egyidejű kezelésére, különösen a gyors egymás utáni vagy párhuzamos akciók esetén. Az
+                áteresztőképesség megfelelő optimalizálása biztosítja a játék folyamatos és akadásmentes működését.
+            </p>
+            <strong>Állapotváltozások áteresztőképessége:</strong>
+            <ul>
+                <li>
+                    A rendszer állapotváltások áteresztőképessége legalább 100 tranzakció/másodperc. Ez az érték
+                    lehetővé teszi, hogy bonyolultabb, több felhasználói interakcióból álló szekvenciák is
+                    akadozásmentesen valósuljanak meg. Például gyors egymás utáni támadások vagy kombinációk során a
+                    játékos folyamatosan interakcióban áll a rendszerrel, amely gyors és pontos állapotváltást igényel.
+                </li>
+                <li>
+                    <strong>Példa:</strong> Egy támadássorozat végrehajtása során az AttackState és az IdleState közötti
+                    gyors váltásokra van szükség, hogy az animációk szünet nélkül, azonnal kövessék egymást. A rendszer
+                    akkor működik optimálisan, ha képes legalább 100 tranzakciót kezelni másodpercenként, ezzel
+                    biztosítva az azonnali válaszokat.
+                </li>
+            </ul>
+            <strong>Animáció frissítési frekvenciája:</strong>
+            <ul>
+                <li>
+                    Az animációk, például a run, crouch és attack állapotok frissítési frekvenciája legalább 60
+                    képkocka/másodperc (fps). Ez az fps érték biztosítja a mozgások folyamatos, zökkenőmentes
+                    megjelenítését a képernyőn, és elengedhetetlen a modern játékok által elvárt vizuális élményhez.
+                </li>
+                <li>
+                    A karakter futás közbeni run animációjának legalább 60 fps-en kell futnia, hogy a mozgás élethű és
+                    folytonos maradjon, elkerülve az esetleges „szaggatott” megjelenítést, amely zavaró lehet a játékos
+                    számára. Az fps érték csökkenése csökkenti az animáció gördülékenységét, ami megzavarhatja a játékos
+                    koncentrációját.
+                </li>
+            </ul>
+
+            <b id="kapacitas">6.3. Kapacitás</b>
+            <p>
+                <strong>Mentési fájlok maximális mérete:</strong> Az ini formátumú beállítási fájlok (mint a
+                settings.ini) maximális mérete 5 MB, amely magában foglalja a felhasználói beállításokat és az elért
+                képességeket. Ezzel a kapacitással a rendszer kellő adatot tárolhat anélkül, hogy a betöltési időt
+                megnövelné.
+            </p>
+            <p>
+                <strong>Felhasználói egyidejű kiszolgálás:</strong> Mivel a játék egyjátékos üzemmódban készül, egy
+                időben egyetlen felhasználót kell kiszolgálni. Az egyjátékos módban viszont elengedhetetlen, hogy a
+                rendszer erőforrás-használata hatékony maradjon, mivel a játék intenzív eseményei (pl. gyors
+                állapotváltások, támadások, ugrások) közben az erőforrásigények megnőhetnek. Az egyidejű felhasználók
+                számának kezelése több szempontból is fontos:
+            </p>
+            <ul>
+                <li>
+                    <strong>CPU és memória terhelés:</strong> Az állapotváltások, a mozgási események, és a karakter
+                    animációk CPU-intenzív feladatokat jelentenek. Tesztelni kell, hogy a játék folyamatosan képes
+                    marad-e ezen események gyors feldolgozására egyetlen játékos esetén is. Ehhez az optimális működés
+                    érdekében a játékot olyan CPU-kon kell tesztelni, amelyek biztosítani tudják a legalább 1,8 GHz-es
+                    többmagos feldolgozási sebességet.
+                </li>
+                <li>
+                    <strong>Erőforrás-optimalizálás intenzív játékmenet során:</strong> A játék során gyakran
+                    előfordulnak olyan terhelési csúcsok, amikor több párhuzamos folyamat is fut, például az animációk
+                    és a fizikai interakciók. Ezért fontos a memóriahatékonyság és a CPU terhelés optimalizálása, így
+                    biztosítva, hogy a játék megfelelően reagáljon a felhasználó bemeneteire minden helyzetben, még
+                    maximális terhelés esetén is.
+                </li>
+                <li>
+                    <strong>Tesztelés több konfiguráción:</strong> Annak ellenére, hogy csak egy felhasználót szolgál
+                    ki, fontos, hogy a játék különböző hardver konfigurációkon is zökkenőmentesen fusson. Különösen
+                    figyelmet kell fordítani a közepes és alacsony teljesítményű rendszerekre, hogy ezek esetében is
+                    optimális játékélményt nyújtson.
+                </li>
+            </ul>
+            <p>
+                <strong>Adatkapacitás:</strong> A játékban kezelt állapotok és mozgások feldolgozásához körülbelül 50 MB
+                memóriakapacitás szükséges. Ennek a memóriakapacitásnak az optimalizálása érdekében figyelembe vettük a
+                következő szempontokat:
+            </p>
+            <ul>
+                <li>
+                    <strong>Állapotkezelés memóriaköltsége:</strong> A játék során az állapotok (például IdleState,
+                    MoveState, JumpState, CrouchState, AttackState, DashState) a StateManager és a Player által kerülnek
+                    kezelésre. Mivel minden állapot saját változókat és függvényeket tartalmaz, ezek memóriahasználata
+                    optimalizált, hogy egyszerre akár több állapotváltás és mozgási parancs is kezelhető legyen anélkül,
+                    hogy a memóriahasználat ne növekedjen meg ugrásszerűen.
+                </li>
+                <li>
+                    <strong>Animációval kapcsolatos adatok és hangfájlok kezelése:</strong> Az egyes állapotokhoz
+                    tartozó animációkat a játék belsőmemóriában tartja, hogy gyorsan betöltődjenek a szükséges
+                    helyzetekben. A Player karakter animated_sprite változóján keresztül az animációk és az ezekhez
+                    tartozó időzítések folyamatosan aktívak. Az animációkhoz szükséges memória minimalizálására külön
+                    fájlkezelő modulok és textúratömörítési technikák kerültek alkalmazásra:
+                    <ol>
+                        <li>
+                            <strong>Fájltömörítő modulok:</strong> Az animációk és egyéb játékeszközök betöltéséhez
+                            olyan fájlkezelő modulok használhatók, mint a StreamTexture vagy a ResourceLoader Godotban,
+                            amelyek szükség szerint dinamikusan töltik be a fájlokat. Ez csökkenti a memóriahasználatot,
+                            mivel a nem használt eszközök nincsenek folyamatosan a memóriában.
+                        </li>
+                        <li>
+                            <strong>Godot saját textúratömörítése:</strong> A Godot támogatja a különböző tömörítési
+                            eljárásokat, például az S3TC és ETC tömörítési formátumokat, amelyek a GPU-ban tárolják a
+                            textúrákat, minimalizálva a memóriaterhelést.
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <strong>Játékállapothoz tartozó adatok:</strong> A ConfigFileHandler kezeli a felhasználói
+                    beállításokat és az elért képességeket, amelyek szintén memóriát igényelnek a gyors elérés
+                    érdekében. Az ini fájlban tárolt adatokat dinamikusan töltjük be, és szükség szerint frissítjük, ami
+                    megakadályozza, hogy feleslegesen nagy memóriát foglaljanak el.
+                </li>
+                <li>
+                    <strong>Optimális memóriahasználat:</strong> A teljes játék a megadott 50 MB memóriakeretben
+                    tartható, hogy a rendszer gyorsan tudjon válaszolni minden felhasználói interakcióra, és hatékonyan
+                    kezelje az animációkat, mozgásokat és a beállításokat.
+                </li>
+            </ul>
+
+            <b id="korlatozott-hasznalhatosag">6.4 Korlátozott használhatóság idején elvárható mutatók</b>
+            <p>
+                <strong>Stabilitás korlátozott funkciók esetén:</strong> Amikor a játék „korlátozott használhatóságú”
+                állapotba kerül, például alacsony memória vagy CPU túlterhelés esetén, a rendszer teljesítménye
+                csökkenhet, ami a válaszidők növekedéséhez vezethet. A cél az, hogy a játék ezen körülmények között is
+                stabil maradjon, és a felhasználói élményt minimálisan befolyásolja. A válaszidők maximalizálása
+                érdekében a játék nem fagyhat le vagy akadályozhatja a felhasználói interakciót. Az alapvető műveletek,
+                mint például az IdleState és MoveState közötti váltások, esetén a válaszidőnek legfeljebb 100 ms-nak
+                kell lennie. Ez az időkeret lehetővé teszi, hogy a játékosok továbbra is reagálhassanak a játék
+                mechanikájára, és fenntartsák a játék folytatását, még ha a rendszer terhelése nő is.
+            </p>
+            <p>
+                <strong>Funkciók priorizálása:</strong> Korlátozott működésnél a jump és dash funkciók kiemelt
+                prioritást élveznek, mivel ezek alapvetőek a játékélmény szempontjából. A rendszer automatikusan
+                biztosítja, hogy ezek a funkciók alacsonyabb válaszidőkkel rendelkezzenek, míg a nem létfontosságú
+                funkciók lecsökkenthetők, így a játékosok továbbra is hatékonyan reagálhatnak a játékmenetre.
+            </p>
+
+            <b id="eroforrasigenyek">6.5 Erőforrásigények</b>
+            <ul>
+                <li>
+                    <strong>Processzor sebesség:</strong> A játék zökkenőmentes működéséhez legalább 1,8 GHz-es
+                    többmagos processzor szükséges. Ez a sebesség lehetővé teszi a gyors állapotváltásokat, amelyek
+                    elengedhetetlenek a dinamikus játékmenet fenntartásához. A többmagos architektúra segít a párhuzamos
+                    feldolgozásban, így a különböző játékelemek és funkciók hatékonyabban kezelhetők.
+                </li>
+                <li>
+                    <strong>Memóriaigény:</strong> A játék futtatásához minimum 512 MB szabad memória szükséges. Ez a
+                    memória lehetővé teszi a különböző állapotok, mint például MoveState, JumpState és AttackState,
+                    valamint a felhasználói beállítások gördülékeny kezelését. A memóriaigény biztosítja, hogy a játék
+                    során a felhasználói interakciók zökkenőmentesek legyenek, minimalizálva a késleltetéseket.
+                </li>
+                <li>
+                    <strong>Tárkapacitás:</strong> A játék mentési és beállítási fájlokhoz legalább 50 MB tárkapacitás
+                    szükséges. Ez a kapacitás lehetővé teszi a játékállapotok, felhasználói beállítások, valamint a
+                    jövőbeli bővítések tartós tárolását. A megfelelő tárkapacitás biztosítja, hogy a felhasználók ne
+                    tapasztaljanak problémákat az adatok mentésekor vagy betöltésekor.
+                </li>
+                <li>
+                    <strong>Sávszélesség:</strong> Amennyiben online frissítési lehetőségek állnak rendelkezésre, a
+                    játékhoz legalább 1 Mbps sávszélesség szükséges. Ez a sávszélesség biztosítja a mentési állapotok,
+                    frissítések és konfigurációs fájlok gyors és zökkenőmentes letöltését. A megfelelő sávszélesség
+                    lehetővé teszi a felhasználók számára, hogy gyorsan hozzáférjenek az új tartalmakhoz, és fenntartsák
+                    a játékélményt.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="tamogatottsag">
+        <h2>7. Támogatottság</h2>
+        <div>
+            <span>
+                A játék üzembe helyezését követően a karbantartási feladatok hatékony végrehajtása elengedhetetlen a
+                rendszer folyamatos működéséhez. Ennek érdekében az alábbi követelmények figyelembevételére van szükség,
+                amelyek a termékre és a fejlesztési folyamatra egyaránt vonatkoznak:
+            </span>
+            <ol>
+                <li>
+                    <strong>Kódolási szabványok és elnevezési konvenciók:</strong>K A fejlesztés során alkalmazott
+                    egységes kódolási szabványok és elnevezési konvenciók megkönnyítik a kód olvashatóságát és
+                    karbantartását. Például a Godot scriptjeiben a különböző állapotok (mint az AttackState,
+                    CrouchState) osztályainak nevei és funkciói konzisztensen, ezáltal a jövőbeli fejlesztők könnyebben
+                    tájékozódhatnak.
+                </li>
+                <li>
+                    <strong>Karbantartók és üzemeltetők funkciói:</strong> A rendszer karbantartásához szükséges olyan
+                    funkciók biztosítása, amelyek kizárólag a karbantartók számára elérhetők. Ilyenek lehetnek a
+                    hibajelzések, állapotinformációk és a működési naplók, amelyek segítenek a rendszer megfelelő
+                    működésének fenntartásában.
+                </li>
+                <li>
+                    <strong>Működés során keletkező naplók:</strong> A játék során keletkező naplók (mint például a
+                    játékos állapotainak váltása, mint az IdleState, MoveState, AttackState) kulcsszerepet játszanak a
+                    hibakeresésben és a teljesítmény optimalizálásában. Ezeknek a naplóknak tartalmaznia kell az
+                    események időpontjait, a végrehajtott műveleteket és a felmerült hibákat, hogy a későbbi elemzések
+                    során könnyebben észlelhetők legyenek a problémák.
+                </li>
+                <li>
+                    <strong>Karbantartást segítő segédalkalmazások:</strong> Elkerülhetetlenül fontos a
+                    segédalkalmazások bevezetése, amelyek segítik a karbantartókat a naplók kiértékelésében és a
+                    rendszer állapotának figyelemmel kísérésében. Olyan elemző eszközök, amelyek automatikusan
+                    feldolgozzák a naplófájlokat, és figyelmeztetéseket generálnak a kiemelt problémák esetén, jelentős
+                    mértékben megkönnyítik a karbantartás során felmerülő feladatok elvégzését.
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="tervezesi-korlatozasok">
+        <h2>8. Tervezési korlátozások</h2>
+        <div>
+            <span>
+                A szoftver fejlesztésének megkezdése előtt fontos tisztázni a tervezési korlátozásokat, amelyek
+                befolyásolják a megvalósítást és a termék végső formáját. Az alábbiakban részletezzük a releváns
+                korlátozásokat:
+            </span>
+            <ol>
+                <li>
+                    <strong>Architektúra:</strong> A játékfejlesztés során a tervezési architektúra alapvetően
+                    befolyásolja a rendszer felépítését. A játéknak moduláris architektúrával kell rendelkeznie, amely
+                    lehetővé teszi a különböző állapotok (pl. MoveState, JumpState) elkülönített kezelését. Ez a
+                    megközelítés javítja a kód karbantartását és újrahasználhatóságát, mivel az egyes komponensek, mint
+                    például a StateManager és az állapotok (pl. IdleState, AttackState), könnyen kicserélhetők vagy
+                    bővíthetők.
+                </li>
+                <li>
+                    <strong>Programozási nyelv:</strong> A Godot Engine GDScript nyelvét kell használni a játék
+                    fejlesztéséhez, mivel ez a nyelv kifejezetten a Godot platformra lett optimalizálva. A GDScript
+                    szintaxis könnyen érthető, és lehetővé teszi a gyors prototípus-készítést. Emellett a Godot Engine
+                    közvetlen támogatása révén a játékosok könnyen hozzáférhetnek a Godot API-hoz, ami növeli a
+                    fejlesztés hatékonyságát.
+                </li>
+                <li>
+                    <strong>Fejlesztőeszköz:</strong> A Godot Engine használata kötelező, mivel a játék grafikai és
+                    fizikai elemei, valamint a játékmechanikák (pl. mozgás, támadás, ugrás) egyszerűen implementálhatók
+                    a platform nyújtotta eszközökkel. A Godot Engine integrált fejlesztői környezete (IDE) segíti a
+                    játék készítőit a kód írásában, a hibakeresésben és a játék tesztelésében, mindezt egyetlen
+                    alkalmazás keretein belül.
+                </li>
+                <li>
+                    <strong>Újrahasználható elemek:</strong> A fejlesztés során beépített újrahasználható elemek közé
+                    tartoznak a Godot által biztosított osztálykönyvtárak, mint például a Node és az AnimatedSprite2D.
+                    Ezek az elemek elősegítik a standardizált megoldások alkalmazását, csökkentve a kód ismétlődését és
+                    javítva a rendszer általános teljesítményét. A különböző állapotok és azok kezelése is reusability
+                    szempontjából lett megtervezve, lehetővé téve a funkciók könnyű bővítését.
+                </li>
+                <li>
+                    <strong>Fejlesztési módszertan:</strong> A fejlesztési folyamat során agilis módszertant kell
+                    alkalmazni, mivel ez lehetővé teszi a gyors iterációkat és a folyamatos visszajelzést. Az agilis
+                    megközelítés segít a csapatnak a prioritások gyors átértékelésében, ami különösen fontos a
+                    játékfejlesztés dinamikus környezetében. A folyamatos integráció és a tesztelés szintén
+                    kulcsfontosságú elemei a fejlesztési folyamatnak, biztosítva a termék minőségét és megbízhatóságát.
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="online-dokumentacio-help-rendszer">
+        <h2>9. On-line dokumentáció és Help rendszer</h2>
+        <div>
+            <b id="online-dokumentacio">9.1. Online dokumentáció</b>
+            <p>
+                Az online dokumentáció célja, hogy a játékosok részletes útmutatást és háttérinformációkat kapjanak a
+                játék világáról, rendszerkövetelményeiről és működéséről. A dokumentáció felépítése áttekinthető,
+                lépésről lépésre bemutatva a játék használatát, fejlesztési folyamatait és a felhasználói élmény
+                maximalizálásához szükséges eszközöket.
+            </p>
+            <span>Az alábbi elemek tartoznak az online dokumentációhoz:</span>
+            <ul>
+                <li>
+                    <a href="https://clorant.github.io/szoftvertech#documents" target="_blank">Dokumentumok</a>:
+                    Részletes leírás a játékról, annak fejlesztési folyamatáról és
+                    követelményeiről. Itt találhatók a játékrendszer működésének technikai részletei, valamint a
+                    platformkövetelmények, a karakterek képességei és a játékmenet szabályai.
+                </li>
+                <li>
+                    <a href="https://clorant.github.io/szoftvertech#presentations" target="_blank">Prezentációk</a>: A
+                    játék különböző fejlesztési fázisainak bemutatásai, amelyek célja,
+                    hogy a játékosok és érdeklődők nyomon követhessék a fejlesztési előrehaladást és a főbb
+                    mérföldköveket. Ezek a prezentációk a játék tervezéséről, karakterfejlődésről és egyes dokumentációs
+                    elemek működéséről adnak részletes képet.
+                </li>
+                <li>
+                    <a href="https://clorant.github.io/documents/munkanaplo" target="_blank">Munkanapló</a>: Itt
+                    elérhető a fejlesztői csapat
+                    tevékenysége a játékkal kapcsolatban, például a projekt előrehaladásáról, kihívásokról és elért
+                    eredményekről. Ezáltal a
+                    játékosok jobban beleláthatnak a háttérmunkába és a játék fejlesztésének mérföldköveibe.
+                </li>
+            </ul>
+            <b id="help-rendszer">9.2. Help rendszer</b>
+            <p>
+                A Help rendszer támogatja a játékosokat abban, hogy gyors és részletes válaszokat találjanak a
+                játékmenethez, irányításhoz, karakterfejlődéshez és a játék funkcióihoz kapcsolódó kérdésekre. A Help
+                rendszer interaktív, a játékosok fejlődéséhez igazodik, és közvetlenül a játékon belül érhető el.
+            </p>
+            <span>Az alábbi elemek tartoznak a Help rendszerhez:</span>
+            <ul>
+                <li>
+                    <strong>Interaktív tutorial:</strong> A játék elején elérhető interaktív útmutató, amely nemcsak az
+                    irányítást
+                    ismerteti, hanem a játék világába és történetébe is bevezeti a játékost. Ez a részletes tutorial
+                    bemutatja George Fergen ambícióját, feladatait és a játék célját.
+                </li>
+                <li>
+                    <strong>Súgó és tippek:</strong> Az új elemek vagy események megjelenésekor aktiválódik, így további
+                    információkat ad a felfedezésekről és játékrendszerről. A játékos igény szerint beállíthatja a súgó
+                    rendszer aktivitását vagy teljesen ki is kapcsolhatja a beállítások menüben.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="felhasznalt-komponensek">
+        <h2>10. Felhasznált kész komponensek</h2>
+        <div>
+            <span>
+                A játékunk elkészítéséhez több harmadik féltől származó kész komponenst is alkalmazunk,
+                amelyek nagyrészt grafikai elemek. Az alábbiakban felsoroljuk a
+                beépítendő elemeket:
+            </span>
+            <ol>
+                <li>
+                    <strong>Fantasy Knight - Free Pixelart Animated Character</strong>
+                    <br><br>
+                    <ul>
+                        <li>
+                            <strong>Típus:</strong> Sprite
+                        </li>
+                        <li>
+                            <strong>Leírás:</strong> Egy Fantasy Knight karaktercsomag. Több animációval, amelyek
+                            szükségesek lehetnek egy játékhoz.
+                        </li>
+                        <li>
+                            <strong>Forrás:</strong> <a
+                                href="https://aamatniekss.itch.io/fantasy-knight-free-pixelart-animated-character"
+                                target="_blank">Fantasy
+                                Knight - Free Pixelart Animated Character</a>
+                        </li>
+                        <li>
+                            <strong>Költség:</strong> Ingyenes
+                        </li>
+                        <li>
+                            <strong>Felhasználási szabályok:</strong> Az eszközcsomag ingyenes és kereskedelmi
+                            projektekben egyaránt felhasználható. Saját igények szerint módosítható.
+                        </li>
+                        <li>
+                            <strong>Kötelezettségek:</strong> Az eszközcsomag nem terjeszthető vagy továbbadható,
+                            beleértve az NFT, kép vagy eszközcsomag összeállításokat. Az eszközcsomag nem használható AI
+                            alkotásokban.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <strong>2D Environment Platformer Asset Pack: Castle of Despair</strong>
+                    <br><br>
+                    <ul>
+                        <li>
+                            <strong>Típus:</strong> Sprite Csomag
+                        </li>
+                        <li>
+                            <strong>Leírás:</strong> The Castle of Despair egy
+                            kiváló minőségű 2Ds környezeti platformer eszközcsomag, amelyet a Dark Souls és a World of
+                            WarCraft inspirált. Ebben a csomagban gyönyörű 32x32-es csempéket, parallax hátteret,
+                            dekorációs sprite-okat találsz animációkkal, hogy nagyszerű szinteket építhess a játékodhoz.
+                        </li>
+                        <li>
+                            <strong>Forrás:</strong> <a
+                                href="https://brullov.itch.io/2d-platformer-asset-pack-castle-of-despair"
+                                target="_blank">2D Environment
+                                Platformer Asset Pack: Castle of Despair</a>
+                        </li>
+                        <li>
+                            <strong>Költség:</strong> Ingyenes
+                        </li>
+                        <li>
+                            <strong>Felhasználási szabályok:</strong> Az eszközcsomag ingyenes és kereskedelmi
+                            projektekben egyaránt felhasználható. Saját igények szerint módosítható.
+                        </li>
+                        <li>
+                            <strong>Kötelezettségek:</strong> Az eszközcsomag nem terjeszthető vagy továbbadható.
+                        </li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <strong>Free Pixelart Platformer Tileset</strong>
+                    <br><br>
+                    <ul>
+                        <li>
+                            <strong>Típus:</strong> Sprite Csomag
+                        </li>
+                        <li>
+                            <strong>Leírás:</strong> Tartalmaz egy 16x16px-es csempekészletet, a tetejére helyezhető
+                            fűvel, egy híddal, tüskékkel és 2 fafajtával. Tartalmaz továbbá egy egyszerű 4 rétegű
+                            parallaxis hátteret is.
+                        </li>
+                        <li>
+                            <strong>Forrás:</strong> <a
+                                href="https://aamatniekss.itch.io/free-pixelart-platformer-tileset" target="_blank">
+                                Free Pixelart Platformer Tileset</a>
+                        </li>
+                        <li>
+                            <strong>Költség:</strong> Ingyenes
+                        </li>
+                        <li>
+                            <strong>Felhasználási szabályok:</strong> Az eszközcsomag ingyenes és kereskedelmi
+                            projektekben egyaránt felhasználható. Saját igények szerint módosítható.
+                        </li>
+                        <li>
+                            <strong>Kötelezettségek:</strong> Az eszközcsomag nem terjeszthető vagy továbbadható,
+                            beleértve az NFT, kép vagy eszközcsomag összeállításokat. Az eszközcsomag nem használható AI
+                            alkotásokban.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="interfeszek">
+        <h2>11. Interfészek</h2>
+        <div>
+            <b id="felhasznaloi-interfeszek">11.1. Felhasználói interfészek</b>
+            <p>
+                A játék a megszokott mozgás irányítást fogja használni, ami a 2D platformer játékoknál ismert. WASD /
+                nyíl billenytűk lesznek a játékos vertikális és horizontális mozgását irányító gombok. Emellet elterjedt
+                speciális irányítási gombok, mint például: támadás, dash-elés is a SHIFT és J gombokkal használhatók.
+                Ebből adódóan nem lesz problémája a játék irányításának megértésével egy átlagos felhasználónak sem.
+            </p>
+            <strong>Az alapértelmezett billenytűkiosztás:</strong>
+            <ul>
+                <li>
+                    W – ugrás
+                </li>
+                <li>
+                    A – balra mozgás
+                </li>
+                <li>
+                    S – lefele mozgás
+                </li>
+                <li>
+                    D – jobbra mozgás
+                </li>
+                <li>
+                    CTRL - guggolás
+                </li>
+                <li>
+                    Bal egér gomb - támadás
+                </li>
+                <li>
+                    SHIFT – dash (szökkenés)
+                </li>
+            </ul>
+            <p>
+                Mivel a játékot szeretnénk, hogy minnél több féle felhasználó megértse (gyerekek, alkalmi játékosok,
+                hardcore játékosok, stb.) ezért egyszerű UI elemeket fogunk használni, amelyek nem térnek el a
+                megszokottól vagy a megszokottnál átláthatóbbak.
+            </p>
+            <strong>UI elemek:</strong>
+            <ul>
+                <li>
+                    Főmenü
+                </li>
+                <li>
+                    Beállitási menü
+                </li>
+                <li>
+                    Játék közbeni menü
+                </li>
+                <li>
+                    Életerő kijelző
+                </li>
+                <li>
+                    Statisztikai kijelző (időmérő)
+                </li>
+                <li>
+                    Aktuális küldetés kijelző (következő megszerzendő gyűrű helye a mapok között)
+                </li>
+                <li>
+                    Teljesített küldetések kijelzője (megszerzett gyűrűk)
+                </li>
+            </ul>
+
+            <b id="hardware-interfeszek">11.2. Hardware interfészek – Kontroller támogatás</b>
+            <br><br>
+            <strong>Támogatott kontroller típusok:</strong>
+            <ul>
+                <li>
+                    Xbox
+                </li>
+                <li>
+                    PlayStation
+                </li>
+                <li>
+                    Egyéb USB csatlakozós PC kontrollerek
+                </li>
+            </ul>
+            <span>
+                Kapcsolódási mód a kontrollerekhez USB-vel vagy vezetés nélküli módón Bluetooth-al vagy az XBOX
+                applikáció segítségével
+            </span>
+            <br><br>
+            <strong>Mozgás:</strong>
+            <ul>
+                <li>
+                    Bal analóg kar – mozgás balra és jobbra
+                </li>
+                <li>
+                    A / X – ugrás
+                </li>
+                <li>
+                    B / O – támadás
+                </li>
+                <li>
+                    Start / Menu – játék közbeni menü megnyitása
+                </li>
+                <li>
+                    Bal alsó trigger – dash
+                </li>
+            </ul>
+            <p>
+                Beállitásokban a játékos kikapcsolhatja a Haptic feedback (rezgés)-t
+            </p>
+
+            <b id="software-interfeszek">11.3. Software interfészek – Lokális mentés és betöltés</b>
+            <ul>
+                <li>
+                    <strong>Mentés mechanizmus:</strong> A játékos eszközén fog megtörténni a játékot tartalmazó mappába
+                    fog kerülni
+                </li>
+                <li>
+                    <strong>Formátum:</strong> A mentések JSON vagy XML formátumban készülnek, lehetővé téve a könnyű
+                    olvasást és módosítást.
+                </li>
+                <li>
+                    <strong>Automatikus mentés:</strong> A játék automatikusan menti az állást a szint végén.
+                </li>
+                <li>
+                    <strong>Manuális mentés:</strong> A játékos manuálisan is mentheti a játékot a menü 'Save'
+                    opciójának kiválasztásával.
+                </li>
+                <li>
+                    <strong>Betöltés:</strong> A játékos a főmenü 'Load' opciójával férhet hozzá korábbi mentéseihez.
+                </li>
+            </ul>
+
+            <b id="kommunikacios-interfeszek">11.4. Kommunikációs interfészek – Lokális interakciók</b>
+            <ul>
+                <li>
+                    <strong>Lokális ranglista:</strong> A játék offline ranglistákat tárol a felhasználó eszközén,
+                    lehetővé téve a legjobb teljesítmények megtekintését a játék során. Emellett ez többször újra
+                    játszását is ösztönzi. A játék nem igényel internetkapcsolatot a működéséhez, így minden interakció
+                    a helyi környezetben zajlik
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="alkalmazott-szabvanyok">
+        <h2>12. Alkalmazott szabványok</h2>
+        <div>
+            <b id="kotelezo-szabvanyok">12.1. Kötelezően alkalmazandó szabványok</b>
+            <ol>
+                <li>
+                    <strong>Platformspecifikus követelmények (Windows):</strong> A Windows platformon való futtathatóság
+                    érdekében érdemes figyelni az alapvető kompatibilitási szabványokra, mint a Windows API
+                    kompatibilitás (ha natív funkciókat használtok), illetve az erőforrások és a grafika
+                    optimalizálására. Bár konkrét szabvány nem kötelező, az olyan ajánlások, mint a Windows játékok
+                    fejlesztési irányelvei, segíthetnek a zökkenőmentes felhasználói élmény biztosításában.
+                </li>
+                <li>
+                    <strong>Platformfüggetlen grafikai és hangformátumok használata:</strong> A játék során alkalmazott
+                    fájlformátumok (pl. PNG a pixelgrafikához és WAV/OGG a hangokhoz) a platformfüggetlenséget segítik,
+                    ezáltal a játék különféle operációs rendszereken is futtatható.
+                </li>
+                <li>
+                    <strong>GDPR (Általános Adatvédelmi Rendelet):</strong> A játék fejlesztése során különös figyelmet
+                    fordítunk a felhasználói adatok védelmére, különösen ha a játékosok személyes adatokat adnak meg. A
+                    GDPR biztosítja, hogy minden adatgyűjtés és -tárolás során a magánélet védelme prioritást élvezzen.
+                </li>
+                <li>
+                    <strong>Szerzői jogi törvények:</strong> Mivel a játék ingyenes és open-source alapokra épül, minden
+                    felhasznált zenei és grafikai elem esetében kizárólag jogtiszta vagy nyílt forráskódú erőforrásokat
+                    használunk, figyelve az eredeti készítők engedélyezési feltételeire (például Creative Commons
+                    licenc).
+                </li>
+                <li>
+                    <strong>Accessibility (WCAG 2.1):</strong> Az elérhetőségi szabványokat, különösen a WCAG 2.1
+                    irányelveket figyelembe vesszük annak érdekében, hogy a játék elérhető legyen minél szélesebb
+                    közönség számára, beleértve a különböző fogyatékossággal élő játékosokat is (például feliratozás,
+                    színkontraszt).
+                </li>
+                <li>
+                    <strong>Ingyenes játék licencfeltételei:</strong> Mivel a játék ingyenes lesz, figyelni kell az
+                    általunk használt ingyenes eszközök (Godot, pixel art) licencére, például:
+                    <ul>
+                        <li>
+                            <strong>Godot licenc (MIT):</strong> A Godot motor MIT licenc alatt áll, ami rugalmasságot
+                            ad a fejlesztésben, de meg kell felelni az MIT licencfeltételeknek.
+                        </li>
+                        <li>
+                            <strong>Pixel art használat:</strong> Az ingyenes karakter- és térképelemeknél ügyelünk
+                            arra, hogy a licencük lehetővé tegye a kereskedelmi vagy ingyenes használatot, különösen
+                            akkor, ha a játékot nyilvánossá teszitek.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+
+            <b id="valaszthato-szabvanyok">12.2. Választás alapján alkalmazott szabványok</b>
+            <ol>
+                <li>
+                    <strong>GDScript kódolási szabványok:</strong> A Godot dokumentációja által ajánlott GDScript
+                    szabványok alkalmazása elősegíti a tiszta és karbantartható kódot. Az ajánlások betartása
+                    hozzájárulhat a kód olvashatóságához, a hibakeresés gyorsításához, és segíti a csapattagok közti
+                    együttműködést.
+                </li>
+                <li>
+                    <strong>GitHub verziókezelési szabványok:</strong> Mivel GitHubot használunk, érdemes verziókezelési
+                    szokásokat bevezetni, mint például:
+                    <ul>
+                        <li>
+                            <strong>Commit üzenetek szabványa:</strong> Az üzenetek struktúrált megfogalmazása (például
+                            a "feature", "fix", "refactor" kulcsszavakkal) könnyebben nyomon követhetővé teszi a
+                            fejlesztést.
+                        </li>
+                        <li>
+                            <strong>Branch kezelés:</strong> Ha a projekt nagyobb részeit külön ágon kezeljük,
+                            elgondolkodhattok a Git Flow módszertanon, amely segíthet a funkciók, hibajavítások és
+                            verziófrissítések elkülönítésében.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Metroidvania játéktervezési szabványok:</strong> A műfaj specifikus szabványait követve a
+                    játékélmény érthetőbb és élvezetesebb lesz a játékosok számára. Ehhez tartozhat például az
+                    egyértelmű térképstruktúra a visszatérő szakaszokhoz, a rejtett tartalmak átláthatósága és az
+                    objektív visszajelzések a játékos előrehaladásához.
+                </li>
+                <li>
+                    <strong>Dokumentáció formátum és részletesség:</strong> A részletes dokumentációhoz felvehetjük
+                    például a játékmechanika, a felhasználói élmény, a kódstruktúra és a projektmenedzsment részleteit
+                    is, az áttekinthetőség érdekében követve a fejezetekbe tagolt struktúrát.
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="mellekletek">
+        <h2>13. Mellékletek</h2>
         <div>
             <b></b>
             <p></p>
         </div>
     </section>
 </body>
+
 </html>
