@@ -156,7 +156,7 @@
     </p>
     <p style="margin-bottom: 0cm;" align="right" lang="hu-HU">
         <font size="4">
-            2024. 10. 15.
+            2024. 11. 17.
         </font>
     </p>
     <p style="margin-bottom: 0cm;" align="center"><br></p>
@@ -260,6 +260,25 @@
                 <td width="29%">
                     <p style="margin-right: 0.08cm;">
                         Behinya Ádám (szerző)<br>
+                        Czibik Lóránt Patrik (szerkesztő)
+                    </p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td width="25%" sdval="117974" sdnum="1038;0;@">
+                    <p align="left">2024. 11. 17.</p>
+                </td>
+                <td width="11%">
+                    <p align="left">4.0</p>
+                </td>
+                <td width="35%">
+                    <p>
+                        Kibővítés
+                    </p>
+                </td>
+                <td width="29%">
+                    <p style="margin-right: 0.08cm;">
+                        Demján Boton (szerző)<br>
                         Czibik Lóránt Patrik (szerkesztő)
                     </p>
                 </td>
@@ -478,7 +497,12 @@
         <div>
             <b id="allapotok-funkcioik">2.1 Állapotok és Funkcióik</b>
             <p>
-                <strong>1. state_manager.gd:</strong> Ez a script az állapotok kezelését valósítja meg a játék során
+                <strong>1. state_manager.gd: Az állapotok központi kezelése</strong>
+                <br><br>
+                A state_manager.gd script kulcsfontosságú szerepet játszik a játékban az állapotok kezelésében. Ez a
+                modul felelős az összes játékállapot megfelelő tárolásáért és azok közötti zökkenőmentes váltásért. A
+                states változóban található az állapotok teljes listája, ami lehetővé teszi a dinamikus állapotváltást a
+                játék során.
                 <br><br>
                 Főbb jellemzői:
             </p>
@@ -500,9 +524,19 @@
                 </li>
             </ul>
             <p>
-                <strong>2. global.gd:</strong> a script globális változókat és metódusokat definiál, amelyek a játékban
-                a játékos karakter elérésére
-                és a gravitáció beállítására szolgálnak.
+                <strong>2. global.gd: A globális változók és metódusok definiálása</strong>
+                <br><br>
+                A global.gd script biztosítja a játék globális változóit és azok kezelését. Egyik legfontosabb
+                funkciója, hogy a player változóban tárolja a játékos objektum példányát, amelyet a játék különböző
+                részei könnyen elérhetnek. Emellett a gravity változó felelős a játék gravitációs erejének tárolásáért,
+                amely közvetlen hatással van a játékos mozgására.
+                <br><br>
+                A set_player(new_player: CharacterBody2D) metódus segítségével a globális player változó frissíthető,
+                ami akkor különösen hasznos, amikor a játékos példánya létrejön. A get_player() metódus (opcionális)
+                lehetőséget nyújt arra, hogy más scriptek könnyen hozzáférjenek a játékos objektumhoz. Ezáltal minden
+                más script egyszerűen tudja kezelni a játékos állapotát, mozgását vagy interakcióit. A globális elérés
+                miatt például a Global.get_player() hívás segítségével gyorsan és hatékonyan hozzáférhetünk a
+                játékoshoz.
                 <br><br>
                 Főbb jellemzői:
             </p>
@@ -524,58 +558,97 @@
                 </li>
             </ul>
             <p>
-                <strong>Használati minta:</strong> A script a játékban minden más script számára elérhető, így a játékos objektumát bármikor elérhetjük a Global.get_player() hívással. Ez lehetővé teszi a játékos mozgásának, állapotának és interakcióinak egyszerű kezelését, anélkül hogy minden egyes scriptben újra kellene példányosítani a játékost.
+                <strong>Használati minta:</strong> A script a játékban minden más script számára elérhető, így a játékos
+                objektumát bármikor elérhetjük a Global.get_player() hívással. Ez lehetővé teszi a játékos mozgásának,
+                állapotának és interakcióinak egyszerű kezelését, anélkül hogy minden egyes scriptben újra kellene
+                példányosítani a játékost.
             </p>
             <p>
-                <strong>3. player.gd:</strong> karakter vezérléséhez tartozó script
+                <strong>3. player.gd: A karaktervezérlés szíve</strong>
+                <br><br>
+                A player.gd script az egyik legfontosabb modul, amely a játékos karakterének irányítását és
+                állapotkezelését végzi. Az állapotkezelésért felelős state_manager változóval lehetővé teszi az aktuális
+                állapot gyors váltását. A játékos mozgásának tulajdonságait különböző változók tárolják, például a
+                mozgási sebesség, az ugrás ereje, a guggolási sebesség, valamint a dash (gyors kitérés) paraméterei. A
+                _ready() metódus gondoskodik arról, hogy a StateManager példányosítva legyen, a játékos kezdőállapota
+                megfelelően beállításra kerüljön, és a mozgási képességek paraméterei betöltődjenek.
                 <br><br>
                 Főbb jellemzői:
             </p>
             <ul>
                 <li>
-                    <strong>Állapotkezelő:</strong> A state_manager változó tárolja a játékos aktuális állapotát, lehetővé téve az állapotok közötti váltást.
+                    <strong>Állapotkezelő:</strong> A state_manager változó tárolja a játékos aktuális állapotát,
+                    lehetővé téve az állapotok közötti váltást.
                 </li>
                 <li>
-                    <strong>Sebesség és ugrás:</strong> Különböző változók tárolják a játékos mozgási sebességét, ugrás erejét, guggolás sebességét és a dash jellemzőit.
+                    <strong>Sebesség és ugrás:</strong> Különböző változók tárolják a játékos mozgási sebességét, ugrás
+                    erejét, guggolás sebességét és a dash jellemzőit.
                 </li>
                 <li>
-                    <strong>Globális játékos beállítás:</strong> A _ready() metódusban példányosítja a StateManager-t és beállítja a kezdő állapotot, valamint betölti a képességek beállításait.
+                    <strong>Globális játékos beállítás:</strong> A _ready() metódusban példányosítja a StateManager-t és
+                    beállítja a kezdő állapotot, valamint betölti a képességek beállításait.
                 </li>
             </ul>
             <p>
-                <strong>4. idle_state.gd:</strong> tétlen állapot kezelése, és bemeneti értékek figyelése
+                <strong>4. idle_state.gd: A tétlen állapot menedzselése</strong>
+                <br><br>
+                Az idle_state.gd script kezeli a játékos tétlen állapotát, amikor a játékos nem végez aktív mozgásokat
+                vagy akciókat. Ebben az állapotban a player változó a globális Global.get_player() metódus használatával
+                kerül beállításra, biztosítva az egyszerű hozzáférést. Az animációk kezelése során az
+                update_state(_delta) metódus aktiválja a tétlen állapothoz tartozó animációt, például a
+                player.animated_sprite.play("idle") hívás segítségével. Ez az állapot figyeli a bemeneti eseményeket is,
+                például ha a játékos megnyom egy gombot, akkor az állapot automatikusan vált a megfelelő következő
+                állapotra (pl. MoveState, JumpState).
                 <br><br>
                 Főbb jellemzői:
             </p>
             <ul>
                 <li>
-                    <strong>Globális játékos változó:</strong> A player változó a globális Global.get_player() metódussal kerül beállításra.
+                    <strong>Globális játékos változó:</strong> A player változó a globális Global.get_player()
+                    metódussal kerül beállításra.
                 </li>
                 <li>
-                    <strong>Tétlen animáció:</strong> Az update_state(_delta) metódusban a player.animated_sprite.play("idle") hívás elindítja a tétlen animációt, ha a játékos nem mozog.
+                    <strong>Tétlen animáció:</strong> Az update_state(_delta) metódusban a
+                    player.animated_sprite.play("idle") hívás elindítja a tétlen animációt, ha a játékos nem mozog.
                 </li>
                 <li>
-                    <strong>Állapotváltás:</strong> Figyeli a bemenetet, és ennek megfelelően vált az állapotok között (pl. MoveState, JumpState, CrouchState, AttackState).
+                    <strong>Állapotváltás:</strong> Figyeli a bemenetet, és ennek megfelelően vált az állapotok között
+                    (pl. MoveState, JumpState, CrouchState, AttackState).
                 </li>
             </ul>
             <p>
-                <strong>5. attack_state.gd:</strong> támadás állapotáért felelős script
+                <strong>5. attack_state.gd: Támadási állapot</strong>
+                <br><br>
+                Az attack_state.gd script a támadási állapotért felel. Az enter_state() metódus kezeli a támadási
+                animációk elindítását, figyelembe véve az attack_counter változó értékét. Ez lehetővé teszi, hogy a
+                játékos különböző támadási mozdulatokat hajtson végre. A támadás befejezését követően az állapot
+                automatikusan visszatér az IdleState állapotba, így a játékos tétlen állapotba kerülhet. A támadások
+                diverzitását az attack_counter váltakozó értékei biztosítják, amelyek különböző animációkat aktiválnak.
                 <br><br>
                 Főbb jellemzői:
             </p>
             <ul>
                 <li>
-                    <strong>Támadási animáció:</strong> Az enter_state() metódusban elindítja a játékos támadó animációját, a attack_counter változó értékének függvényében.
+                    <strong>Támadási animáció:</strong> Az enter_state() metódusban elindítja a játékos támadó
+                    animációját, a attack_counter változó értékének függvényében.
                 </li>
                 <li>
-                    <strong>Állapotváltás:</strong> A támadás befejezése után az állapotot visszaállítja az IdleState-be.
+                    <strong>Állapotváltás:</strong> A támadás befejezése után az állapotot visszaállítja az
+                    IdleState-be.
                 </li>
                 <li>
-                    <strong>Számláló:</strong> Az attack_counter változó váltakozik, lehetővé téve a különböző támadási animációk lejátszását
+                    <strong>Számláló:</strong> Az attack_counter változó váltakozik, lehetővé téve a különböző támadási
+                    animációk lejátszását
                 </li>
             </ul>
             <p>
-                <strong>6. crouch_state.gd:</strong> guggolás állapotáért felelős script
+                <strong>6. crouch_state.gd: Guggolás állapot</strong>
+                <br><br>
+                A crouch_state.gd script kezeli a játékos guggolási állapotát. Az enter_state() metódus indítja el a
+                guggoláshoz tartozó animációt, amely az aktuális játékos állapottól függően változhat. Ez az állapot a
+                bemeneti értékek alapján dinamikusan váltja az állapotokat (pl. guggolásból mozgásba vagy támadásba). A
+                guggolási sebességet a player.crouch_speed változó határozza meg, amely biztosítja, hogy a játékos
+                mozgása realisztikus és egyedi legyen ebben az állapotban.
                 <br><br>
                 Főbb jellemzői:
             </p>
@@ -584,33 +657,51 @@
                     <strong>Guggoló animáció:</strong> Az enter_state() metódusban elindítja a guggoló animációt.
                 </li>
                 <li>
-                    <strong>Bemenetkezelés:</strong> Az update_state() metódus figyeli a guggolás, támadás és mozgás bemeneteit, és váltja az állapotokat ennek megfelelően.
+                    <strong>Bemenetkezelés:</strong> Az update_state() metódus figyeli a guggolás, támadás és mozgás
+                    bemeneteit, és váltja az állapotokat ennek megfelelően.
                 </li>
                 <li>
-                    <strong>Irányfigyelés:</strong> A játékos mozgásának irányát figyeli, és az animációt ennek megfelelően játssza le.
+                    <strong>Irányfigyelés:</strong> A játékos mozgásának irányát figyeli, és az animációt ennek
+                    megfelelően játssza le.
                 </li>
                 <li>
-                    <strong>Sebesség:</strong> A játékos guggolás sebességét a player.crouch_speed változó határozza meg.
+                    <strong>Sebesség:</strong> A játékos guggolás sebességét a player.crouch_speed változó határozza
+                    meg.
                 </li>
             </ul>
             <p>
-                <strong>7. dash_state.gd:</strong> dash, azaz a szökkenés az állapotáért felelős script
+                <strong>7. dash_state.gd: Szökkenés állapota</strong>
+                <br><br>
+                A dash_state.gd script az egyik legdinamikusabb állapotot kezeli, amely lehetővé teszi a játékos
+                számára, hogy rövid időre gyorsan előre szökkenjen. Az animációk aktiválása az enter_state() metódusban
+                történik, ahol meghatározásra kerül a dash iránya és kezdőpozíciója. Az update_state() metódus figyeli a
+                játékos által megtett távolságot, valamint a környezeti akadályokat. Ha a dash során a játékos ütközik
+                valamivel, vagy elér egy meghatározott távolságot, az állapot automatikusan véget ér.
                 <br><br>
                 Főbb jellemzői:
             </p>
             <ul>
                 <li>
-                    <strong>Dash animáció:</strong> Az enter_state() metódusban elindítja a dash animációját, meghatározza a dash irányát és kezdő pozícióját.
+                    <strong>Dash animáció:</strong> Az enter_state() metódusban elindítja a dash animációját,
+                    meghatározza a dash irányát és kezdő pozícióját.
                 </li>
                 <li>
-                    <strong>Távolság és ütközés:</strong> Az update_state() metódus figyeli a távolságot, amit a játékos megtett a dash során, és megállítja a dash-t, ha elérte a maximális távolságot vagy ütközik a fallal.
+                    <strong>Távolság és ütközés:</strong> Az update_state() metódus figyeli a távolságot, amit a játékos
+                    megtett a dash során, és megállítja a dash-t, ha elérte a maximális távolságot vagy ütközik a
+                    fallal.
                 </li>
                 <li>
-                    <strong>Sebesség és gravitáció:</strong> A játékos sebességét és gravitációs hatását kezeli a dash állapotában, biztosítva a megfelelő mozgást.
+                    <strong>Sebesség és gravitáció:</strong> A játékos sebességét és gravitációs hatását kezeli a dash
+                    állapotában, biztosítva a megfelelő mozgást.
                 </li>
             </ul>
             <p>
-                <strong>8. jump_state.gd:</strong> ugrás állapotáért felelős script
+                <strong>8. jump_state.gd: Ugrás állapota</strong>
+                <br><br>
+                A jump_state.gd script az ugrási állapotért felelős. Az enter_state() metódus gondoskodik arról, hogy az
+                ugrás megfelelő erősséggel induljon. Az update_state() metódus dinamikusan alkalmazza a gravitációs
+                hatásokat, és szabályozza az ugrás visszafogását. Az irány és sebesség kezelése szintén része az állapot
+                logikájának, biztosítva, hogy az ugrás közbeni mozgás folyamatosan reagáljon a játékos bemenetére.
                 <br><br>
                 Főbb jellemzői:
             </p>
@@ -619,10 +710,85 @@
                     <strong>Ugrás animáció:</strong> Az enter_state() metódusban beállítja az ugrás erősségét.
                 </li>
                 <li>
-                    <strong>Gravitáció:</strong> Az update_state() metódus folyamatosan alkalmazza a gravitációt a játékosra ugrás közben, és kezeli az ugrás visszafogását.
+                    <strong>Gravitáció:</strong> Az update_state() metódus folyamatosan alkalmazza a gravitációt a
+                    játékosra ugrás közben, és kezeli az ugrás visszafogását.
                 </li>
                 <li>
-                    <strong>Irány és sebesség:</strong> Figyeli a bemeneti irányt, és ennek megfelelően irányítja a játékos mozgását, beleértve a sebesség beállítását és a sprite forgatását.
+                    <strong>Irány és sebesség:</strong> Figyeli a bemeneti irányt, és ennek megfelelően irányítja a
+                    játékos mozgását, beleértve a sebesség beállítását és a sprite forgatását.
+                </li>
+            </ul>
+            <p>
+                <strong>9. next_level.gd: Szintek közötti váltás</strong>
+                <br><br>
+                A next_level.gd script felelős a szint váltásért, a játékos életerejének visszaállítására és a kezdő
+                pozíció beállítására, amely azért fontos hogy a játékos halál esetén tudjon éledni.
+                <br><br>
+                Funkciói:
+            </p>
+            <ul>
+                <li>
+                    <strong>_ready():</strong> Itt beállítja a kezdő pozíciót, elindítja a bonfire animációt és
+                    beállítja a player változót.
+                </li>
+                <li>
+                    <strong>_on_body_entered(body: Node2D):</strong> Itt azt vizsgálja, hogy egy játékos érintkezett-e
+                    az objektummal, ha igen akkor visszaállítja az életerejét, összeállítja a next_level_path változót,
+                    majd aszinkron meghívja a következő funkciót.
+                </li>
+                <li>
+                    <strong>_change_scene(next_level_path: String):</strong> Itt történik meg a Scene közötti váltás, az
+                    előző funkcióban összeállított next_level_path Scene-re vált
+                </li>
+            </ul>
+            <p>
+                <strong>10. ingame_ui.gd: Életerő és képességek</strong>
+                <br><br>
+                Az ingame_ui.gd script magába foglalja az életerő jelző sávot (healthbar) és a képesség ikonokat. Ezek
+                által a játékos pontosan tudhatja, hogy mennyi életereje van, melyik képességet szerezte meg és ha
+                használta a képességet, akkor mikor használhatja újra.
+            </p>
+            <p>
+                <strong>11. enemy.gd: Ellenségek ősosztálya</strong>
+                <br><br>
+                Az enemy.gd script egy általános, minden ellenség által felhasznált viselkedést foglal magába. Ennek
+                leszármazottja például a slime.gd, ami csak megfelelő értékeket és grafikai elemeket állít be. Egy
+                ellenségre hasonló szabályok vonatkoznak mint a játékosra (például a gravitáció, vagy 0 életerőnél
+                halál), ezek a _physics_process-ben találhatóak. Ezen kívül az ellenfélnek van észlelési területe
+                (detection area), amin belül elkezdi üldözni a játékost, és egy támadási területe (attack area), amin
+                belül a játékos sebezhető, viszont ezt el lehet kerülni ha az animáció végeztével elhagyja a területet a
+                játékos.
+            </p>
+            <p>
+                <strong>12. config_file_handler.gd: Mentés a játék bezárása esetén</strong>
+                <br><br>
+                A config_file_handler.gd script lehetőséget biztosít az adatok mentésére a játék közben, és azokat a
+                játék bezárása majd újból megnyitása után betölti.
+                <br><br>
+                Funkciói:
+            </p>
+            <ul>
+                <li>
+                    <strong>_ready():</strong> Itt megvizsgálja, hogy létezik-e a settings.ini fájl, ha létezik akkor
+                    betölti, ha nem akkor létrehoz egyet alapértelmezett értékekkel.
+                </li>
+                <li>
+                    <strong>save_audio_setting(key: String, value): </strong> Ez egy adott audió beállítás mentését
+                    valósítja
+                    meg, először beállítja a megfelelő key-nek az értéket majd ráment a config-re.
+                </li>
+                <li>
+                    <strong>load_audio_settings():</strong> Ez az audió beállítások betöltéséhez használandó, egy
+                    Dicitonary struktúrát ad vissza.
+                </li>
+                <li>
+                    <strong>save_audio_setting(key: String, value): </strong> Ez egy adott képesség beállítás mentését
+                    valósítja
+                    meg, először beállítja a megfelelő key-nek az értéket majd ráment a config-re.
+                </li>
+                <li>
+                    <strong>load_audio_settings():</strong> Ez a képesség beállítások betöltéséhez használandó, egy
+                    Dicitonary struktúrát ad vissza.
                 </li>
             </ul>
         </div>
@@ -637,20 +803,113 @@
         <div>
             <b id="felhasznaloi-kovetelmenyek">3.1 Felhasználói követelmények</b>
             <ol>
-                <li><strong>Játékos mozgás:</strong> A játékos karakternek képesnek kell lennie vízszintesen mozogni, ugrani, támadni és kúszni. Ezeknek a hibátlan és „valós” működése elengedhetetlen.</li>
-                <li><strong>Ellenségek és kihívások:</strong> Az ellenségek különféle támadási mintákat követnek, és a játékosnak ezeket kell legyőznie, miközben elkerüli az akadályokat.</li>
-                <li><strong>Vizuális élmény:</strong> A játék 16x16 pixelpontos, ami elsősorban régiesnek tűnhet, viszont ez a stílus nagy népszerűségnek örvend a 2D platformer játékok körében.</li>
-                <li><strong>Hanghatások és zene:</strong> Minden mozdulathoz, támadáshoz, valamint a környezet elemeihez kapcsolódó hanghatásokat és zenét kell biztosítani. Törekszünk megtartani a fantasy „medieval-type” érzést, amit kicsit elektronikus hangzással vegyítünk.</li>
-                <li><strong>Növekvő nehézségi szint:</strong> A játék egyre nagyobb kihívásokat kell nyújtson, ahogy a játékos előrehalad a pályákon.</li>
+                <li><strong>Játékos mozgás:</strong> A játékos karakternek képesnek kell lennie vízszintesen mozogni,
+                    ugrani, támadni és kúszni. Ezeknek a hibátlan és „valós” működése elengedhetetlen.</li>
+                <li><strong>Ellenségek és kihívások:</strong> Az ellenségek különféle támadási mintákat követnek, és a
+                    játékosnak ezeket kell legyőznie, miközben elkerüli az akadályokat.</li>
+                <li><strong>Vizuális élmény:</strong> A játék 16x16 pixelpontos, ami elsősorban régiesnek tűnhet,
+                    viszont ez a stílus nagy népszerűségnek örvend a 2D platformer játékok körében.</li>
+                <li><strong>Hanghatások és zene:</strong> Minden mozdulathoz, támadáshoz, valamint a környezet elemeihez
+                    kapcsolódó hanghatásokat és zenét kell biztosítani. Törekszünk megtartani a fantasy „medieval-type”
+                    érzést, amit kicsit elektronikus hangzással vegyítünk.</li>
+                <li><strong>Növekvő nehézségi szint:</strong> A játék egyre nagyobb kihívásokat kell nyújtson, ahogy a
+                    játékos előrehalad a pályákon.</li>
             </ol>
-            
+
             <b id="rendszer-felepitese">3.2 A rendszer felépítése</b>
-            <p style="margin-bottom: 8px;">A rendszer Godot 4.0 játékmotorral épül fel, amely a következő fő komponenseket tartalmazza:</p>
+            <p style="margin-bottom: 8px;">A rendszer Godot 4.0 játékmotorral épül fel, amely a következő fő
+                komponenseket tartalmazza:</p>
             <ol>
-                <li><strong>Játékos karakter:</strong> A játékos mozgását, állapotait (állás, támadás, ugrás stb.) irányító modulok.</li>
-                <li><strong>Ellenségek</strong></li>
-                <li><strong>Pálya:</strong> Szintek, akadályok, tárgyak és környezet elemek, amelyek befolyásolják a játékos és az ellenségek mozgását.</li>
-                <li><strong>Állapotmenedzsment rendszer:</strong> A játékos különböző állapotait kezelő rendszer, amely a mozgás, ugrás, támadás, szökkenés közötti váltásokat irányítja.</li>
+                <li>
+                    <strong>Játékos karakter</strong>
+                    <br><br>
+                    A játékos karakter központi szerepet játszik a játékban, ezért az
+                    ő mozgása, állapotai és interakciói részletesen kidolgozott rendszeren alapulnak:
+                    <ul>
+                        <li>
+                            <strong>Mozgásvezérlés:</strong> A játékos képes vízszintesen mozogni, ugrani, guggolni,
+                            szökkenni (dash) és támadni. A mozgás irányítása a fizikai törvények szimulációjával
+                            történik, így a gravitáció, sebesség és gyorsulás figyelembevételével történik az animáció
+                            és mozgás.
+                        </li>
+                        <li>
+                            <strong>Állapotkezelés:</strong> A játékos különböző állapotokat vehet fel (pl. állás,
+                            ugrás, támadás, guggolás), amelyeket egy állapotmenedzser script kezel. Ez a rendszer
+                            felelős az állapotok közötti váltásért és az ezekhez tartozó logikák végrehajtásáért.
+                        </li>
+                        <li>
+                            <strong>Interakciók:</strong> A játékos képes interakcióba lépni a környezet különböző
+                            elemeivel, például tárgyakkal vagy ellenségekkel. Ezek az interakciók gyakran vizuális és
+                            hanghatásokkal járnak, hogy növeljék az élményt.
+                        </li>
+                        <li>
+                            <strong>Képességek testreszabhatósága:</strong> A karakter mozgási és támadási képességei
+                            külön paraméterekkel szabályozhatók, például az ugrás ereje, a guggolási sebesség, vagy a
+                            támadási animációk variációi.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Ellenségek: </strong> Az ellenségek különféle, előre meghatározott mozgás- és támadási
+                    mintákat követnek, amelyek a játékos ügyességét és reflexeit teszik próbára. Például egyes
+                    ellenségek egy adott útvonalon járőröznek, mások meghatározott időközönként támadnak, vagy a játékos
+                    mozgását érzékelve közelednek. Az ellenségek működése statikus szabályokon és viselkedési
+                    algoritmusokon alapul, amelyek egyedi kihívást biztosítanak az adott szinthez igazodva.
+                    A különböző típusú ellenségek egyedi tulajdonságokkal rendelkeznek, mint például mozgási sebesség,
+                    támadási erő vagy életerő. Ezek a jellemzők szintenként változnak, így a játékos számára minden új
+                    szint újfajta stratégiát követel meg a továbbhaladáshoz. Az interakciók során az ellenségek
+                    kiszámítható mintái lehetőséget adnak a játékos számára, hogy gyakorolja és tökéletesítse a
+                    megfelelő taktikát a legyőzésükre.
+                </li>
+                <li>
+                    <strong>Pálya</strong>
+                    <br><br>
+                    A játék pályái számos különböző elemből épülnek fel, amelyek a játékmenetet változatossá és
+                    élvezetessé teszik:
+                    <ul>
+                        <li>
+                            <strong>Szintek:</strong> A pályák különálló szakaszokból állnak, amelyek mindegyike saját
+                            tematikával, kihívásokkal és vizuális stílussal rendelkezik. Például egy szint lehet erdős
+                            környezet, ahol fák és sziklák akadályozzák a mozgást, míg egy másik szint lehet egy
+                            barlang, ahol csapdák és ellenségek jelentik a fő kihívást.
+                        </li>
+                        <li>
+                            <strong>Akadályok és platformok:</strong> A pályák tele vannak különféle akadályokkal, mozgó
+                            platformokkal és ugrópontokkal, amelyek a játékos ügyességét és időzítését teszik próbára.
+                            Az akadályok némelyike állandó, míg mások a játékos viselkedésére reagálnak.
+                        </li>
+                        <li>
+                            <strong>Gyűjthető tárgyak:</strong> A szinteken elhelyezett gyűjthető tárgyak, például
+                            érmék, életpontok vagy különleges erőforrások motiválják a játékost a felfedezésre. Ezek a
+                            tárgyak sokszor nehezen elérhető helyeken találhatók, és ügyességet igényelnek a
+                            megszerzésükhöz.
+                        </li>
+                        <li>
+                            <strong>Dinamikus környezet:</strong> A pálya elemei, mint például a mozgó csapdák vagy a
+                            rejtett ajtók, az interakciók alapján változnak, és új lehetőségeket nyitnak meg a játékos
+                            számára.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Állapotmenedzsment rendszer</strong>
+                    <br><br>
+                    Az állapotmenedzsment rendszer alapjaiban határozza meg a játék működését, különösen a játékos és a környezet közötti interakciókat:
+                    <ul>
+                        <li>
+                            <strong>Állapotok definiálása:</strong> Az állapotmenedzsment rendszer külön script fájlokban definiált állapotokat kezel, például idle_state, jump_state, crouch_state stb. Minden állapothoz tartozik egyedi logika és viselkedés, amely biztosítja az állapothoz tartozó mozgásokat és animációkat.
+                        </li>
+                        <li>
+                            <strong>Állapotváltás logikája:</strong> Az állapotok közötti váltásokat egy központi menedzser kezeli. Ez a rendszer figyeli a játékos bemeneteit (pl. billentyűleütések), és ezek alapján vált az állapotok között. Például, ha a játékos megnyomja az ugrás gombot, az állapotmenedzser az idle_state-ből a jump_state-be vált.
+                        </li>
+                        <li>
+                            <strong>Animációk kezelése:</strong> Az egyes állapotokhoz tartozó animációk lejátszása automatikusan történik az állapothoz tartozó belépési és kilépési metódusokkal (enter_state, exit_state). Ez biztosítja, hogy minden állapothoz a megfelelő vizuális visszajelzés társuljon.
+                        </li>
+                        <li>
+                            <strong>Frissítés és folyamatosság:</strong> Az állapotmenedzser folyamatosan frissíti az aktuális állapotot a játék időbeli fejlődése alapján, például figyelve a mozgást vagy az akadályokkal való interakciókat. Ez biztosítja a sima és zökkenőmentes játékmenetet.
+                        </li>
+                    </ul>
+                </li>
             </ol>
 
             <b id="rendszerkovetelmeny-specifikacio">3.3 Rendszerkövetelmények specifikációi</b>
@@ -658,11 +917,13 @@
                 <li><strong>Operációs rendszer:</strong> Windows támogatás.</li>
                 <li><strong>Hardver követelmények:</strong> Legalább 2 GB RAM</li>
                 <li><strong>Képernyő felbontás:</strong> Minimum 1280x720 (HD).</li>
-                <li><strong>Grafikus motor:</strong> Vulkan alapú renderelő motor (Godot beépített grafikus motorja)</li>
+                <li><strong>Grafikus motor:</strong> Vulkan alapú renderelő motor (Godot beépített grafikus motorja)
+                </li>
             </ul>
 
             <b id="rendszerevolucio">3.4 Rendszerevolúció</b>
-            <p style="margin-bottom: 8px;">A rendszer folyamatos fejlődésen fog keresztülmenni a játékosok visszajelzései és a fejlesztési célok alapján:</p>
+            <p style="margin-bottom: 8px;">A rendszer folyamatos fejlődésen fog keresztülmenni a játékosok
+                visszajelzései és a fejlesztési célok alapján:</p>
             <ul>
                 <li><strong>Frissítések:</strong> Új játékmenet elemek, mint például új ellenségek és pályák.</li>
                 <li><strong>Bővítések:</strong> További mozdulatok és támadások a játékos számára.</li>
@@ -738,59 +999,88 @@
         <h2 class="title">6. Szótár (idegen szavak, szakszavak leírása)</h2>
         <div>
             <strong>Godot Engine</strong>
-            <p>Egy nyílt forráskódú, ingyenes játékfejlesztő motor, amelyet 2D és 3D játékok fejlesztésére használnak. Az MIT licenc alatt érhető el, és különböző programozási nyelveket támogat, mint például a GDScript, C#, és C++.</p>
+            <p>Egy nyílt forráskódú, ingyenes játékfejlesztő motor, amelyet 2D és 3D játékok fejlesztésére használnak.
+                Az MIT licenc alatt érhető el, és különböző programozási nyelveket támogat, mint például a GDScript, C#,
+                és C++.</p>
             <strong>MIT licenc</strong>
-            <p>Egy nyílt forráskódú szoftverlicenc, amely lehetővé teszi a szoftver szabad felhasználását, módosítását és terjesztését, minimális korlátozásokkal.</p>
+            <p>Egy nyílt forráskódú szoftverlicenc, amely lehetővé teszi a szoftver szabad felhasználását, módosítását
+                és terjesztését, minimális korlátozásokkal.</p>
             <strong>Node (csomópont)</strong>
-            <p>A Godot Engine alapvető elemei, amelyek különböző típusú funkciókat és viselkedéseket képviselnek. A node-ok hierarchikus szerkezetbe rendezhetők, amelyek együtt alkotják a játék jeleneteit.</p>
+            <p>A Godot Engine alapvető elemei, amelyek különböző típusú funkciókat és viselkedéseket képviselnek. A
+                node-ok hierarchikus szerkezetbe rendezhetők, amelyek együtt alkotják a játék jeleneteit.</p>
             <strong>Scene (jelenet)</strong>
-            <p>A Godot-ban a jelenet egy hierarchikus struktúra, amely több csomópontból áll. Egy jelenet lehet egy játék szintje, egy karakter, vagy akár egy tárgy.</p>
+            <p>A Godot-ban a jelenet egy hierarchikus struktúra, amely több csomópontból áll. Egy jelenet lehet egy
+                játék szintje, egy karakter, vagy akár egy tárgy.</p>
             <strong>GDScript</strong>
-            <p>A Godot Engine beépített programozási nyelve, amely a Python nyelvhez hasonlít, és egyszerű használatot biztosít a játékfejlesztéshez.</p>
+            <p>A Godot Engine beépített programozási nyelve, amely a Python nyelvhez hasonlít, és egyszerű használatot
+                biztosít a játékfejlesztéshez.</p>
             <strong>Vulkan-based rendering engine</strong>
-            <p>Egy fejlett grafikai renderelő motor, amely a Vulkan API-t használja. A Vulkan egy modern, alacsony szintű grafikai API, amely lehetővé teszi a gyorsabb és hatékonyabb renderelést, különösen 3D projektek esetében.</p>
+            <p>Egy fejlett grafikai renderelő motor, amely a Vulkan API-t használja. A Vulkan egy modern, alacsony
+                szintű grafikai API, amely lehetővé teszi a gyorsabb és hatékonyabb renderelést, különösen 3D projektek
+                esetében.</p>
             <strong>Pixelart</strong>
-            <p>Egy vizuális stílus, amelyben a grafikai elemek alacsony felbontású, pixeles megjelenést kapnak. Gyakran használják retro stílusú játékoknál.</p>
+            <p>Egy vizuális stílus, amelyben a grafikai elemek alacsony felbontású, pixeles megjelenést kapnak. Gyakran
+                használják retro stílusú játékoknál.</p>
             <strong>Sprite</strong>
-            <p>2D grafikai elem, amely egy karaktert, tárgyat vagy hátteret jelenít meg a játékban. Animációk is készíthetők sprite-ok felhasználásával.</p>
+            <p>2D grafikai elem, amely egy karaktert, tárgyat vagy hátteret jelenít meg a játékban. Animációk is
+                készíthetők sprite-ok felhasználásával.</p>
             <strong>Bonfire</strong>
-            <p>A játékban mentési pontként funkcionál, ahol a játékos újraélesztheti karakterét, és a következő szintre léphet.</p>
+            <p>A játékban mentési pontként funkcionál, ahol a játékos újraélesztheti karakterét, és a következő szintre
+                léphet.</p>
             <strong>HD Boss creature</strong>
             <p>Nagy felbontású, különösen kidolgozott és kihívást jelentő főellenség karakter a játékban.</p>
             <strong>Mini-boss</strong>
-            <p>Egy kisebb, de erős ellenség, amely nehezebb, mint az átlagos ellenségek, de könnyebb, mint a főellenség.</p>
+            <p>Egy kisebb, de erős ellenség, amely nehezebb, mint az átlagos ellenségek, de könnyebb, mint a főellenség.
+            </p>
             <strong>Easter egg</strong>
-            <p>Olyan rejtett tartalom, ami nem kapcsolódik közvetlenül a játék fő történetéhez vagy játékmenetéhez. Gyakran humoros vagy különleges elemeket tartalmaz.</p>
+            <p>Olyan rejtett tartalom, ami nem kapcsolódik közvetlenül a játék fő történetéhez vagy játékmenetéhez.
+                Gyakran humoros vagy különleges elemeket tartalmaz.</p>
             <strong>State (állapot)</strong>
-            <p>A játékban egy objektum vagy karakter különböző működési módjai, mint például "tétlen", "támadás", "ugrás". Az állapotok kezelése segít a karakter mozgásának és viselkedésének irányításában.</p>
+            <p>A játékban egy objektum vagy karakter különböző működési módjai, mint például "tétlen", "támadás",
+                "ugrás". Az állapotok kezelése segít a karakter mozgásának és viselkedésének irányításában.</p>
             <strong>State Manager</strong>
-            <p>Az állapotok kezelésére szolgáló rendszer, amely biztosítja, hogy a karakterek vagy objektumok megfelelően váltsanak az egyes állapotok között, például mozgás, ugrás, támadás stb.</p>
+            <p>Az állapotok kezelésére szolgáló rendszer, amely biztosítja, hogy a karakterek vagy objektumok
+                megfelelően váltsanak az egyes állapotok között, például mozgás, ugrás, támadás stb.</p>
             <strong>Enter_state() és Exit_state()</strong>
-            <p>Metódusok, amelyek akkor aktiválódnak, amikor egy objektum belép vagy kilép egy adott állapotból. Az állapotváltás megkönnyítésére szolgálnak.</p>
+            <p>Metódusok, amelyek akkor aktiválódnak, amikor egy objektum belép vagy kilép egy adott állapotból. Az
+                állapotváltás megkönnyítésére szolgálnak.</p>
             <strong>Global script (globális script)</strong>
-            <p>Egy olyan script, amely globális változókat és funkciókat tartalmaz, így az egész játékban elérhetők és használhatók. Például a játékos karakter referenciája vagy a gravitáció beállításai.</p>
+            <p>Egy olyan script, amely globális változókat és funkciókat tartalmaz, így az egész játékban elérhetők és
+                használhatók. Például a játékos karakter referenciája vagy a gravitáció beállításai.</p>
             <strong>CharacterBody2D</strong>
-            <p>A Godot Engine-ben egy 2D fizikai objektum, amely mozgásra, gravitációra és ütközések kezelésére alkalmas. Tipikusan a játékos karakter képviselésére használják.</p>
+            <p>A Godot Engine-ben egy 2D fizikai objektum, amely mozgásra, gravitációra és ütközések kezelésére
+                alkalmas. Tipikusan a játékos karakter képviselésére használják.</p>
             <strong>Update_state(delta)</strong>
-            <p>Egy metódus, amely folyamatosan frissíti az aktuális állapotot a játékban. A "delta" az eltelt időt jelenti, ami biztosítja a sima és egyenletes működést.</p>
+            <p>Egy metódus, amely folyamatosan frissíti az aktuális állapotot a játékban. A "delta" az eltelt időt
+                jelenti, ami biztosítja a sima és egyenletes működést.</p>
             <strong>Dash</strong>
-            <p>Gyors szökkenés vagy kitérés, amely lehetővé teszi a karakter számára, hogy gyorsan elkerülje az ellenséges támadásokat vagy gyorsan áthaladjon bizonyos területeken.</p>
+            <p>Gyors szökkenés vagy kitérés, amely lehetővé teszi a karakter számára, hogy gyorsan elkerülje az
+                ellenséges támadásokat vagy gyorsan áthaladjon bizonyos területeken.</p>
             <strong>Gravitáció</strong>
-            <p>A fizikai vonzóerő szimulációja a játékban, amely hatással van a karakterek mozgására, például ugráskor vagy eséskor.</p>
+            <p>A fizikai vonzóerő szimulációja a játékban, amely hatással van a karakterek mozgására, például ugráskor
+                vagy eséskor.</p>
             <strong>Double jump</strong>
-            <p>Kétszeri ugrás, amely lehetővé teszi, hogy a karakter egy ugrás után még egyszer elrugaszkodjon a levegőben, extra magasságot biztosítva.</p>
+            <p>Kétszeri ugrás, amely lehetővé teszi, hogy a karakter egy ugrás után még egyszer elrugaszkodjon a
+                levegőben, extra magasságot biztosítva.</p>
             <strong>GitHub</strong>
-            <p>Egy platform, ahol fejlesztők megoszthatják, tárolhatják és verziókezelhetik a kódjaikat. Nyílt forráskódú projekteknél különösen népszerű.</p>
+            <p>Egy platform, ahol fejlesztők megoszthatják, tárolhatják és verziókezelhetik a kódjaikat. Nyílt
+                forráskódú projekteknél különösen népszerű.</p>
             <strong>itch.io</strong>
-            <p>Egy digitális áruház, ahol független fejlesztők oszthatják meg és árusíthatják a játékaikat. Gyakran kisebb indie játékokat kínálnak itt.</p>
+            <p>Egy digitális áruház, ahol független fejlesztők oszthatják meg és árusíthatják a játékaikat. Gyakran
+                kisebb indie játékokat kínálnak itt.</p>
             <strong>GOG.com</strong>
-            <p>Egy digitális áruház, amely DRM-mentes játékokat kínál. Népszerű a retro és klasszikus játékok rajongói körében.</p>
+            <p>Egy digitális áruház, amely DRM-mentes játékokat kínál. Népszerű a retro és klasszikus játékok rajongói
+                körében.</p>
             <strong>DRM (Digital Rights Management)</strong>
-            <p>Digitális jogkezelés, amely korlátozza a felhasználók hozzáférését vagy másolási jogait egy adott digitális termékhez. A DRM-mentes játékokat szabadon lehet használni anélkül, hogy különleges hitelesítést igényelnének.</p>
+            <p>Digitális jogkezelés, amely korlátozza a felhasználók hozzáférését vagy másolási jogait egy adott
+                digitális termékhez. A DRM-mentes játékokat szabadon lehet használni anélkül, hogy különleges
+                hitelesítést igényelnének.</p>
             <strong>Rendering</strong>
-            <p>Grafikai elemek megjelenítése a képernyőn. A játékfejlesztés során különösen fontos a gyors és hatékony renderelés a sima játékélmény biztosítása érdekében.</p>
+            <p>Grafikai elemek megjelenítése a képernyőn. A játékfejlesztés során különösen fontos a gyors és hatékony
+                renderelés a sima játékélmény biztosítása érdekében.</p>
             <strong>Platformer</strong>
-            <p>Olyan játékstílus, amelyben a játékos karakter ugrál és különböző platformokon mozog, akadályokat kerül el, és ellenségekkel küzd.</p>
+            <p>Olyan játékstílus, amelyben a játékos karakter ugrál és különböző platformokon mozog, akadályokat kerül
+                el, és ellenségekkel küzd.</p>
         </div>
     </section>
 </body>

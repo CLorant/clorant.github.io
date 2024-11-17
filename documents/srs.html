@@ -156,7 +156,7 @@
     </p>
     <p style="margin-bottom: 0cm;" align="right" lang="hu-HU">
         <font size="4">
-            2024. 10. 29.
+            2024. 11. 17.
         </font>
     </p>
     <p style="margin-bottom: 0cm;" align="center"><br></p>
@@ -197,7 +197,7 @@
                 </td>
                 <td width="35%">
                     <p>
-                        Első verzió (Struktúra feltöltése)
+                        Struktúra feltöltése
                     </p>
                 </td>
                 <td width="29%">
@@ -215,7 +215,7 @@
                 </td>
                 <td width="35%">
                     <p>
-                        Második verzió
+                        Első verzió
                     </p>
                 </td>
                 <td width="29%">
@@ -239,6 +239,24 @@
                 <td width="29%">
                     <p style="margin-right: 0.08cm;">
                         Czibik Lóránt Patrik
+                    </p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td width="25%" sdval="117974" sdnum="1038;0;@">
+                    <p align="left">2024. 11. 17.</p>
+                </td>
+                <td width="11%">
+                    <p align="left">2.0</p>
+                </td>
+                <td width="35%">
+                    <p>
+                        Kibővítés
+                    </p>
+                </td>
+                <td width="29%">
+                    <p style="margin-right: 0.08cm;">
+                        Czibik Lóránt Patrik<br>Demján Botond
                     </p>
                 </td>
             </tr>
@@ -450,9 +468,11 @@
             <p>
                 A játék egy klasszikus, pixelart stílusú platformjáték, amely egy középkori fantasy világba kalauzolja a
                 játékosokat. A játék célja egy akciódús, kihívásokkal teli élmény nyújtása, amely emlékeztet a régi,
-                klasszikus platformerekre, ugyanakkor modern mechanikákkal és dizájnnal frissítve. A játékos egy lovag
-                szerepét ölti magára, akinek küldetése, hogy átküzdve magát különféle akadályokon és ellenségeken, végig
-                haladjon a pályán és teljesítse a kalandját, azaz végig vigye a játékot.
+                klasszikus platformerekre, ugyanakkor modern mechanikákkal és dizájnnal frissítve. A játékos Sir George
+                lovag szerepét ölti magára, akit a Király azzal a feladattal bízta meg, ha már ő a legkiválóbb harcos,
+                hogy találja meg és szabadítsa ki a fogságba esett Malenia hercegnőt az egyetlen lányát. Lényegében ez a
+                küldetés a története a játéknak, hogy átküzdve magát különféle akadályokon és ellenségeken, végig
+                haladjon a pályán a karakterünk és teljesítse küldetését, azaz végig vigye a játékot.
             </p>
 
             <b id="alkalmazasi-terulet">1.2 Alkalmazási Terület</b>
@@ -495,9 +515,15 @@
                 A "George Fergen's Last Adventure" egy Godot játékmotor segítségével fejlesztett, 2D platformer játék,
                 amely egy középkori fantasy világban játszódik. A játék egy retro, pixelart grafikai stílust alkalmaz,
                 és különböző akadályokkal, ellenségekkel és kihívásokkal teli pályákon keresztül vezeti végig a
-                játékost. A játékot egyjátékos üzemmódban lehet játszani, és célja, hogy egy szórakoztató, nosztalgikus
-                játékélményt nyújtson modern elemekkel ötvözve. A játék fejlesztése során nyílt forráskódú szoftvereket
-                használunk, amelyek könnyen integrálhatóak a projektbe.
+                játékost. A játékot egyjátékos üzemmódban lehet játszani, összesen hét pálya lesz a tutorial-al együtt,
+                minden pálya végén található lesz egy “bonfire”, ami átvisz a következő pályára. Alapvetően, ha esetleg
+                elfogyna a rendelkezésre álló életerőnk, azaz a karakterünk meghal, akkor az elkezdett pálya legelejétől
+                kell majd újrakezdenie a játékosnak. A tutorial után lesz a kezdő rész, ami a Király vára mellett lévő
+                setét erdő. A további pályák egy elhagyatott és bomladozó régi vár maradványai, aminek a végén lesz egy
+                várbörtön, amely a következő pályának a helyszínét adja. A várbörtön után lesz egy földalatti helység,
+                mely két részből fog állni. Legutolsó sorban meg a főellenség kapuja, ahol található HD Boss creature.
+                Célja, hogy egy szórakoztató, nosztalgikus játékélményt nyújtson modern elemekkel ötvözve. A játék
+                fejlesztése során nyílt forráskódú szoftvereket használunk, amelyek könnyen integrálhatóak a projektbe.
             </p>
 
             <b id="legfontosabb-funkciok">2.2 Legfontosabb Funkciók</b>
@@ -505,20 +531,50 @@
             A játék legfontosabb funkciói a következők:
             <ul>
                 <li>
-                    <strong>Platformer Játékmenet:</strong> A játékos irányítja a karakterét, ugrásokkal, futásokkal és
-                    támadásokkal navigálva a különféle akadályok és ellenfelek között.
+                    <strong>Platformer Játékmenet:</strong> A játékos irányítja a karakterét, ugrással, futással,
+                    guggolással, és támadásokkal navigálva a különféle akadályok és ellenfelek ellen, emellett
+                    lehetősége is van támadásoktól kitérő szökkenéshez is és falakon lévő ugrásra, amivel titkos
+                    elrejtett helyekre is be lehet menni, ahol kincsek találhatóak. A karakterünk 200 életerőnyi
+                    egységgel rendelkezik és 50 egység támadással bír, ezek az értékek állandóak a játékmenet
+                    előrehaladásával is.
                 </li>
                 <li>
-                    <strong>Küzdelem:</strong> A játékos különféle fegyverekkel és képességekkel harcol az ellenségek és
-                    a pályák végén található bossok ellen.
+                    <strong>Szintek és Ellenségek:</strong> Hat plusz egy tutoriál pálya érhető el a játékban, a játék
+                    menetével párhuzamosan nehezedik a játék (nincs beállítható nehézségi fokozat). A kezdő rész, ami a
+                    Király vára mellett lévő setét erdő(Dark Forest), ahol oriás rovarokkal, slimeokkal kell megküzdeni.
+                    Ezt követően egy elhagyatott és bomladozó régi vár maradványai(Old Castle Ruins), aminek a végén egy
+                    várbörtön(Dungeon), amely a következő pályának a helyszínét adja. Az elhagyatott vár részen
+                    szellemekkel és lidércekkel kell szembenéznünk, a várbörtönben meg gnomeok és trollok. A következő
+                    helyszín a földalatti helység(The Underground I-II.), mely két részből fog állni, itt vegyesen sötét
+                    mágusok és elfek vannak elhelyezve. Legutolsó sorban főellenség kapuja(Boss Creature’s Gate), ahol
+                    található, Malenia hercegnő akit kiszabadítunk miután legyőztük a főellenséget.
                 </li>
                 <li>
-                    <strong>Gyűjtögetés és Felfedezés:</strong> A játék során a játékos különböző tárgyakat és
-                    erőforrásokat gyűjthet össze, amelyek segítik a további szintek teljesítésében.
+                    <strong>Ellenségek leírása:</strong> Fontos, a tutorial után az ellenségek sebzése és életere 10%-al
+                    nő miután újabb pályára térünk, kivételt képez a főellenség és a várbörtönben lévő ellenfelek. Első
+                    szinten lévő ellenfelek alapértelmezet életereje 100 egység, míg támadásuk 10 egység. A setét erdő
+                    területén lévő oriás rovarok és slimeok egyszerű ellenfelek kevés életerővel és sebzéssel
+                    rendelkeznek, csak közelharci támadásra képesek. Az elhagyatott régi bomladozó várnál lévő szellemek
+                    csak közelharci módon tudnak sebzést okozni vagy úgy, hogy ha a karakterünkel áthaladunk rajtuk. A
+                    lidércek egy helyben álló távolharci ellenfelek. A várbörtönben a gnomeok 50 egységnyi életerővel
+                    rendelkeznek viszont támadásuk 45 csak közelharci támadást végeznek, ezzel ellentétben a trollok
+                    nagyobb testű ellenségek, akik nagyobb életerővel de kevesebb sebzéssel bírnak (200 életerő és 20
+                    támadás). A földalatti helységben ahol a sötét mágusok és elfek találhatóak, az egyik legnehezebb
+                    rész mivel mindkét ellenség típus tud távol és közelharcban támadni. Távolharc esetén a mágusok
+                    varázspálca, elfek íj, közelharc esetén mindketten kard.
                 </li>
                 <li>
-                    <strong>Több Szint:</strong> Különféle pályák és szintek állnak rendelkezésre, melyek egyre nagyobb
-                    kihívást jelentenek. Minden szint új környezetet, akadályokat és ellenségeket kínál.
+                    <strong>Gyűjtögetés és Felfedezés:</strong> A bevezető turoriál-ról áttérve az összes pályán
+                    lehetőségünk lesz megszerezni egy mágikus gyűrűt (ezek közül négy lényeges lesz, amit könnyen meg
+                    lehet találni és a maradék egy viszont elrejtett), mely segítségével újabb képességekre tehetünk
+                    szert, ami segítségével könnyebben meg tudjuk oldani a következő pályákat. Ezek közé tartozik a “big
+                    jumpy magic ring”, ami a dupla ugrásért felelős, “dashy dash dash ring”, ami megengedi a
+                    karakternek, hogy könnyebben el tudjon szökkeni az ellenség támadásaitól, de akár a levegőben is
+                    használhatja ugrás után, nem legutolsó sorban a “parkourbeast ring”, a falakon lévő ugrást
+                    biztosítja. Legutolsó gyűrű a földalatti helység második részének végén lesz található Boss creature
+                    kapuja előtt, amit egy “mini-boss” szerű “Gatekeeper” legyőzése után kapunk meg, ez kell ahhoz, hogy
+                    a kapunk átjussunk a “final boss” helységére. Ahogy említettem lesz egy titkos gyűrű is, ez csak egy
+                    “easter egg” szerű érdekesség lesz.
                 </li>
                 <li>
                     <strong>Pixelart Grafika:</strong> Klasszikus pixelart stílusú látványvilág, amely nosztalgikus
@@ -526,7 +582,11 @@
                 </li>
                 <li>
                     <strong>Audiovizuális Élmény:</strong> A játékhoz megfelelő, dinamikus hanghatások és zenék
-                    tartoznak, amelyek fokozzák az élményt és az atmoszférát.
+                    tartoznak, amelyek fokozzák az élményt és az atmoszférát, főként elektronikus ingyenesen használható
+                    arcade stílusú zenéről van szó. Minden pályának van különböző zenealáfestések vannak elhelyezve ,
+                    emellett a további karakterek, ellenfelek és ezeknek az animációjának is vannak hangeffektjei.
+                    További eseteknél is, mint például, mikor ugrunk, guggolunk, sebzést szenved a karakterünk vagy
+                    esetleg az ellenséget támadjuk.
                 </li>
             </ul>
 
@@ -617,11 +677,51 @@
                     <strong>Karaktervezérlés:</strong>
                     <ul>
                         <li>
-                            A játékosnak lehetősége van a karakter irányítására billentyűzettel (WASD vagy
-                            nyílbillentyűk) és az egérrel a támadások végrehajtásához.
+                            A karakter irányítása:
+                            <ul>
+                                <li>
+                                    WASD vagy nyílbillentyűk segítségével történik a mozgás.
+                                </li>
+                                <li>
+                                    A bal egérgomb a támadás végrehajtására szolgál.
+                                </li>
+                                <li>
+                                    Speciális mozgások:
+                                    <ul>
+                                        <li>
+                                            Dash (szökkenés): A karakter a SHIFT gomb megnyomásával gyorsan kitérhet támadások elől.
+                                        </li>
+                                        <li>
+                                            Falakon ugrás: Bizonyos helyszíneken a karakter falak között tud ugrálni, titkos területeket elérve.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    A karakter alaptulajdonságai:
+                                    <ul>
+                                        <li>
+                                            100 életerő
+                                        </li>
+                                        <li>
+                                            20 támadóerő, amely a játékmenet során állandó marad
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            A karakternek rendelkeznie kell különböző mozgási képességekkel (futás, ugrás, mászás).
+                            A gyűjthető gyűrűk további képességeket biztosítanak, például:
+                            <ul>
+                                <li>
+                                    Dupla ugrás (Big Jumpy Magic Ring)
+                                </li>
+                                <li>
+                                    Szökkenés (Dashy Dash Dash Ring).
+                                </li>
+                                <li>
+                                    Falakon ugrás (Parkourbeast Ring).
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -629,12 +729,84 @@
                     <strong>Ellenségek:</strong>
                     <ul>
                         <li>
-                            Az ellenségeknek alapvető intelligenciával kell rendelkezniük, amely lehetővé teszi
-                            számukra, hogy kövessék a játékost, támadjanak, vagy védekezzenek.
+                            <strong>Általános tulajdonságok:</strong>
+                            <ul>
+                                <li>
+                                    Az ellenségek életereje és sebzése pályánként 10%-kal növekszik, kivéve a főellenségeket és a várbörtönben található lényeket.
+                                </li>
+                                <li>
+                                    Az ellenségek viselkedése egyedi támadási mintázatok és mozgások révén különbözik. A játékosnak meg kell tanulnia felismerni ezeket a mintázatokat, hogy hatékonyan küzdhessen ellenük.
+                                </li>
+                                <li>
+                                    A játék további akadályokkal és kihívásokkal egészül ki, amelyek célja a reflexek és a stratégiai gondolkodás fejlesztése.
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            Az ellenségeknek különböző típusai és viselkedési mintái kell, hogy legyenek (pl. távolsági
-                            támadók, közelharci harcosok).
+                            <strong>Különböző típusú ellenfelek:</strong>
+                            <ul>
+                                <li>
+                                    Kezdő ellenfelek (óriás rovarok, slime-ok):
+                                    <ul>
+                                        <li>
+                                            Egyszerű közelharci támadások, alacsony életerővel és sebzéssel.
+                                        </li>
+                                        <li>
+                                            Lassú mozgásuk és kis hatótávjuk miatt könnyen legyőzhetők, de nagyobb csoportokban kihívást jelenthetnek.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Szellemek és lidércek:
+                                    <ul>
+                                        <li>
+                                            A szellemek a karakterrel való érintkezés során sebzést okoznak, míg a lidércek helyhez kötött távolsági támadásokat indítanak.
+                                        </li>
+                                        <li>
+                                            A lidércek mintázata kiszámítható, de gyors reakciót igényel.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Gnómok és trollok:
+                                    <ul>
+                                        <li>
+                                            A gnómok kis méretük ellenére erős közelharci támadásokra képesek.
+                                        </li>
+                                        <li>
+                                            A trollok lassúak, de hatalmas életerejük miatt hosszabb küzdelmet igényelnek.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Sötét mágusok és elfek:
+                                    <ul>
+                                        <li>
+                                            Mindkét ellenféltípus vegyes támadási mintázatot alkalmaz: távolsági támadások (varázslat, íj) és közelharci csapások (kard).
+                                        </li>
+                                        <li>
+                                            Kombinált támadásaik miatt a játékosnak jól kell időzítenie a védekezést és a támadásokat.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Főellenség és mini-boss: Egyedi támadási mintázataik és nagy életerejük kihívást jelentenek. A győzelemhez szükség van a játékos ügyességére és az ellenfelek támadásainak pontos kiismerésére.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Ellenséges viselkedési mintázatok:</strong>
+                            <ul>
+                                <li>
+                                    <strong>Váltakozó támadások:</strong> Az ellenfelek különböző támadásokat kombinálnak, közelharci és távolsági csapásokat.
+                                </li>
+                                <li>
+                                    <strong>Időzített támadások:</strong> Egyes ellenfelek támadásai között időbeli szünetek vannak, amelyek lehetőséget adnak a játékosnak ellentámadásra.
+                                </li>
+                                <li>
+                                    <strong>Csoportos viselkedés:</strong> Bizonyos helyzetekben az ellenfelek együtt támadnak, stratégiai helyezkedést követelve meg a játékostól.
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -642,11 +814,38 @@
                     <strong>Pályák és Szintek:</strong>
                     <ul>
                         <li>
-                            A játékban legalább 3 különböző pálya és szint található, amelyek egyre nagyobb kihívást
-                            jelentenek.
+                            Szintek listája:
+                            <ol>
+                                <li>
+                                    Tutorial pálya (alapmozgások és mechanikák tanulása).
+                                </li>
+                                <li>
+                                    Dark Forest: Kezdő szint óriás rovarokkal és slime-okkal.
+                                </li>
+                                <li>
+                                    Old Castle Ruins: Szellemek és lidércek által lakott helyszín.
+                                </li>
+                                <li>
+                                    Dungeon: Gnómok és trollok által őrzött várbörtön.
+                                </li>
+                                <li>
+                                    The Underground I-II.: Sötét mágusokkal és elfekkel teli földalatti helyszínek.
+                                </li>
+                                <li>
+                                    Boss Creature’s Gate: A végső főellenség előtti terület, ahol egy mini-boss-t kell legyőznünk, ezután  a kapun áthaladva kell megküzdenünk a főellenséggel.
+                                </li>
+                            </ol>
                         </li>
                         <li>
-                            Minden pályán legyenek titkos területek és gyűjthető tárgyak.
+                            Pályák jellemzői:
+                            <ul>
+                                <li>
+                                    Mindegyik pálya végén egy “bonfire” mentési pont található, amely a következő szintre vezet.
+                                </li>
+                                <li>
+                                    Halál esetén a játékos az aktuális pálya elejéről kezdi újra.
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -654,12 +853,29 @@
                     <strong>Küzdelmi Rendszer:</strong>
                     <ul>
                         <li>
-                            A játékosnak különböző fegyverek és képességek közül kell választania, amelyek eltérő
-                            támadási módszereket kínálnak (pl. közelharci fegyverek, távolsági fegyverek).
+                            Fegyvertípusok:
+                            <ul>
+                                <li>
+                                    Közelharci: Kard, tőr, buzogány (közvetlen sebzés).
+                                </li>
+                                <li>
+                                    Távolsági: Íj, varázspálca, mágia (lidércek)
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            A játékosnak lehetősége van kombinált támadások végrehajtására (pl. ugrás vagy guggolás
-                            közben támadni).
+                            Kombinált támadások:
+                            <ul>
+                                <li>
+                                    Ugrás közben végrehajtott támadások.
+                                </li>
+                                <li>
+                                    Guggolás közben indított csapások.
+                                </li>
+                                <li>
+                                    Szökkenés utáni támadás, közben nem lehetséges.
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -667,9 +883,21 @@
                     <strong>Gyűjtögetési Mechanika:</strong>
                     <ul>
                         <li>
-                            A játékosnak lehetősége van különböző erőforrások (pl. életerő, fegyverek, gyógyítók)
-                            gyűjtésére, amelyeket a pályákon található ládákban és ellenfelek legyőzésével szerezhet
-                            meg.
+                            Erőforrások gyűjtése:
+                            <ul>
+                                <li>
+                                    Életerő: Gyógyításért felelős növényeket gyűjthetünk a területek egyes speciális részein.
+                                </li>
+                                <li>
+                                    Speciális gyűrűk: Új képességek (dupla ugrás, falugrás, szökkenés).
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Rejtett helyszínek: A falugrás segítségével titkos területekre juthatunk, ahol további kincsek és erőforrások találhatóak.
+                        </li>
+                        <li>
+                            Titkos gyűrű: Egy elrejtett “easter egg” gyűrű, amely extra érdekességet nyújt a felfedezők számára (újabb képességgel viszont nem ruházza fel a karaktert).
                         </li>
                     </ul>
                 </li>
@@ -1850,11 +2078,15 @@
         <h2>13. Mellékletek</h2>
         <div>
             <p>
-                Ez a mellékletek szakasz további hivatkozásokat, fogalmakat, és forrásokat tartalmaz, amelyek segítik a dokumentum átláthatóságát, valamint a fejlesztők és érdekeltek számára gyors hozzáférést biztosítanak a legfontosabb információkhoz és kiegészítő forrásokhoz.
+                Ez a mellékletek szakasz további hivatkozásokat, fogalmakat, és forrásokat tartalmaz, amelyek segítik a
+                dokumentum átláthatóságát, valamint a fejlesztők és érdekeltek számára gyors hozzáférést biztosítanak a
+                legfontosabb információkhoz és kiegészítő forrásokhoz.
             </p>
             <b>Tárgymutató</b>
             <br><br>
-            A dokumentumban található főbb szakkifejezések és rövidítések listája, amelyek elősegítik az SRS dokumentum gyorsabb áttekintését és kereshetőségét. Ezen kifejezések a dokumentumban előforduló fontos fogalmakhoz kapcsolódnak, mint például:
+            A dokumentumban található főbb szakkifejezések és rövidítések listája, amelyek elősegítik az SRS dokumentum
+            gyorsabb áttekintését és kereshetőségét. Ezen kifejezések a dokumentumban előforduló fontos fogalmakhoz
+            kapcsolódnak, mint például:
             <ul>
                 <li>
                     <strong>SRS:</strong> Software Requirements Specification, azaz szoftverkövetelmény-specifikáció.
@@ -1863,24 +2095,30 @@
                     <strong>Godot:</strong> Nyílt forráskódú játékfejlesztő motor, a játék fejlesztési környezete.
                 </li>
                 <li>
-                    <strong>Pixelart:</strong> A játék grafikai stílusa, amely klasszikus, 16x16 pixeles blokkokból építkezik.
+                    <strong>Pixelart:</strong> A játék grafikai stílusa, amely klasszikus, 16x16 pixeles blokkokból
+                    építkezik.
                 </li>
             </ul>
             <b>Kapcsolódó dokumentumok és források</b>
             <br><br>
-            Ebben a szakaszban kerülnek felsorolásra a projekt során készített további dokumentumok és fejlesztési források, amelyek kapcsolódnak az SRS tartalmához:
+            Ebben a szakaszban kerülnek felsorolásra a projekt során készített további dokumentumok és fejlesztési
+            források, amelyek kapcsolódnak az SRS tartalmához:
             <ul>
                 <li>
-                    <a href="https://clorant.github.io/documents/vizio.html" target="_blank">Vízió dokumentum:</a> A projekt főbb célkitűzései és alapelvei, amelyek megalapozzák a játék koncepcióját.
+                    <a href="https://clorant.github.io/documents/vizio.html" target="_blank">Vízió dokumentum:</a> A
+                    projekt főbb célkitűzései és alapelvei, amelyek megalapozzák a játék koncepcióját.
                 </li>
                 <li>
-                    <strong>Tervezési specifikációk:</strong> A rendszertervezés alapvető dokumentumai, amelyek az interfészek, komponensek és funkciók tervezési követelményeit tartalmazzák.
+                    <strong>Tervezési specifikációk:</strong> A rendszertervezés alapvető dokumentumai, amelyek az
+                    interfészek, komponensek és funkciók tervezési követelményeit tartalmazzák.
                 </li>
                 <li>
-                    <strong>Kódolási szabványok és konvenciók:</strong> A Godot-ban alkalmazott GDScript kódolási irányelvek.
+                    <strong>Kódolási szabványok és konvenciók:</strong> A Godot-ban alkalmazott GDScript kódolási
+                    irányelvek.
                 </li>
                 <li>
-                    <strong>Projekt ütemterv és mérföldkövek:</strong> A fejlesztési fázisok és mérföldkövek részletezése, amely a projekt folyamatosságát biztosítja.
+                    <strong>Projekt ütemterv és mérföldkövek:</strong> A fejlesztési fázisok és mérföldkövek
+                    részletezése, amely a projekt folyamatosságát biztosítja.
                 </li>
             </ul>
             <b>Irodalomjegyzék</b>
@@ -1888,24 +2126,29 @@
             Minden olyan külső forrás felsorolása, amely az SRS készítése során felhasználásra került:
             <ul>
                 <li>
-                    <strong>Godot hivatalos dokumentáció:</strong> Referenciaként használt online forrás, amely a Godot játékmotor funkcióit és API-ját mutatja be.
+                    <strong>Godot hivatalos dokumentáció:</strong> Referenciaként használt online forrás, amely a Godot
+                    játékmotor funkcióit és API-ját mutatja be.
                 </li>
                 <li>
-                    <strong>Platformer játékmechanikák és fejlesztési útmutatók:</strong> Külső szakirodalom és online anyagok a klasszikus platformerek kialakításához.
+                    <strong>Platformer játékmechanikák és fejlesztési útmutatók:</strong> Külső szakirodalom és online
+                    anyagok a klasszikus platformerek kialakításához.
                 </li>
                 <li>
-                    <strong>Pixelart stílusú játékfejlesztés:</strong> Források, amelyek a pixelart művészi stílus készítését és az ezzel kapcsolatos technikai követelményeket ismertetik.
+                    <strong>Pixelart stílusú játékfejlesztés:</strong> Források, amelyek a pixelart művészi stílus
+                    készítését és az ezzel kapcsolatos technikai követelményeket ismertetik.
                 </li>
             </ul>
             <b>Egyéb kiegészítő források és hivatkozások</b>
             <br><br>
-            Ebben a részben további online források és oktatóanyagok kerülnek felsorolásra, amelyek segítettek a dokumentum és a projekt elkészítésében:
+            Ebben a részben további online források és oktatóanyagok kerülnek felsorolásra, amelyek segítettek a
+            dokumentum és a projekt elkészítésében:
             <ul>
                 <li>
                     Oktatóvideók és online tanfolyamok a Godot használatáról, főként YouTube-on.
                 </li>
                 <li>
-                    Blogbejegyzések és fórumok, amelyek releváns információkat nyújtanak a GDScript és a pixelart stílusú játékfejlesztéshez főként Redditen.
+                    Blogbejegyzések és fórumok, amelyek releváns információkat nyújtanak a GDScript és a pixelart
+                    stílusú játékfejlesztéshez főként Redditen.
                 </li>
             </ul>
         </div>

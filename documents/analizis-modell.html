@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
 
     <link rel="stylesheet" href="../assets/szoftvertech/document.css">
 </head>
+
 <body>
     <!-- Copy start -->
 
@@ -35,8 +37,8 @@
     </p>
     <p style="margin-bottom: 0cm;" align="center" lang="hu-HU">
         <font style="font-size: 26pt;" size="6"><b><span lang="hu-HU">
-            Analízis modell
-        </span></b></font>
+                    Analízis modell
+                </span></b></font>
     </p>
     <p style="margin-bottom: 0cm;" align="center"><br>
     </p>
@@ -155,7 +157,7 @@
     </p>
     <p style="margin-bottom: 0cm;" align="right" lang="hu-HU">
         <font size="4">
-            <!-- Dátum -->
+            2024. 11. 17.
         </font>
     </p>
     <p style="margin-bottom: 0cm;" align="center"><br></p>
@@ -164,11 +166,13 @@
     <h2 align="center">Történet</h2>
 
     <table cellspacing="3" cellpadding="4" border="1" width="90%">
-        <colgroup><col width="64">
-        <col width="29">
-        <col width="89">
-        <col width="74">
-        </colgroup><thead>
+        <colgroup>
+            <col width="64">
+            <col width="29">
+            <col width="89">
+            <col width="74">
+        </colgroup>
+        <thead>
             <tr valign="top">
                 <th width="25%">
                     <p>Dátum</p>
@@ -194,7 +198,7 @@
                 </td>
                 <td width="35%">
                     <p>
-                        Első verzió (Struktúra feltöltése)
+                        Struktúra feltöltése
                     </p>
                 </td>
                 <td width="29%">
@@ -203,26 +207,465 @@
                     </p>
                 </td>
             </tr>
+            <tr valign="top">
+                <td width="25%" sdval="117974" sdnum="1038;0;@">
+                    <p align="left">2024. 11. 17.</p>
+                </td>
+                <td width="11%">
+                    <p align="left">1.0</p>
+                </td>
+                <td width="35%">
+                    <p>
+                        Első verzió
+                    </p>
+                </td>
+                <td width="29%">
+                    <p style="margin-right: 0.08cm;">
+                        Ádám Behinya (szerző)<br>Czibik Lóránt Patrik (szerkesztő)
+                    </p>
+                </td>
+            </tr>
         </tbody>
     </table>
     <p style="margin-bottom: 0cm;"><br></p>
     <p style="margin-bottom: 0cm;"><br></p>
     <h2>Tartalomjegyzék</h2>
-    
-    <div>
-        <a href="#">
-            <!-- Számozással együtti szöveg -->
+
+    <div class="tartalomjegyzek">
+        <a href="#bevezetes">
+            1. Bevezetés
+        </a>
+
+        <a href="#kezdeti-osztalydiagram">
+            2. Kezdeti osztálydiagram
+        </a>
+        <a href="#osztalydiagram" class="text-indent">
+            2.1. Osztálydiagram
+        </a>
+        <a href="#osztalyok-felsorolasa" class="text-indent">
+            2.2. Osztályok felsorolása
+        </a>
+        <a href="#alrendszerek" class="text-indent">
+            2.3. Alrendszerek
+        </a>
+        <a href="#megjelenesi-alrendszer" class="text-indent-lg">
+            2.3.1. Megjelenítés alrendszer
+        </a>
+        <a href="#uzleti-logika-alrendszer" class="text-indent-lg">
+            2.3.2. Üzleti logika alrendszer
+        </a>
+        <a href="#adatkezeles-alrendszer" class="text-indent-lg">
+            2.3.3. Adatkezelés alrendszer
+        </a>
+
+        <a href="#elso-alrendszer-modellje">
+            3. Az első alrendszer modellje
+        </a>
+        <a href="#statikus-modell" class="text-indent">
+            3.1. Statikus modell
+        </a>
+        <a href="#kapcsolatok-pontositasa" class="text-indent-lg">
+            3.1.1. Kapcsolatok pontosítása
+        </a>
+        <a href="#kapcsolatok-pontositasa" class="text-indent-lg">
+            3.1.1. Kapcsolatok pontosítása
+        </a>
+        <a href="#attributumok-azonositasa" class="text-indent-lg">
+            3.1.2. Attribútumok azonosítása
+        </a>
+        <a href="#bazisosztalyok-keresese" class="text-indent-lg">
+            3.1.3. Bázisosztályok keresése
+        </a>
+        <a href="#dinamikus-modell" class="text-indent">
+            3.2. Dinamikus modell
+        </a>
+        <a href="#funkcionalis-modell" class="text-indent">
+            3.3. Funkcionális modell
+        </a>
+        <a href="#operaciok-azonositasa" class="text-indent">
+            3.4. Operációk azonosítása
+        </a>
+        <a href="#analizis-modell-osztalydiagram" class="text-indent">
+            3.5. Az analízis modell osztálydiagramja
+        </a>
+        <a href="#analizis-modell-osztaly-lista" class="text-indent">
+            3.6. Az analízis modell osztályainak listája
+        </a>
+        <a href="#jatekos" class="text-indent-lg">
+            3.6.1. Játékos (Player)
+        </a>
+        <a href="#ellenseg" class="text-indent-lg">
+            3.6.2. Ellenség (Enemy)
+        </a>
+        <a href="#palya" class="text-indent-lg">
+            3.6.3. Pálya (Level)
+        </a>
+        <a href="#uimanager" class="text-indent-lg">
+            3.6.4. UIManager (Felhasználói felületkezelő)
+        </a>
+        <a href="#checkpoint" class="text-indent-lg">
+            3.6.5. Checkpoint (Ellenőrzőpont)
+        </a>
+        <a href="#allapotkezelo" class="text-indent-lg">
+            3.6.6. Állapotkezelő (StateManager)
         </a>
     </div>
 
     <!-- Copy end -->
-
-    <section id="">
-        <h2></h2>
+    <section id="bevezetes">
+        <h2>1. Bevezetés</h2>
         <div>
-            <b></b>
-            <p></p>
+            Ebben a dokumentumban a játék kezdeti osztálymodelljét és elemzési modelljét tárgyaljuk, amely a projekt
+            elsődleges követelményeinek és a funkcionális leírások alapján készült. A cél egy olyan osztálystruktúra
+            kialakítása, amely megfelel a Metroidvania műfaj jellegzetességeinek: a felfedezés, tárgyhasználat, és
+            fokozatosan elérhető területek. A játék SRS dokumentációja által meghatározottak szerint az elemzési modell
+            az alábbiakat tartalmazza:
+            <ul>
+                <li>
+                    A játék fő karaktere és interakciói
+                </li>
+                <li>
+                    Ellenségek, tárgyak és akadályok a játék világában
+                </li>
+                <li>
+                    Szintek és ellenőrzőpontok a játékmentéshez
+                </li>
+                <li>
+                    Grafikai elemek és felhasználói felület
+                </li>
+            </ul>
+            Az elemzési modell ezeknek a funkcióknak a leírására összpontosít, bemutatva a rendszeren belüli
+            kapcsolatokat és a fő osztályokat, amelyek biztosítják a játék logikáját és interaktivitását. A
+            dokumentumban a játék mechanikai és narratív összetevői is helyet kapnak, mivel ezek alapvető részei a
+            játékos élménynek.
+        </div>
+    </section>
+
+    <section id="kezdeti-osztalydiagram">
+        <h2>2. Kezdeti osztálydiagram</h2>
+        <div>
+            <b id="osztalydiagram">2.1. Osztálydiagram</b>
+            <p>Az osztálydiagram központi elemei a következők:</p>
+            <ul>
+                <li>
+                    <strong>Player (Játékos) osztály:</strong> A játékos karakter mozgásáért, interakcióiért és
+                    képességeiért felelős osztály.
+                </li>
+                <li>
+                    <strong>Enemy (Ellenség) osztály:</strong> Az ellenségeket és azok viselkedését leíró osztály, amely
+                    az AI-t is magában foglalja.
+                </li>
+                <li>
+                    <strong>Item (Tárgy) osztály:</strong> A felvehető és használható tárgyakat kezelő osztály, mint
+                    például gyógyító tárgyak, fegyverek vagy különleges kulcsok.
+                </li>
+                <li>
+                    <strong>Level (Szint) osztály:</strong> A szintek struktúráját tartalmazó osztály, amely az adott
+                    szinten található objektumokat és tereptárgyakat kezeli.
+                </li>
+                <li>
+                    <strong>Checkpoint (Ellenőrzőpont) osztály:</strong> A játék mentési pontjait jelölő osztály, ahol a
+                    játékos a halála után újraindíthatja a játékot.
+                </li>
+                <li>
+                    <strong>UIManager (Felhasználói felületkezelő) osztály:</strong> A grafikai interfészek kezeléséért
+                    felelős osztály, amely a menük és információs elemek megjelenítését biztosítja.
+                </li>
+                <li>
+                    <strong>StateManager (Állapotkezelő) osztály:</strong> A játékos különböző állapotainak kezeléséért
+                    felelős, biztosítva a helyes állapotváltásokat és a megfelelő interakciókat a játékmenet során.
+                </li>
+            </ul>
+            <img src="../assets/szoftvertech/img/osztalydiagram.png" alt="osztalydiagram" style="width: 50%;">
+            <br><br>
+            <b id="osztalyok-felsorolasa">2.2. Osztályok felsorolása</b>
+            <p>Az alábbiakban felsoroljuk a játékban szereplő osztályokat, rövid leírással, hogy könnyen megérthető
+                legyen, milyen funkciót látnak el a rendszerben:</p>
+            <ul>
+                <li>
+                    <strong>Játékos (Player):</strong> A játékos karakter mozgását, interakcióit és képességeit kezeli,
+                    mint a támadás, ugrás, és tárgyhasználat. Ez az osztály a játékos irányítási élményének központi
+                    eleme.
+                </li>
+                <li>
+                    <strong>Ellenség (Enemy):</strong> Az ellenségeket képviseli, kezeli azok mozgását, viselkedését és
+                    a játékossal való interakciót. Az AI-tartalom része, amely biztosítja a kihívást.
+                </li>
+                <li>
+                    <strong>Item (Tárgy):</strong> A játék világában található tárgyakat ábrázolja, amelyeket a játékos
+                    felvehet és használhat. Ide tartoznak az egészség- és képességnövelők, valamint speciális tárgyak,
+                    amelyek új helyszíneket nyitnak meg.
+                </li>
+                <li>
+                    <strong>Pálya (Level):</strong> Az egyes játékszinteket reprezentálja, a pálya elemeit és a
+                    játékbeli elhelyezkedéseket kezeli. Minden szint egyedi tereptárgyakkal és objektumokkal
+                    rendelkezik, amely a felfedezést teszi érdekesebbé.
+                </li>
+                <li>
+                    <strong>Ellenőrzőpont (Checkpoint):</strong> A játék mentési pontjait jelöli, lehetőséget ad a
+                    játékosnak, hogy egy adott helyről folytathassa a játékot. Ez fontos része a játékmenet
+                    folytonosságának.
+                </li>
+                <li>
+                    <strong>UIManager (Felhasználói felületkezelő):</strong> A felhasználói interfész elemeit kezeli, a
+                    menük és a játékos információinak megjelenítését biztosítja, mint az életerő és a pontszám.
+                </li>
+                <li>
+                    <strong>StateManager (Állapotkezelő):</strong> A játékos állapotainak (támadás, ugrás, stb.)
+                    kezelését végzi. Biztosítja az állapotok közötti váltást és a hozzájuk kapcsolódó logikát, ezzel
+                    támogatva a zökkenőmentes játékmenetet.
+                </li>
+            </ul>
+
+            <b id="alrendszerek">2.3. Alrendszerek</b>
+            <p>A játék rendszere az alábbi fő alrendszerekre bontható, amelyek funkcionálisan összetartozó osztályokat
+                tartalmaznak:</p>
+
+            <b id="megjelenesi-alrendszer">2.3.1. Megjelenítés alrendszer</b>
+            <p>
+                Felelős a grafikai elemek és a felhasználói interfész kezeléséért. Ide tartozik az UIManager osztály,
+                amely megjeleníti a játékos statisztikáit, menüket, valamint az interfész animációit. A felhasználói
+                élmény közvetlenül függ a felhasználói felület kezelésének minőségétől, ezért ennek a modulnak a
+                tervezése kulcsfontosságú.
+            </p>
+
+            <b id="uzleti-logika-alrendszer">2.3.2. Üzleti logika alrendszer</b>
+            <p>
+                A játék mechanikáját és logikai elemeit tartalmazza. Ez magában foglalja a Player, Enemy, és Item osztályokat, amelyek biztosítják az interakciókat és a kihívásokat. Az üzleti logika biztosítja a karakter képességeit és az ellenségekkel való harcot, a logikai feltételek és események vezérlését.
+            </p>
+
+            <b id="adatkezeles-alrendszer">2.3.3. Adatkezelés alrendszer</b>
+            <p>
+                Az adatokat és mentéseket kezeli, biztosítva, hogy a játékállapot minden körülmények között megmaradjon. A Checkpoint osztályon keresztül a játékos visszatérhet az utolsó mentési ponthoz, így folytathatja a játékot korábbi halála után.
+            </p>
+        </div>
+    </section>
+
+    <section id="elso-alrendszer-modellje">
+        <h2>3. Az első alrendszer modellje</h2>
+        <div>
+            <b id="statikus-modell">3.1. Statikus modell</b>
+            <br><br>
+            
+            <b id="kapcsolatok-pontositasa">3.1.1. Kapcsolatok pontosítása</b>
+            <p>
+                Az osztályok közötti kapcsolatokat pontosítottuk, megállapítottuk a számosságokat és a szerepköröket. Például a Player osztály kapcsolatban áll az összes állapot osztállyal, amelyeket a StateManager koordinál. Az ellenségek és a szintek szintén szoros kapcsolatban állnak, hogy biztosítsák a megfelelő interakciót a játék során.
+            </p>
+
+            <b id="attributumok-azonositasa">3.1.2. Attribútumok azonosítása</b>
+            <p>
+                Minden osztályhoz hozzárendeltük a legfontosabb attribútumokat. Például a Player osztály tartalmazza a sebesség, pozíció és életerő attribútumokat, amelyek meghatározzák a karakter mozgását és interakcióját a játék világával.
+            </p>
+
+            <b id="bazisosztalyok-keresese">3.1.3. Bázisosztályok keresése</b>
+            <p>
+                Az állapotkezelő osztályok hasonlósága alapján azonosítottuk a közös tulajdonságokat, amelyeket egy bázisosztályba emeltünk ki, hogy egyszerűsítsük a kódot és támogassuk a kód újrafelhasználhatóságát.
+            </p>
+
+            <b id="dinamikus-modell">3.2. Dinamikus modell</b>
+            <p>
+                A használati esetek alapján elkészítettük az állapotdiagramokat, például a támadás és mozgás állapotainak kezelését. Ezek bemutatják, hogy a játékos hogyan lép kölcsönhatásba az ellenségekkel és tárgyakkal.
+            </p>
+
+            <b id="funkcionalis-modell">3.3. Funkcionális modell</b>
+            <p>
+                Dokumentáltuk a rendszerben zajló főbb feldolgozási lépéseket és az adatáramlást, például hogyan kezeli a játék az interakciókat és a mozgási eseményeket.
+            </p>
+
+            <b id="operaciok-azonositasa">3.4. Operációk azonosítása</b>
+            <p>
+                Az osztálydiagramot operációkkal egészítettük ki, például a Player osztály „move()” és „attack()” metódusaival, amelyek a játékos akcióit vezérlik.
+            </p>
+
+            <b id="analizis-modell-osztalydiagram">3.5. Az analízis modell osztálydiagramja</b>
+            <p>
+                Az osztálydiagramot az attribútumokkal és operációkkal kiegészítve csatoltuk. Az ábra bemutatja az osztályok közötti kapcsolatrendszert, és az alrendszerek közötti együttműködést is.
+            </p>
+
+            <b id="analizis-modell-osztaly-lista">3.6. Az analízis modell osztályainak listája</b>
+            <br><br>
+
+            <b id="jatekos">3.6.1. Játékos (Player)</b>
+            <p>
+                <strong>Felelőssége:</strong> A játékos irányítása, állapotváltásai.
+            </p>
+            <p>
+                <strong>Együttműködők:</strong> StateManager, Enemy, Level.
+            </p>
+            <strong>Attribútumok:</strong>
+            <ul>
+                <li>
+                    sebesség (float)
+                </li>
+                <li>
+                    életerő (int)
+                </li>
+                <li>
+                    pozíció (Vector2)
+                </li>
+                <li>
+                    aktuális állapot (State)
+                </li>
+            </ul>
+            <strong>Operációk:</strong>
+            <ul>
+                <li>
+                    move(direction: Vector2)
+                </li>
+                <li>
+                    attack()
+                </li>
+                <li>
+                    jump()
+                </li>
+                <li>
+                    crouch()
+                </li>
+                <li>
+                    dash()
+                </li>
+            </ul>
+
+            <b id="ellenseg">3.6.2. Ellenség (Enemy)</b>
+            <p>
+                <strong>Felelőssége:</strong> A játékos akadályozása és kihívás biztosítása.
+            </p>
+            <p>
+                <strong>Együttműködők:</strong> Player, Level
+            </p>
+            <strong>Attribútumok:</strong>
+            <ul>
+                <li>
+                    típus (string)
+                </li>
+                <li>
+                    sebzés (int)
+                </li>
+                <li>
+                    pozíció (Vector2)
+                </li>
+                <li>
+                    életpontok (int)
+                </li>
+            </ul>
+            <strong>Operációk:</strong>
+            <ul>
+                <li>
+                    attack()
+                </li>
+                <li>
+                    move_towards(target: Player)
+                </li>
+                <li>
+                    defend()
+                </li>
+            </ul>
+
+            <b id="palya">3.6.3. Pálya (Level)</b>
+            <p>
+                <strong>Felelőssége:</strong> A játék szintjeinek kezelése.
+            </p>
+            <p>
+                <strong>Együttműködők:</strong> Player, Enemy
+            </p>
+            <strong>Attribútumok:</strong>
+            <ul>
+                <li>
+                    név (string)
+                </li>
+                <li>
+                    akadályok (list&lt;Obstacle&gt;)
+                </li>
+            </ul>
+            <strong>Operációk:</strong>
+            <ul>
+                <li>
+                    load_level()
+                </li>
+                <li>
+                    reset_level()
+                </li>
+            </ul>
+
+            <b id="uimanager">3.6.4. UIManager (Felhasználói felületkezelő)</b>
+            <p>
+                <strong>Felelőssége:</strong> A játékos statisztikáinak és a menük kezelésének biztosítása.
+            </p>
+            <p>
+                <strong>Együttműködők:</strong> Player, Checkpoint
+            </p>
+            <strong>Attribútumok:</strong>
+            <ul>
+                <li>
+                    kijelző elemek (list&lt;UIElement&gt;)
+                </li>
+            </ul>
+            <strong>Operációk:</strong>
+            <ul>
+                <li>
+                    display_stats()
+                </li>
+                <li>
+                    update_interface()
+                </li>
+                <li>
+                    show_menu()
+                </li>
+            </ul>
+
+            <b id="checkpoint">3.6.5. Checkpoint (Ellenőrzőpont)</b>
+            <p>
+                <strong>Felelőssége:</strong> A játék mentési és visszatérési pontjainak kezelése.
+            </p>
+            <p>
+                <strong>Együttműködők:</strong> Player, Level
+            </p>
+            <strong>Attribútumok:</strong>
+            <ul>
+                <li>
+                    pozíció (Vector2)
+                </li>
+                <li>
+                    aktív állapot (bool)
+                </li>
+            </ul>
+            <strong>Operációk:</strong>
+            <ul>
+                <li>
+                    save_state()
+                </li>
+                <li>
+                    load_state()
+                </li>
+            </ul>
+
+            <b id="allapotkezelo">3.6.6. Állapotkezelő (StateManager)</b>
+            <p>
+                <strong>Felelőssége:</strong> A játékos különböző állapotainak (támadás, ugrás, stb.) kezeléséért felelős. Biztosítja a helyes állapotváltásokat és a megfelelő interakciókat a játékmenet során.
+            </p>
+            <p>
+                <strong>Együttműködők:</strong> Player, AttackState, JumpState, CrouchState, DashState
+            </p>
+            <strong>Attribútumok:</strong>
+            <ul>
+                <li>
+                    aktuális állapot (State)
+                </li>
+                <li>
+                    állapotok listája (list&lt;State&gt;)
+                </li>
+            </ul>
+            <strong>Operációk:</strong>
+            <ul>
+                <li>
+                    set_state(state: State)
+                </li>
+                <li>
+                    update_state(delta: float)
+                </li>
+            </ul>
         </div>
     </section>
 </body>
+
 </html>
