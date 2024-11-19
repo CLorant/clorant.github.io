@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rendszertervezés</title>
     <link rel="stylesheet" href="../assets/szoftvertech/document.css">
 </head>
+
 <body>
     <!-- Copy start -->
 
@@ -34,8 +36,8 @@
     </p>
     <p style="margin-bottom: 0cm;" align="center" lang="hu-HU">
         <font style="font-size: 26pt;" size="6"><b><span lang="hu-HU">
-            Rendszertervezés
-        </span></b></font>
+                    Rendszertervezés
+                </span></b></font>
     </p>
     <p style="margin-bottom: 0cm;" align="center"><br>
     </p>
@@ -154,7 +156,7 @@
     </p>
     <p style="margin-bottom: 0cm;" align="right" lang="hu-HU">
         <font size="4">
-            <!-- Dátum -->
+            2024. 11. 19.
         </font>
     </p>
     <p style="margin-bottom: 0cm;" align="center"><br></p>
@@ -163,11 +165,13 @@
     <h2 align="center">Történet</h2>
 
     <table cellspacing="3" cellpadding="4" border="1" width="90%">
-        <colgroup><col width="64">
-        <col width="29">
-        <col width="89">
-        <col width="74">
-        </colgroup><thead>
+        <colgroup>
+            <col width="64">
+            <col width="29">
+            <col width="89">
+            <col width="74">
+        </colgroup>
+        <thead>
             <tr valign="top">
                 <th width="25%">
                     <p>Dátum</p>
@@ -193,7 +197,7 @@
                 </td>
                 <td width="35%">
                     <p>
-                        Első verzió (Struktúra feltöltése)
+                        Struktúra feltöltése
                     </p>
                 </td>
                 <td width="29%">
@@ -202,26 +206,299 @@
                     </p>
                 </td>
             </tr>
+            <tr valign="top">
+                <td width="25%" sdval="117974" sdnum="1038;0;@">
+                    <p align="left">2024. 11. 19.</p>
+                </td>
+                <td width="11%">
+                    <p align="left">1.0</p>
+                </td>
+                <td width="35%">
+                    <p>
+                        Első verzió
+                    </p>
+                </td>
+                <td width="29%">
+                    <p style="margin-right: 0.08cm;">
+                        Behinya Ádám (szerző)<br>
+                        Tolnay Benke Tamás (szerző)<br>
+                        Czibik Lóránt Patrik (szerkesztő)
+                    </p>
+                </td>
+            </tr>
         </tbody>
     </table>
     <p style="margin-bottom: 0cm;"><br></p>
     <p style="margin-bottom: 0cm;"><br></p>
     <h2>Tartalomjegyzék</h2>
-    
-    <div>
-        <a href="#">
-            <!-- Számozással együtti szöveg -->
+
+    <div class="tartalomjegyzek">
+        <a href="#bevezetes">
+            1. Bevezetés
+        </a>
+
+        <a href="#felhasznaloi-felulet">
+            2. Felhasználói felület
+        </a>
+
+        <a href="#fomenu" class="text-indent">
+            2.1 Főmenü
+        </a>
+
+        <a href="#hud" class="text-indent">
+            2.2 Játék közbeni HUD
+        </a>
+
+        <a href="#interakciok" class="text-indent">
+            2.3 Interakciók
+        </a>
+
+        <a href="#adatmodellek">
+            3. Adatmodellek
+        </a>
+
+        <a href="#adatbazis-kezelo" class="text-indent">
+            3.1 Adatbázis-kezelő kiválasztása
+        </a>
+
+        <a href="#szemantikai-adatmodell" class="text-indent">
+            3.2 Szemantikai Adatmodell (ER Diagram)
+        </a>
+
+        <a href="#relacios-adatmodell" class="text-indent">
+            3.3 Relációs Adatmodell
+        </a>
+
+        <a href="#adatbazis-kezelo-kapcsolat" class="text-indent">
+            3.4. Az adatbázis kezelővel kapcsolatot tartó osztályok
+        </a>
+
+        <a href="#funkcionalis-modell">
+            4. A Funkcionális Modell
+        </a>
+
+        <a href="#feldolgozasi-lepesek" class="text-indent">
+            4.1 Feldolgozási Lépések
+        </a>
+
+        <a href="#alt-feldolgozasi-lepesek" class="text-indent">
+            4.2 Alternatív Feldolgozási Lépések
         </a>
     </div>
-
     <!-- Copy end -->
 
-    <section id="">
-        <h2></h2>
+    <section id="bevezetes">
+        <h2>1. Bevezetés</h2>
         <div>
-            <b></b>
-            <p></p>
+            <p>
+                Ez a dokumentáció a "George Fergen's Last Adventure" játék részletes rendszertervezési leírása. A játék
+                egy klasszikus 2D platformer, amely a Godot 4.0 játékmotor segítségével készül. A projekt célja egy
+                kihívásokkal teli, nosztalgikus élményt nyújtó játék megalkotása.
+                <br><br>
+                A játék főbb tervezési elvei:
+            </p>
+            <ul>
+                <li>
+                    <strong>Modularitás:</strong> Az egyes komponensek független fejlesztése és könnyű karbantartása.
+                </li>
+                <li>
+                    <strong>Felhasználóbarát élmény:</strong> Könnyen érthető felület és intuitív mechanikák.
+                </li>
+                <li>
+                    <strong>Kibővített történeti elem:</strong> A főhős, Sir George története mély narratív alapot biztosít a játékos elköteleződéséhez.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="felhasznaloi-felulet">
+        <h2>2. Felhasználói felület</h2>
+        <div>
+            <b id="fomenu">2.1 Főmenü</b>
+            <br><br>
+            Tartalom és funkciók:
+            <ul>
+                <li>
+                    <strong>Új játék:</strong> A "New Game" opcióval a játékos egy tutorial szinten kezdi a játékot.
+                </li>
+                <li>
+                    <strong>Beállítások:</strong> A következő opciókat tartalmazza:
+                    <ul>
+                        <li>
+                            Grafikai beállítások (felbontás, teljes képernyő mód).
+                        </li>
+                        <li>
+                            Hangbeállítások (hangerő, zenei és effektusok hangereje külön szabályozható).
+                        </li>
+                        <li>
+                            Irányítás (billentyűk és kontroller beállításai).
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Mentések betöltése:</strong> A rendszer megjeleníti a korábbi mentési pontokat.
+                </li>
+                <li>
+                    <strong>Kilépés:</strong> Az alkalmazás bezárása.
+                </li>
+            </ul>
+
+            <b id="hud">2.2 Játék közbeni HUD</b>
+            <br><br>
+            A HUD a játék során folyamatosan frissülő információkat jelenít meg:
+            <ul>
+                <li>
+                    <strong>Életerő csík:</strong> Az aktuális életerő százalékos arányban és vizuálisan is látható.
+                </li>
+                <li>
+                    <strong>Pontszám:</strong> Dinamikusan növekszik a gyűjtött tárgyak és legyőzött ellenségek után.
+                </li>
+                <li>
+                    <strong>Gyűjthető tárgyak:</strong> A gyűjtött mágikus gyűrűk (pl. "Dashy Dash Ring") és azok hatásai.
+                </li>
+                <li>
+                    <strong>Időmérő:</strong> A játékot végigjátszásához szükséges időt méri, amelyet a HUD-on láthat a játékos.
+                </li>
+            </ul>
+
+            Dizájn szempontok:
+            <ul>
+                <li>
+                    <strong>Színek:</strong> Erős kontraszt a játékos figyelmének fenntartása érdekében.
+                </li>
+                <li>
+                    <strong>Méret:</strong> Az információk jól olvasható méretben, de nem zavarva a játékteret.
+                </li>
+            </ul>
+
+            <b id="interakciok">2.3 Interakciók</b>
+            <ul>
+                <li>
+                    <strong>Dialógusablak:</strong> Az NPC-kel folytatott beszélgetések során szövegdoboz jelenik meg, amely tartalmazza a párbeszédeket és válaszopciókat.
+                </li>
+                <li>
+                    <strong>Tárgyak felvétele:</strong> Ha a játékos egy tárgy közelébe lép, vizuális visszajelzés jelenik meg egy ikon formájában.
+                </li>
+                <li>
+                    <strong>Szintek közötti váltás:</strong> Az aktuális szint végén megjelenik egy interaktív bonfire (tábortűz) amely a következő szintre vezet.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="adatmodellek">
+        <h2>3. Adatmodellek</h2>
+        <div>
+            <b id="adatbazis-kezelo">3.1 Adatbázis-kezelő kiválasztása</b>
+            <br><br>
+            A rendszer INI fájlokat használ a mentési állapotok és beállítások kezelésére. A választás mögötti okok:
+            <ul>
+                <li>
+                    <strong>Könnyű integráció:</strong> Az INI fájlok támogatása beépített a Godot játékmotorba.
+                </li>
+                <li>
+                    <strong>Olvashatóság:</strong> Könnyen szerkeszthető és emberi szemmel olvasható formátum.
+                </li>
+                <li>
+                    <strong>Rugalmasság:</strong> A struktúra könnyen bővíthető.
+                </li>
+            </ul>
+
+            <b id="szemantikai-adatmodell">3.2 Szemantikai Adatmodell (ER Diagram)</b>
+            <p>
+                A játék osztályainak és attribútumainak kapcsolata az alábbiak szerint épül fel:
+            </p>
+            <strong>Entitánsok:</strong>
+            <ol>
+                <li>
+                    <strong>Player:</strong> A játékos karakter tulajdonságait tartalmazza.
+                </li>
+                <li>
+                    <strong>Enemy:</strong> Az ellenségek típusait és tulajdonságait írja le.
+                </li>
+                <li>
+                    <strong>Projectile:</strong> A lövedékek attribútumait tartalmazza.
+                </li>
+                <li>
+                    <strong>Item:</strong> A gyűjthető tárgyak.
+                </li>
+                <li>
+                    <strong>Level:</strong> A szintek és ellenőrző pontok adatai.
+                </li>
+                <li>
+                    <strong>Settings:</strong> A játék beállításai.
+                </li>
+            </ol>
+            <strong>ER Diagram:</strong>
+            <br><br>
+            <img src="../assets/szoftvertech/img/er-diagram.png" alt="er-diagram" style="width: 100%; max-width: 800px;">
+            <br><br>
+
+            <b id="relacios-adatmodell">3.3 Relációs Adatmodell</b>
+            <p>
+                A relációs modell az adatbázis táblák közötti kapcsolatokat ábrázolja.
+            </p>
+            <strong>Táblák:</strong>
+            <ul>
+                <li>
+                    <strong>Player:</strong> Azonosító, név, egészség, pontszám, képességek.
+                </li>
+                <li>
+                    <strong>Enemy:</strong> Azonosító, típus, egészség, sebzés.
+                </li>
+                <li>
+                    <strong>Projectile:</strong> Azonosító, sebesség, sebzés, típus.
+                </li>
+                <li>
+                    <strong>Item:</strong> Azonosító, név, hatás, ritkaság.
+                </li>
+                <li>
+                    <strong>Level:</strong> Azonosító, aktuális szint, ellenőrző pontok.
+                </li>
+                <li>
+                    <strong>Settings:</strong> Azonosító, hangerő, nehézségi szint.
+                </li>
+            </ul>
+            <strong>Relációs Diagram:</strong>
+            <br><br>
+            <img src="../assets/szoftvertech/img/relacios-diagram.png" alt="relacios-diagram" style="width: 100%; max-width: 1000px;">
+            <br><br>
+            <b id="adatbazis-kezelo-kapcsolat">3.4. Az adatbázis kezelővel kapcsolatot tartó osztályok</b>
+            <br><br>
+            <img src="../assets/szoftvertech/img/adatbazis-kezelo.png" alt="adatbazis-kezelo" style="width: 100%; max-width: 800px;">
+        </div>
+    </section>
+
+    <section id="funkcionalis-modell">
+        <h2>4. A Funkcionális Modell</h2>
+        <div>
+            <b id="feldolgozasi-lepesek">4.1 Feldolgozási Lépések</b>
+            <ul>
+                <li>
+                    <strong>Bemenetek kezelése:</strong> Az InputHandler figyeli a felhasználói bemeneteket és irányítja a karaktert.
+                </li>
+                <li>
+                    <strong>Állapotkezelés:</strong> A StateManager felelős a karakter állapotai (pl. Idle, Attack) közötti váltásért.
+                </li>
+                <li>
+                    <strong>Ellenségek és tárgyak generálása:</strong> A SpawnManager dinamikusan helyezi el az ellenségeket és a gyűjthető tárgyakat.
+                </li>
+                <li>
+                    <strong>Mentés és betöltés:</strong> A ConfigFileHandler kezeli a játékállapot mentését és visszatöltését.
+                </li>
+            </ul>
+
+            <b id="alt-feldolgozasi-lepesek">4.2 Alternatív Feldolgozási Lépések</b>
+            <ul>
+                <li>
+                    <strong>Hibakezelés mentéskor:</strong> Ha a mentés sérült, alapértelmezett beállítások töltődnek be.
+                </li>
+                <li>
+                    <strong>Sprite-ok hiánya:</strong> Hiányzó sprite-ok esetén a rendszer placeholder grafikát jelenít meg.
+                </li>
+            </ul>
         </div>
     </section>
 </body>
+
 </html>
