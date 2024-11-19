@@ -157,7 +157,7 @@
     </p>
     <p style="margin-bottom: 0cm;" align="right" lang="hu-HU">
         <font size="4">
-            2024. 11. 17.
+            2024. 11. 19.
         </font>
     </p>
     <p style="margin-bottom: 0cm;" align="center"><br></p>
@@ -217,6 +217,24 @@
                 <td width="35%">
                     <p>
                         Első verzió
+                    </p>
+                </td>
+                <td width="29%">
+                    <p style="margin-right: 0.08cm;">
+                        Ádám Behinya (szerző)<br>Czibik Lóránt Patrik (szerkesztő)
+                    </p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td width="25%" sdval="117974" sdnum="1038;0;@">
+                    <p align="left">2024. 11. 19.</p>
+                </td>
+                <td width="11%">
+                    <p align="left">1.1</p>
+                </td>
+                <td width="35%">
+                    <p>
+                        Kiegészítés
                     </p>
                 </td>
                 <td width="29%">
@@ -294,17 +312,29 @@
         <a href="#ellenseg" class="text-indent-lg">
             3.6.2. Ellenség osztály
         </a>
-        <a href="#palya" class="text-indent-lg">
-            3.6.3. Pálya (Level)
-        </a>
-        <a href="#uimanager" class="text-indent-lg">
-            3.6.4. UIManager (Felhasználói felületkezelő)
-        </a>
-        <a href="#checkpoint" class="text-indent-lg">
-            3.6.5. Checkpoint (Ellenőrzőpont)
-        </a>
         <a href="#allapotkezelo" class="text-indent-lg">
-            3.6.6. Állapotkezelő (StateManager)
+            3.6.3. StateManager osztály
+        </a>
+        <a href="#projectile" class="text-indent-lg">
+            3.6.4. Projectile
+        </a>
+        <a href="#configfilehandler" class="text-indent-lg">
+            3.6.5. ConfigFileHandler osztály
+        </a>
+        <a href="#hud" class="text-indent-lg">
+            3.6.6. HUD osztály
+        </a>
+        <a href="#spawnmanager" class="text-indent-lg">
+            3.6.7. SpawnManager osztály
+        </a>
+        <a href="#camera" class="text-indent-lg">
+            3.6.8. Camera osztály
+        </a>
+        <a href="#tilemap" class="text-indent-lg">
+            3.6.9. TileMap osztály
+        </a>
+        <a href="#interaction" class="text-indent-lg">
+            3.6.10. Interaction osztály
         </a>
     </div>
 
@@ -1151,145 +1181,313 @@
                 </li>
             </ul>
 
-            <b id="ellenseg">3.6.2. Ellenség osztály</b>
+            <b id="ellenseg">3.6.2. Enemy osztály</b>
             <p>
                 <strong>Felelőssége, feladata:</strong> Az Enemy osztály kezeli az ellenségek mozgását, támadásait, és
                 interakcióit a játékossal. Intelligens viselkedés biztosításáért felelős, például a játékos üldözése és
                 támadása.
             </p>
-            <p>
-                <strong>Együttműködők:</strong> Player, Level
-            </p>
+            <strong>Együttműködők:</strong>
+            <ul>
+                <li>
+                    Player: A játékossal való interakciók kezelése.
+                </li>
+                <li>
+                    StateManager: Az ellenségek állapotának váltása.
+                </li>
+                <li>
+                    Projectile: Az ellenségeket érintő lövedékek kezelése.
+                </li>
+            </ul>
             <strong>Attribútumok:</strong>
             <ul>
                 <li>
-                    típus (string)
+                    health: int – Az ellenség életereje.
                 </li>
                 <li>
-                    sebzés (int)
+                    speed: float – Az ellenség mozgási sebessége.
                 </li>
                 <li>
-                    pozíció (Vector2)
-                </li>
-                <li>
-                    életpontok (int)
+                    damage: int – Az ellenség támadása által okozott sebzés.
                 </li>
             </ul>
             <strong>Operációk:</strong>
             <ul>
                 <li>
-                    attack()
+                    move_towards(target: Player): void – Mozgás a játékos irányába.
                 </li>
                 <li>
-                    move_towards(target: Player)
+                    attack(target: Player): void – Támadás indítása a játékos ellen.
                 </li>
                 <li>
-                    defend()
+                    take_damage(amount: int): void – Sebzés alkalmazása.
+                </li>
+                <li>
+                    die(): void – Az ellenség eltávolítása, ha az életereje elfogy.
                 </li>
             </ul>
 
-            <b id="palya">3.6.3. Pálya (Level)</b>
+            <b id="allapotkezelo">3.6.3. StateManager osztály</b>
             <p>
-                <strong>Felelőssége:</strong> A játék szintjeinek kezelése.
+                <strong>Felelőssége, feladata:</strong> Az állapotkezelésért felelős osztály. Kezeli a játékos és az
+                ellenségek különböző állapotait, például mozgás, támadás vagy inaktivitás
             </p>
-            <p>
-                <strong>Együttműködők:</strong> Player, Enemy
-            </p>
+            <strong>Együttműködők:</strong>
+            <ul>
+                <li>
+                    Player: A játékos állapotainak nyomon követésére.
+                </li>
+                <li>
+                    Enemy: Az ellenségek állapotainak kezelésére.
+                </li>
+            </ul>
             <strong>Attribútumok:</strong>
             <ul>
                 <li>
-                    név (string)
-                </li>
-                <li>
-                    akadályok (list&lt;Obstacle&gt;)
+                    current_state: string – Az aktuális állapot neve.
                 </li>
             </ul>
             <strong>Operációk:</strong>
             <ul>
                 <li>
-                    load_level()
+                    change_state(new_state: string): void – Állapotváltás.
                 </li>
                 <li>
-                    reset_level()
+                    update_state(delta: float): void – Az aktuális állapot frissítése.
                 </li>
             </ul>
 
-            <b id="uimanager">3.6.4. UIManager (Felhasználói felületkezelő)</b>
+            <b id="projectile">3.6.4. Projectile osztály</b>
             <p>
-                <strong>Felelőssége:</strong> A játékos statisztikáinak és a menük kezelésének biztosítása.
+                <strong>Felelőssége, feladata:</strong> A lövedékek mozgását és célba érését kezeli. Az osztály biztosítja a lövedékek fizikai viselkedését és interakcióit a célpontokkal.
             </p>
-            <p>
-                <strong>Együttműködők:</strong> Player, Checkpoint
-            </p>
+            <strong>Együttműködők:</strong>
+            <ul>
+                <li>
+                    Player: A játékos által indított lövedékek.
+                </li>
+                <li>
+                    Enemy: Az ellenségeket érő találatok kezelése.
+                </li>
+            </ul>
             <strong>Attribútumok:</strong>
             <ul>
                 <li>
-                    kijelző elemek (list&lt;UIElement&gt;)
+                    damage: int – A lövedék által okozott sebzés.
+                </li>
+                <li>
+                    speed: float – A lövedék sebessége.
                 </li>
             </ul>
             <strong>Operációk:</strong>
             <ul>
                 <li>
-                    display_stats()
+                    launch(direction: Vector2): void – A lövedék elindítása adott irányba.
                 </li>
                 <li>
-                    update_interface()
+                    on_hit(target: Node): void – A lövedék célba érésének kezelése.
                 </li>
                 <li>
-                    show_menu()
+                    destroy(): void – A lövedék megsemmisítése.
+                </li>
+            </ul>
+            
+
+            <b id="configfilehandler">3.6.5. ConfigFileHandler osztály</b>
+            <p>
+                <strong>Felelőssége, feladata:</strong> A játék beállításainak és állapotainak mentése és betöltése JSON fájlok segítségével.
+            </p>
+            <strong>Együttműködők:</strong>
+            <ul>
+                <li>
+                    HUD: A kijelzendő információk betöltése.
+                </li>
+                <li>
+                    Player: A játékos állapotának mentése és visszatöltése.
+                </li>
+            </ul>
+            <strong>Attribútumok:</strong>
+            <ul>
+                <li>
+                    SETTINGS_FILE_PATH: string – A beállításokat tartalmazó fájl elérési útja.
+                </li>
+                <li>
+                    GAME_STATE_FILE_PATH: string – A játékállapotot tartalmazó fájl elérési útja.
+                </li>
+            </ul>
+            <strong>Operációk:</strong>
+            <ul>
+                <li>
+                    save_settings(settings: Dictionary): void – Beállítások mentése.
+                </li>
+                <li>
+                    load_settings(): Dictionary – Beállítások betöltése.
+                </li>
+                <li>
+                    save_game_state(state: Dictionary): void – Játékállapot mentése.
+                </li>
+                <li>
+                    load_game_state(): Dictionary – Játékállapot betöltése.
                 </li>
             </ul>
 
-            <b id="checkpoint">3.6.5. Checkpoint (Ellenőrzőpont)</b>
+            <b id="hud">3.6.6. HUD osztály</b>
             <p>
-                <strong>Felelőssége:</strong> A játék mentési és visszatérési pontjainak kezelése.
+                <strong>Felelőssége, feladata:</strong> A játékos által látott felhasználói felület elemeit kezeli, például életerő, pontszám és értesítések megjelenítése.
             </p>
-            <p>
-                <strong>Együttműködők:</strong> Player, Level
-            </p>
+            <strong>Együttműködők:</strong>
+            <ul>
+                <li>
+                    Player: Az életerő és pontszám frissítéséhez.
+                </li>
+                <li>
+                    ConfigFileHandler: A HUD-hoz kapcsolódó beállítások betöltéséhez.
+                </li>
+            </ul>
             <strong>Attribútumok:</strong>
             <ul>
                 <li>
-                    pozíció (Vector2)
+                    current_health: int – Az aktuális életerő.
                 </li>
                 <li>
-                    aktív állapot (bool)
+                    score: int – Az aktuális pontszám.
                 </li>
             </ul>
             <strong>Operációk:</strong>
             <ul>
                 <li>
-                    save_state()
+                    display_health(current_health: int): void – Életerő megjelenítése.
                 </li>
                 <li>
-                    load_state()
+                    update_score(score: int): void – Pontszám frissítése.
+                </li>
+                <li>
+                    show_notification(message: string): void – Üzenet megjelenítése.
                 </li>
             </ul>
 
-            <b id="allapotkezelo">3.6.6. Állapotkezelő (StateManager)</b>
+            <b id="spawnmanager">3.6.7 SpawnManager osztály</b>
             <p>
-                <strong>Felelőssége:</strong> A játékos különböző állapotainak (támadás, ugrás, stb.) kezeléséért
-                felelős. Biztosítja a helyes állapotváltásokat és a megfelelő interakciókat a játékmenet során.
+                <strong>Felelőssége, feladata:</strong> Az ellenségek és tárgyak megjelenítéséért felelős osztály. Gondoskodik arról, hogy a játék elemei a megfelelő helyeken jelenjenek meg.
             </p>
-            <p>
-                <strong>Együttműködők:</strong> Player, AttackState, JumpState, CrouchState, DashState
-            </p>
+            <strong>Együttműködők:</strong>
+            <ul>
+                <li>
+                    Enemy: Ellenségek létrehozása.
+                </li>
+                <li>
+                    Projectile: Lövedékek létrehozása.
+                </li>
+            </ul>
             <strong>Attribútumok:</strong>
             <ul>
                 <li>
-                    aktuális állapot (State)
-                </li>
-                <li>
-                    állapotok listája (list&lt;State&gt;)
+                    spawn_points: List[Vector2] – Az elemek megjelenítési helyei.
                 </li>
             </ul>
             <strong>Operációk:</strong>
             <ul>
                 <li>
-                    set_state(state: State)
+                    spawn_enemy(type: string): Enemy – Új ellenség létrehozása.
                 </li>
                 <li>
-                    update_state(delta: float)
+                    spawn_item(type: string): Item – Új tárgy létrehozása.
+                </li>
+            </ul>
+
+            <b id="camera">3.6.8 Camera osztály</b>
+            <p>
+                <strong>Felelőssége, feladata:</strong> A kamera követi a játékos mozgását, és dinamikus effektusokat alkalmaz, például rázkódást.
+            </p>
+            <strong>Együttműködők:</strong>
+            <ul>
+                <li>
+                    Player: A kamera követi a játékost.
+                </li>
+            </ul>
+            <strong>Attribútumok:</strong>
+            <ul>
+                <li>
+                    Nincsenek külön attribútumok, csak dinamikus műveletek.
+                </li>
+            </ul>
+            <strong>Operációk:</strong>
+            <ul>
+                <li>
+                    follow(target: Node2D): void – A célpont követése.
+                </li>
+                <li>
+                    apply_shake(intensity: float, duration: float): void – Rázkódási effekt alkalmazása.
+                </li>
+            </ul>
+
+            <b id="tilemap">3.6.9 TileMap osztály</b>
+            <p>
+                <strong>Felelőssége, feladata:</strong> A szint térképeit kezeli, és biztosítja a játékmenethez szükséges környezeti elemek betöltését.
+            </p>
+            <strong>Együttműködők:</strong>
+            <ul>
+                <li>
+                    Player: A szint térképének dinamikus módosítása a játékos mozgása alapján.
+                </li>
+            </ul>
+            <strong>Attribútumok:</strong>
+            <ul>
+                <li>
+                    tiles: Dictionary – A csempék adatai.
+                </li>
+            </ul>
+            <strong>Operációk:</strong>
+            <ul>
+                <li>
+                    load_level(level_id: int): void – Szint betöltése.
+                </li>
+                <li>
+                    update_tiles(): void – Csempék frissítése.
+                </li>
+            </ul>
+
+            <b id="interaction">3.6.10 Interaction osztály</b>
+            <p>
+                <strong>Felelőssége, feladata:</strong> Az Interaction osztály felelős a játékos és a nem játékos karakterek (NPC-k), valamint egyéb interaktív elemek közötti párbeszédek és események kezeléséért. Az osztály biztosítja az interaktív elemek közötti kommunikációt és a párbeszédek logikájának kezelését.
+            </p>
+            <strong>Együttműködők:</strong>
+            <ul>
+                <li>
+                    Player: A játékos és az interaktív elemek közötti kommunikációhoz.
+                </li>
+                <li>
+                    HUD: Az interakcióhoz tartozó szövegek és események megjelenítéséhez.
+                </li>
+                <li>
+                    ConfigFileHandler: A párbeszédek adatainak betöltéséhez.
+                </li>
+            </ul>
+            <strong>Attribútumok:</strong>
+            <ul>
+                <li>
+                    npc_id: int – Az NPC azonosítója, amellyel a játékos interakcióba lép.
+                </li>
+                <li>
+                    dialogue: string – Az aktuális párbeszéd szövege.
+                </li>
+                <li>
+                    interaction_type: string – Az interakció típusa (pl. „beszélgetés”, „tárgy felvétele”).
+                </li>
+            </ul>
+            <strong>Operációk:</strong>
+            <ul>
+                <li>
+                    start_conversation(): void – Elindítja a párbeszédet az aktuális NPC-vel.
+                </li>
+                <li>
+                    end_conversation(): void – Véget vet a párbeszédnek.
+                </li>
+                <li>
+                    trigger_event(event_id: int): void – Egy interaktív esemény elindítása (pl. ajtó nyitása, tárgy felvétele).
+                </li>
+                <li>
+                    load_dialogue(dialogue_id: int): string – Betölti a párbeszédet az adatbázisból vagy fájlból.
                 </li>
             </ul>
         </div>
