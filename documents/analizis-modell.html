@@ -248,15 +248,6 @@
         <a href="#alrendszerek" class="text-indent">
             2.3. Alrendszerek
         </a>
-        <a href="#megjelenesi-alrendszer" class="text-indent-lg">
-            2.3.1. Megjelenítés alrendszer
-        </a>
-        <a href="#uzleti-logika-alrendszer" class="text-indent-lg">
-            2.3.2. Üzleti logika alrendszer
-        </a>
-        <a href="#adatkezeles-alrendszer" class="text-indent-lg">
-            2.3.3. Adatkezelés alrendszer
-        </a>
 
         <a href="#elso-alrendszer-modellje">
             3. Az első alrendszer modellje
@@ -273,11 +264,17 @@
         <a href="#attributumok-azonositasa" class="text-indent-lg">
             3.1.2. Attribútumok azonosítása
         </a>
-        <a href="#bazisosztalyok-keresese" class="text-indent-lg">
-            3.1.3. Bázisosztályok keresése
-        </a>
         <a href="#dinamikus-modell" class="text-indent">
             3.2. Dinamikus modell
+        </a>
+        <a href="#player-allapotdiagram" class="text-indent-lg">
+            3.2.1. Player állapotdiagramja
+        </a>
+        <a href="#enemy-allapotdiagram" class="text-indent-lg">
+            3.2.2. Enemy állapotdiagramja
+        </a>
+        <a href="#projectile-allapotdiagram" class="text-indent-lg">
+            3.2.3. Projectile állapotdiagramja
         </a>
         <a href="#funkcionalis-modell" class="text-indent">
             3.3. Funkcionális modell
@@ -292,10 +289,10 @@
             3.6. Az analízis modell osztályainak listája
         </a>
         <a href="#jatekos" class="text-indent-lg">
-            3.6.1. Játékos (Player)
+            3.6.1. Player osztály
         </a>
         <a href="#ellenseg" class="text-indent-lg">
-            3.6.2. Ellenség (Enemy)
+            3.6.2. Ellenség osztály
         </a>
         <a href="#palya" class="text-indent-lg">
             3.6.3. Pálya (Level)
@@ -344,100 +341,253 @@
     <section id="kezdeti-osztalydiagram">
         <h2>2. Kezdeti osztálydiagram</h2>
         <div>
-            <b id="osztalydiagram">2.1. Osztálydiagram</b>
-            <p>Az osztálydiagram központi elemei a következők:</p>
+            Az osztálydiagram elkészítésének első lépése az összes szükséges szerepkör azonosítása a játékon belül. Az
+            SRS és egyéb specifikációk alapján külön osztályokat hoztunk létre az egyes elemek kezelésére, a fő
+            karakter, az ellenségek, és a világ objektumainak ábrázolására. Az osztálydiagram kialakítása során kiemelt
+            figyelmet fordítottunk a következőkre:
+            <br><br>
             <ul>
                 <li>
-                    <strong>Player (Játékos) osztály:</strong> A játékos karakter mozgásáért, interakcióiért és
-                    képességeiért felelős osztály.
+                    <strong>Modularitás:</strong> Az egyes osztályok jól elkülönített funkciókat látnak el, így az
+                    implementáció rugalmasabb.
                 </li>
                 <li>
-                    <strong>Enemy (Ellenség) osztály:</strong> Az ellenségeket és azok viselkedését leíró osztály, amely
-                    az AI-t is magában foglalja.
+                    <strong>Asszociációk:</strong> Az osztályok közötti kapcsolatok pontos meghatározása segíti a
+                    kommunikációt a
+                    különböző komponensek között. A fő karakter osztály kapcsolatban áll az ellenségekkel és a világ
+                    tárgyaival.
                 </li>
                 <li>
-                    <strong>Item (Tárgy) osztály:</strong> A felvehető és használható tárgyakat kezelő osztály, mint
-                    például gyógyító tárgyak, fegyverek vagy különleges kulcsok.
-                </li>
-                <li>
-                    <strong>Level (Szint) osztály:</strong> A szintek struktúráját tartalmazó osztály, amely az adott
-                    szinten található objektumokat és tereptárgyakat kezeli.
-                </li>
-                <li>
-                    <strong>Checkpoint (Ellenőrzőpont) osztály:</strong> A játék mentési pontjait jelölő osztály, ahol a
-                    játékos a halála után újraindíthatja a játékot.
-                </li>
-                <li>
-                    <strong>UIManager (Felhasználói felületkezelő) osztály:</strong> A grafikai interfészek kezeléséért
-                    felelős osztály, amely a menük és információs elemek megjelenítését biztosítja.
-                </li>
-                <li>
-                    <strong>StateManager (Állapotkezelő) osztály:</strong> A játékos különböző állapotainak kezeléséért
-                    felelős, biztosítva a helyes állapotváltásokat és a megfelelő interakciókat a játékmenet során.
+                    <strong>Felelősség megosztás:</strong> Az osztályok közötti munkamegosztás lehetővé teszi a
+                    különböző elemek független fejlesztését és karbantartását, beleértve az üzleti logika, megjelenítés,
+                    és adatkezelés funkciókat.
                 </li>
             </ul>
-            <img src="../assets/szoftvertech/img/osztalydiagram.png" alt="osztalydiagram" style="width: 50%;">
+            <p>
+                Az osztálydiagram magában foglalja a rendszer azon elemeit, amelyek a játékos és a környezet közötti
+                interakciók kezeléséért felelősek. Az osztálydiagram a játék mechanikai szerkezetét mutatja be egyetlen
+                összefüggő egységben, segítve a fejlesztési csapatot abban, hogy az egyes modulokat és azok kapcsolatait
+                könnyen áttekintse és optimalizálja.
+            </p>
+
+            <b id="osztalydiagram">2.1. Osztálydiagram</b>
+            <br><br>
+            <img src="../assets/szoftvertech/img/osztalydiagram.png" alt="osztalydiagram">
             <br><br>
             <b id="osztalyok-felsorolasa">2.2. Osztályok felsorolása</b>
             <p>Az alábbiakban felsoroljuk a játékban szereplő osztályokat, rövid leírással, hogy könnyen megérthető
                 legyen, milyen funkciót látnak el a rendszerben:</p>
             <ul>
                 <li>
-                    <strong>Játékos (Player):</strong> A játékos karakter mozgását, interakcióit és képességeit kezeli,
-                    mint a támadás, ugrás, és tárgyhasználat. Ez az osztály a játékos irányítási élményének központi
-                    eleme.
+                    <strong>Player:</strong> A játékos karakter osztálya, amely kezeli a mozgást, támadást és az
+                    állapotokat, valamint a játékossal kapcsolatos eseményeket.
                 </li>
                 <li>
-                    <strong>Ellenség (Enemy):</strong> Az ellenségeket képviseli, kezeli azok mozgását, viselkedését és
-                    a játékossal való interakciót. Az AI-tartalom része, amely biztosítja a kihívást.
+                    <strong>Enemy:</strong> Az ellenségek alapvető osztálya, amely kezeli az állapotokat, mozgást és a
+                    játékossal való interakciókat, támadást vagy észlelést.
                 </li>
                 <li>
-                    <strong>Item (Tárgy):</strong> A játék világában található tárgyakat ábrázolja, amelyeket a játékos
-                    felvehet és használhat. Ide tartoznak az egészség- és képességnövelők, valamint speciális tárgyak,
-                    amelyek új helyszíneket nyitnak meg.
+                    <strong>StateManager:</strong> Általános állapotkezelő osztály, amely felelős az állapotok
+                    regisztrálásáért, váltásáért és frissítéséért a játék során.
                 </li>
                 <li>
-                    <strong>Pálya (Level):</strong> Az egyes játékszinteket reprezentálja, a pálya elemeit és a
-                    játékbeli elhelyezkedéseket kezeli. Minden szint egyedi tereptárgyakkal és objektumokkal
-                    rendelkezik, amely a felfedezést teszi érdekesebbé.
+                    <strong>Global:</strong> Globális változók és funkciók tárolója, a gravitáció, a játékos globális
+                    referenciája és a kezdő pozíciók kezelése.
                 </li>
                 <li>
-                    <strong>Ellenőrzőpont (Checkpoint):</strong> A játék mentési pontjait jelöli, lehetőséget ad a
-                    játékosnak, hogy egy adott helyről folytathassa a játékot. Ez fontos része a játékmenet
-                    folytonosságának.
+                    <strong>ConfigFileHandler:</strong> Konfigurációs beállításokat kezelő osztály, amely az audio- és
+                    játékmechanikai beállításokat menti és tölti be.
                 </li>
                 <li>
-                    <strong>UIManager (Felhasználói felületkezelő):</strong> A felhasználói interfész elemeit kezeli, a
-                    menük és a játékos információinak megjelenítését biztosítja, mint az életerő és a pontszám.
+                    <strong>NextLevel:</strong> A szintek közötti váltást kezelő osztály, amely az aktuális szint végén
+                    elindítja a következő szint betöltését.
                 </li>
                 <li>
-                    <strong>StateManager (Állapotkezelő):</strong> A játékos állapotainak (támadás, ugrás, stb.)
-                    kezelését végzi. Biztosítja az állapotok közötti váltást és a hozzájuk kapcsolódó logikát, ezzel
-                    támogatva a zökkenőmentes játékmenetet.
+                    <strong>SpawnManager:</strong> Felelős az ellenségek, tárgyak vagy NPC-k megjelenítéséért a játék
+                    során, előre definiált pozíciók alapján.
+                </li>
+                <li>
+                    <strong>Camera:</strong> A kamera osztálya, amely követi a játékost vagy a szintet, és dinamikus
+                    kameraeffekteket, rázkódást biztosít.
+                </li>
+                <li>
+                    <strong>Animation:</strong> Animációk kezeléséért felelős osztály, amely biztosítja az animációk
+                    elindítását, leállítását és sebességük szabályozását.
+                </li>
+                <li>
+                    <strong>GameSettings:</strong> A játék beállításait kezelő osztály, amely tartalmazza a nehézségi
+                    szintet, hangerőt és egyéb preferenciákat.
+                </li>
+                <li>
+                    <strong>Timer:</strong> Időzítések és idő-alapú események kezeléséért felelős osztály,
+                    visszaszámlálások vagy események ütemezése.
+                </li>
+                <li>
+                    <strong>HUD:</strong> A felhasználói felület elemeit kezeli, az életcsíkot, pontszámot vagy egyéb
+                    kijelzőket a játék során.
+                </li>
+                <li>
+                    <strong>Projectile:</strong> A lövedékeket kezelő osztály, amely meghatározza azok sebességét,
+                    sebzését és viselkedését találat esetén.
+                </li>
+                <li>
+                    <strong>Obstacle:</strong> Akadályok kezelésére szolgáló osztály, csapdák, mozgó platformok vagy
+                    blokkoló elemek.
+                </li>
+                <li>
+                    <strong>TileMap:</strong> A szint csempéit kezelő osztály, amely lehetővé teszi a szintek
+                    betöltését, frissítését és módosítását.
+                </li>
+                <li>
+                    <strong>Background:</strong> A háttérelemeket kezelő osztály, amely felelős a parallax hatásért és a
+                    vizuális környezet kialakításáért.
+                </li>
+                <li>
+                    <strong>NPC:</strong> Nem játékos karakterek (NPC-k) kezelésére szolgáló osztály, amelyek
+                    párbeszédet folytathatnak vagy speciális eseményeket indíthatnak el.
+                </li>
+                <li>
+                    <strong>InputHandler:</strong> A játékos által használt bemeneti eszközöket ( billentyűzet,
+                    kontroller) kezelő osztály, amely az irányítást biztosítja.
+                </li>
+                <li>
+                    <strong>ParticleEffect:</strong> Részecske-effekteket kezelő osztály, robbanások vagy varázslatok
+                    megjelenítésére.
+                </li>
+                <li>
+                    <strong>AchievementManager:</strong> A játékos teljesítményeit és jutalmait nyomon követő osztály,
+                    amely kezeli a feloldható eredményeket.
+                </li>
+                <li>
+                    <strong>Environment:</strong> Dinamikus környezeti elemek kezeléséért felelős osztály, mozgó
+                    platformok, forgó pengék vagy interaktív elemek.
                 </li>
             </ul>
 
             <b id="alrendszerek">2.3. Alrendszerek</b>
-            <p>A játék rendszere az alábbi fő alrendszerekre bontható, amelyek funkcionálisan összetartozó osztályokat
-                tartalmaznak:</p>
-
-            <b id="megjelenesi-alrendszer">2.3.1. Megjelenítés alrendszer</b>
-            <p>
-                Felelős a grafikai elemek és a felhasználói interfész kezeléséért. Ide tartozik az UIManager osztály,
-                amely megjeleníti a játékos statisztikáit, menüket, valamint az interfész animációit. A felhasználói
-                élmény közvetlenül függ a felhasználói felület kezelésének minőségétől, ezért ennek a modulnak a
-                tervezése kulcsfontosságú.
-            </p>
-
-            <b id="uzleti-logika-alrendszer">2.3.2. Üzleti logika alrendszer</b>
-            <p>
-                A játék mechanikáját és logikai elemeit tartalmazza. Ez magában foglalja a Player, Enemy, és Item osztályokat, amelyek biztosítják az interakciókat és a kihívásokat. Az üzleti logika biztosítja a karakter képességeit és az ellenségekkel való harcot, a logikai feltételek és események vezérlését.
-            </p>
-
-            <b id="adatkezeles-alrendszer">2.3.3. Adatkezelés alrendszer</b>
-            <p>
-                Az adatokat és mentéseket kezeli, biztosítva, hogy a játékállapot minden körülmények között megmaradjon. A Checkpoint osztályon keresztül a játékos visszatérhet az utolsó mentési ponthoz, így folytathatja a játékot korábbi halála után.
-            </p>
+            <br><br>
+            <strong>Csomagdiagram</strong>
+            <br><br>
+            Az alrendszerek közötti együttműködést az alábbi kapcsolatok jellemzik:
+            <ul>
+                <li>
+                    A Játékmechanikai alrendszer információkat kap az Adatkezelési alrendszertől a beállítások és a
+                    globális változók (gravitáció, kezdőpozíció) használatához.
+                </li>
+                <li>
+                    A Megjelenítési alrendszer vizuális visszajelzéseket nyújt a játékmechanikai és a szintkezelési
+                    alrendszer elemei alapján.
+                </li>
+                <li>
+                    A Bemenetkezelési alrendszer folyamatosan irányítja a játékmechanikai alrendszerben található Player
+                    osztályt.
+                </li>
+                <li>
+                    Az Effektek alrendszere együttműködik a játékmechanikai alrendszerrel, hogy látványos interakciókat
+                    hozzon létre (robbanások).
+                </li>
+            </ul>
+            <br><br>
+            <strong>Megjelenítési alrendszer</strong>
+            <br><br>
+            A megjelenítési alrendszer felelős a felhasználói felület és a vizuális elemek kezeléséért. Ez biztosítja a
+            játékos számára a vizuális visszajelzéseket, az animációkat, valamint a kameramozgást. A megjelenítési
+            alrendszerben található osztályok:
+            <ul>
+                <li>
+                    <strong>HUD:</strong> Az életcsík, pontszám és egyéb felhasználói információk megjelenítéséért
+                    felelős.
+                </li>
+                <li>
+                    <strong>Camera:</strong> A játékos és a szint követését végzi, valamint dinamikus kameraeffekteket
+                    biztosít.
+                </li>
+                <li>
+                    <strong>Background:</strong> A háttérelemek megjelenítéséért és azok görgetéséért felelős.
+                </li>
+                <li>
+                    <strong>Animation:</strong> Az animációkat kezeli, beleértve a karakterek és események
+                    mozgását(fákja, lángoló épület).
+                </li>
+            </ul>
+            <br><br>
+            <strong>Játékmechanikai alrendszer</strong>
+            <br><br>
+            A játék logikájának működtetéséért, beleértve a játékos, az ellenségek és a környezeti elemek irányításáért
+            felelős. Az játékmechanikai alrendszerhez tartozó osztályok:
+            <ul>
+                <li>
+                    <strong>Player:</strong> A játékos karakter mozgását, támadásait és állapotait kezeli.
+                </li>
+                <li>
+                    <strong>Enemy:</strong> Az ellenségek logikájáért, mozgásáért és támadási mechanikájáért felelős.
+                </li>
+                <li>
+                    <strong>StateManager:</strong> Az állapotok (mozgás, támadás) kezelését végzi a játékos és az
+                    ellenségek számára.
+                </li>
+                <li>
+                    <strong>Environment:</strong> A dinamikus környezeti elemeket, mozgó platformokat vagy csapdákat
+                    kezeli.
+                </li>
+                <li>
+                    <strong>Projectile:</strong> A lövedékek, nyilak vagy golyók viselkedéséért felelős.
+                </li>
+            </ul>
+            <br><br>
+            <strong>Adatkezelési alrendszer</strong>
+            <br><br>
+            A játékhoz tartozó adatok, beállítások és globális változók tárolásáért, illetve betöltéséért felelős. Az
+            adatkezelési alrendszer osztályai:
+            <ul>
+                <li>
+                    <strong>ConfigFileHandler:</strong> A játékbeállításokat menti és tölti be (hang- és nehézségi
+                    beállítások).
+                </li>
+                <li>
+                    <strong>Global:</strong> Globális változók tárolására szolgál, a játékos referenciája, gravitáció
+                    vagy kezdőpozíció.
+                </li>
+                <li>
+                    <strong>AchievementManager:</strong> A játékos által elért teljesítmények és jutalmak kezelését
+                    végzi.
+                </li>
+            </ul>
+            <br><br>
+            <strong>Szintkezelési alrendszer</strong>
+            <br><br>
+            Kezeli a szintek közötti átmeneteket, valamint az új elemek és karakterek létrehozását. Az osztályok:
+            <ul>
+                <li>
+                    <strong>NextLevel:</strong> A szintek közötti váltásért és a következő szint betöltéséért felelős.
+                </li>
+                <li>
+                    <strong>SpawnManager:</strong> Ellenségek, tárgyak és NPC-k létrehozását végzi előre meghatározott
+                    pozíciókban.
+                </li>
+                <li>
+                    <strong>TileMap:</strong> A szint csempéit kezeli, és biztosítja a szintek megfelelő megjelenítését.
+                </li>
+            </ul>
+            <br><br>
+            <strong>Bemenetkezelési alrendszer</strong>
+            <br><br>
+            Felelős a játékos által használt irányítások (billentyűzet, kontroller) feldolgozásáért. Az osztálya:
+            <ul>
+                <li>
+                    <strong>InputHandler:</strong> Az irányítást biztosítja, a játékos mozgásának és akcióinak
+                    figyelésével.
+                </li>
+            </ul>
+            <br><br>
+            <strong>Effektek alrendszere</strong>
+            <br><br>
+            Különféle látvány- és hangeffektekért felelős. Az osztálya:
+            <ul>
+                <li>
+                    <strong>ParticleEffect:</strong> Részecske-effekteket, robbanásokat vagy varázslatokat jelenít meg.
+                </li>
+            </ul>
         </div>
     </section>
 
@@ -446,89 +596,566 @@
         <div>
             <b id="statikus-modell">3.1. Statikus modell</b>
             <br><br>
-            
+
             <b id="kapcsolatok-pontositasa">3.1.1. Kapcsolatok pontosítása</b>
             <p>
-                Az osztályok közötti kapcsolatokat pontosítottuk, megállapítottuk a számosságokat és a szerepköröket. Például a Player osztály kapcsolatban áll az összes állapot osztállyal, amelyeket a StateManager koordinál. Az ellenségek és a szintek szintén szoros kapcsolatban állnak, hogy biztosítsák a megfelelő interakciót a játék során.
+                A rendszerben az eddig azonosított osztályok közötti kapcsolatokat megvizsgáltuk, megneveztük, és
+                meghatároztuk azok szerepkörét és számosságát. Ennek célja a kapcsolatok pontosítása, valamint a
+                rendszer átláthatóságának növelése.
             </p>
+            <ul>
+                <li>
+                    <strong>Player és StateManager:</strong>
+                    <ul>
+                        <li>
+                            Kapcsolat neve: „használja”.
+                        </li>
+                        <li>
+                            Szerepkör: A Player osztály a StateManager segítségével kezeli az aktuális állapotát.
+                        </li>
+                        <li>
+                            Számosság: 1 (egy játékosnak pontosan egy állapotkezelője van).
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Camera és Player:</strong>
+                    <ul>
+                        <li>
+                            Kapcsolat neve: „követi”.
+                        </li>
+                        <li>
+                            Szerepkör: A Camera osztály a játékost követi, hogy a mozgást dinamikusan megjelenítse
+                        </li>
+                        <li>
+                            Számosság: 1 (egy kamera egy játékost követ).
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>SpawnManager és Enemy:</strong>
+                    <ul>
+                        <li>
+                            Kapcsolat neve: „létrehozza”.
+                        </li>
+                        <li>
+                            Szerepkör: A SpawnManager osztály felelős az Enemy példányok létrehozásáért.
+                        </li>
+                        <li>
+                            Számosság: 1..* (egy SpawnManager több Enemy-t is létrehozhat).
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
             <b id="attributumok-azonositasa">3.1.2. Attribútumok azonosítása</b>
             <p>
-                Minden osztályhoz hozzárendeltük a legfontosabb attribútumokat. Például a Player osztály tartalmazza a sebesség, pozíció és életerő attribútumokat, amelyek meghatározzák a karakter mozgását és interakcióját a játék világával.
+                Minden osztályhoz hozzárendeltük a legfontosabb attribútumokat, amelyek leírják az adott osztályt és
+                annak viselkedését.
             </p>
-
-            <b id="bazisosztalyok-keresese">3.1.3. Bázisosztályok keresése</b>
-            <p>
-                Az állapotkezelő osztályok hasonlósága alapján azonosítottuk a közös tulajdonságokat, amelyeket egy bázisosztályba emeltünk ki, hogy egyszerűsítsük a kódot és támogassuk a kód újrafelhasználhatóságát.
-            </p>
+            <ul>
+                <li>
+                    <strong>Player:</strong>
+                    <ul>
+                        <li>
+                            health: A játékos életereje.
+                        </li>
+                        <li>
+                            speed: A játékos mozgási sebessége.
+                        </li>
+                        <li>
+                            damage: A támadáskor okozott sebzés mértéke.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Enemy:</strong>
+                    <ul>
+                        <li>
+                            health: Az ellenség életereje.
+                        </li>
+                        <li>
+                            speed: Az ellenség mozgási sebessége.
+                        </li>
+                        <li>
+                            damage: Az ellenség által okozott sebzés.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Projectile:</strong>
+                    <ul>
+                        <li>
+                            damage: A lövedék által okozott sebzés mértéke.
+                        </li>
+                        <li>
+                            speed: A lövedék sebessége.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Interaction</strong> (új osztály):
+                    <ul>
+                        <li>
+                            npc_id: Az NPC azonosítója.
+                        </li>
+                        <li>
+                            dialogue: Az aktuális párbeszéd szövege.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
             <b id="dinamikus-modell">3.2. Dinamikus modell</b>
+            <br><br>
+            <b id="player-allapotdiagram">3.2.1. Player állapotdiagramja</b>
             <p>
-                A használati esetek alapján elkészítettük az állapotdiagramokat, például a támadás és mozgás állapotainak kezelését. Ezek bemutatják, hogy a játékos hogyan lép kölcsönhatásba az ellenségekkel és tárgyakkal.
+                Az alábbi diagram a Player osztály viselkedését ábrázolja. A játékos különböző állapotokat vehet fel,
+                például mozgás, ugrás vagy támadás közben. Az állapotok közötti váltásokat a felhasználói bemenetek vagy
+                bizonyos események váltják ki.
             </p>
+            <ul>
+                <li>
+                    <strong>Állapotok:</strong>
+                    <ul>
+                        <li>
+                            <strong>Idle:</strong> A játékos nem mozog, álló helyzetben van.
+                        </li>
+                        <li>
+                            <strong>Moving:</strong> A játékos mozgásban van (balra vagy jobbra halad).
+                        </li>
+                        <li>
+                            <strong>Jumping:</strong> A játékos ugrik.
+                        </li>
+                        <li>
+                            <strong>Attacking:</strong> A játékos támad.
+                        </li>
+                        <li>
+                            <strong>Dead:</strong> A játékos meghalt.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Állapotátmenetek:</strong>
+                    <ul>
+                        <li>
+                            <strong>Idle → Moving:</strong> Ha a játékos balra vagy jobbra mozgásra utasítja a
+                            karaktert.
+                        </li>
+                        <li>
+                            <strong>Idle → Jumping:</strong> Ha a játékos megnyomja az ugrásgombot.
+                        </li>
+                        <li>
+                            <strong>Moving → Attacking:</strong> Ha a játékos támadásgombot nyom mozgás közben.
+                        </li>
+                        <li>
+                            <strong>Any state → Dead:</strong> Ha a játékos életereje eléri a nullát.
+                        </li>
+                        <li>
+                            <strong>Jumping → Idle:</strong> Ha a játékos földet ér ugrás után.
+                        </li>
+                        <li>
+                            <strong>Moving → Idle:</strong> Ha a játékos abbahagyja a mozgást.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <b id="enemy-allapotdiagram">3.2.2. Enemy állapotdiagramja</b>
+            <p>
+                Az alábbi diagram az Enemy osztály állapotait mutatja be. Az ellenség képes észlelni a játékost,
+                követni, támadni, vagy éppen inaktív (Idle) állapotban maradni.
+            </p>
+            <ul>
+                <li>
+                    <strong>Állapotok:</strong>
+                    <ul>
+                        <li>
+                            <strong>Idle:</strong> Az ellenség nem észlel játékost, nem mozog.
+                        </li>
+                        <li>
+                            <strong>Chasing:</strong> Az ellenség észleli a játékost, és elkezdi üldözni.
+                        </li>
+                        <li>
+                            <strong>Attacking:</strong> Az ellenség a játékos közelébe érve támad.
+                        </li>
+                        <li>
+                            <strong>Dying:</strong> Az ellenség haldoklik, miután az életereje elfogyott.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Állapotátmenetek:</strong>
+                    <ul>
+                        <li>
+                            <strong>Idle → Chasing:</strong> Ha az ellenség érzékeli a játékos jelenlétét.
+                        </li>
+                        <li>
+                            <strong>Chasing → Attacking:</strong> Ha az ellenség elérte a játékos támadási területét.
+                        </li>
+                        <li>
+                            <strong>Attacking → Chasing:</strong> Ha a játékos eltávolodik az ellenségtől.
+                        </li>
+                        <li>
+                            <strong>Any state → Dying:</strong> Ha az ellenség életereje eléri a nullát.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <b id="projectile-allapotdiagram">3.2.3. Projectile állapotdiagramja</b>
+            <p>
+                A Projectile osztály dinamikus viselkedése az alábbi állapotokra osztható.
+            </p>
+            <ul>
+                <li>
+                    <strong>Állapotok:</strong>
+                    <ul>
+                        <li>
+                            <strong>Idle:</strong> A lövedék nincs kilőve, várakozik.
+                        </li>
+                        <li>
+                            <strong>Moving:</strong> A lövedék a cél felé halad.
+                        </li>
+                        <li>
+                            <strong>Hit:</strong> A lövedék elérte a célját és sebzést okozott.
+                        </li>
+                        <li>
+                            <strong>Destroyed:</strong> A lövedék megsemmisül, miután elérte a célját vagy a
+                            hatótávolságán kívülre került.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Állapotátmenetek:</strong>
+                    <ul>
+                        <li>
+                            <strong>Idle → Moving:</strong> Ha a lövedéket elindítják.
+                        </li>
+                        <li>
+                            <strong>Moving → Hit:</strong> Ha a lövedék eléri a célpontját.
+                        </li>
+                        <li>
+                            <strong>Moving → Destroyed:</strong> Ha a lövedék hatótávolságon kívülre kerül.
+                        </li>
+                        <li>
+                            <strong>Hit → Destroyed:</strong> Ha a lövedék a célpont eltalálása után elpusztul.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
 
             <b id="funkcionalis-modell">3.3. Funkcionális modell</b>
+            <b id="jatekos-mozgasa">3.3.1 Játékos mozgása</b>
             <p>
-                Dokumentáltuk a rendszerben zajló főbb feldolgozási lépéseket és az adatáramlást, például hogyan kezeli a játék az interakciókat és a mozgási eseményeket.
+                A játékos mozgását a felhasználói bemenetek vezérlik. Az InputHandler osztály figyeli a játékos által
+                megnyomott gombokat (pl. balra, jobbra, ugrás), és továbbítja az információt a Player osztály felé. A
+                Player osztály ennek alapján frissíti a pozícióját, amit a Camera osztály követ.
             </p>
+            <strong>Adatáramlás:</strong>
+            <ul>
+                <li>
+                    Az InputHandler osztály érzékeli a felhasználó által végrehajtott bemeneteket (pl. billentyűzet vagy
+                    kontroller használata).
+                </li>
+                <li>
+                    Az InputHandler továbbítja a mozgási parancsot a Player osztálynak.
+                </li>
+                <li>
+                    A Player osztály frissíti a pozícióját a mozgás irányában.
+                </li>
+                <li>
+                    A Camera osztály a játékos új pozícióját követve frissíti a nézetet.
+                </li>
+            </ul>
+
+            <b id="szintvaltas-folyamata">3.3.2 Szintváltás folyamata</b>
+            <p>
+                Amikor a játékos eléri a szint végét, a NextLevel osztály érzékeli az interakciót, és betölti a
+                következő szinthez tartozó térképet. Az új szinthez tartozó adatokat a ConfigFileHandler osztály kezeli,
+                amely biztosítja a következő szint beállításainak betöltését. A TileMap osztály felelős az új szint
+                térképének inicializálásáért.
+            </p>
+            <strong>Adatáramlás:</strong>
+            <ul>
+                <li>
+                    A Player osztály érzékelteti az interakciót a NextLevel osztállyal.
+                </li>
+                <li>
+                    A NextLevel osztály a ConfigFileHandler segítségével betölti a következő szint konfigurációit.
+                </li>
+                <li>
+                    A TileMap osztály inicializálja a szinthez tartozó csempéket, és beállítja a szint objektumait.
+                </li>
+            </ul>
+
+            <b id="ellensegek-erzekelese">3.3.3 Ellenség érzékelése és támadása</b>
+            <p>
+                Az Enemy osztály a DetectionArea segítségével érzékeli a játékos jelenlétét. Ha a játékos a támadási
+                területen belül van, az Enemy támadást indít, amely csökkenti a Player osztály health attribútumát. Az
+                eseményt követően a HUD osztály frissíti az életerő kijelzést.
+            </p>
+            <strong>Adatáramlás:</strong>
+            <ul>
+                <li>
+                    A DetectionArea érzékeli a játékos pozícióját, ha az az ellenség látóterébe kerül.
+                </li>
+                <li>
+                    Az Enemy osztály ellenőrzi, hogy a játékos a támadási területen belül van-e.
+                </li>
+                <li>
+                    Ha igen, az Enemy támadást indít, amely csökkenti a Player életerejét.
+                </li>
+                <li>
+                    A HUD frissíti az életerő kijelzést a változásoknak megfelelően.
+                </li>
+            </ul>
+
+            <b id="lovedek-indulasa">3.3.4 Lövedék indítása és célba érése</b>
+            <p>
+                Amikor a játékos vagy az ellenség lövedéket indít, a Projectile osztály kezeli annak mozgását és
+                interakcióit. A lövedék célba érve sebzést okoz, majd megsemmisül.
+            </p>
+            <strong>Adatáramlás:</strong>
+            <ul>
+                <li>
+                    A Player vagy Enemy osztály indítja a lövedéket a Projectile osztály segítségével.
+                </li>
+                <li>
+                    A Projectile osztály frissíti a lövedék pozícióját.
+                </li>
+                <li>
+                    Ha a lövedék eléri a célpontot, csökkenti annak életerejét.
+                </li>
+                <li>
+                    A lövedék megsemmisül, miután elérte a célpontot vagy túllépte a hatótávolságot.
+                </li>
+            </ul>
+
+            <b id="adataramlas-osszefoglalo">3.3.5 Adatáramlás összefoglalása</b>
+            <p>
+                Az alábbi táblázat összefoglalja a funkciók közötti adatáramlásokat:
+            </p>
+            <table style="border: 1px solid black;">
+                <tbody>
+                    <tr>
+                        <th>Funkció</th>
+                        <th>Forrás</th>
+                        <th>Cél</th>
+                        <th>Adat</th>
+                    </tr>
+                    <tr>
+                        <td>Játékos mozgása</td>
+                        <td>InputHandler</td>
+                        <td>Player</td>
+                        <td>Mozgási utasítás</td>
+                    </tr>
+                    <tr>
+                        <td>Kamera követése</td>
+                        <td>Player</td>
+                        <td>Camera</td>
+                        <td>Játékos pozíciója</td>
+                    </tr>
+                    <tr>
+                        <td>Szintváltás</td>
+                        <td>Player</td>
+                        <td>NextLevel</td>
+                        <td>Szintváltási esemény</td>
+                    </tr>
+                    <tr>
+                        <td>Ellenség támadása</td>
+                        <td>DetectionArea</td>
+                        <td>Enemy</td>
+                        <td>Játékos pozíciója</td>
+                    </tr>
+                    <tr>
+                        <td>Lövedék indítása</td>
+                        <td>Player/Enemy</td>
+                        <td>Projectile</td>
+                        <td>Lövedék indítási adatai</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
 
             <b id="operaciok-azonositasa">3.4. Operációk azonosítása</b>
-            <p>
-                Az osztálydiagramot operációkkal egészítettük ki, például a Player osztály „move()” és „attack()” metódusaival, amelyek a játékos akcióit vezérlik.
-            </p>
+            <ul>
+                <li>
+                    <strong>Player operációi:</strong>
+                    <ul>
+                        <li>
+                            <strong>move(direction: Vector2):</strong> ⦁ A játékos mozgását végzi a megadott irányban.
+                            Paraméterek: direction - a mozgás iránya.
+                        </li>
+                        <li>
+                            <strong>jump():</strong> A játékos ugrását hajtja végre.
+                        </li>
+                        <li>
+                            <strong>attack():</strong> A játékos támadást indít.
+                        </li>
+                        <li>
+                            <strong>take_damage(amount: int):</strong> Csökkenti a játékos életerejét a megadott
+                            értékkel. Paraméterek: amount - a sebzés mértéke.
+                        </li>
+                        <li>
+                            <strong>is_alive() -> bool:</strong> Ellenőrzi, hogy a játékos életben van-e. Visszatérési
+                            érték: True, ha a játékos életereje nagyobb, mint 0.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Enemy operációi:</strong>
+                    <ul>
+                        <li>
+                            <strong>move_towards(target: Player):</strong> Az ellenség a megadott célpont, a játékos
+                            felé mozog.
+                            Paraméterek: target - a követendő játékos objektum
+                        </li>
+                        <li>
+                            <strong>attack(target: Player):</strong> Az ellenség megtámadja a játékost.
+                            Paraméterek: target - a megtámadott játékos.
+                        </li>
+                        <li>
+                            <strong>take_damage(amount: int):</strong> Csökkenti az ellenség életerejét.
+                            Paraméterek: amount - a sebzés mértéke.
+                        </li>
+                        <li>
+                            <strong>die()</strong> Az ellenség eltávolítása, ha az életereje eléri a nullát.
+                        </li>
+                    </ul>
+                    <p>
+                        Az Enemy osztály operációit a funkcionális modell elemzésével határoztuk meg. Az attack és
+                        move_towards operációkat az ellenség játékossal való interakcióihoz kötöttük.
+                    </p>
+                </li>
+                <li>
+                    <strong>Camera operációi:</strong>
+                    <ul>
+                        <li>
+                            <strong>follow(target: Node2D):</strong> A kamera követi a megadott célt, például a
+                            játékost.
+                            Paraméterek: target - a követendő objektum.
+                        </li>
+                        <li>
+                            <strong>apply_shake(intensity: float, duration: float):</strong> Rázkódási effekt
+                            alkalmazása, például robbanások esetén.
+                            <br><br>
+                            Paraméterek:
+                            <ul>
+                                <li>
+                                    intensity: A rázkódás intenzitása.
+                                </li>
+                                <li>
+                                    duration: A rázkódás időtartama.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>SpawnManager operációi:</strong>
+                    <ul>
+                        <li>
+                            <strong>spawn_enemy(type: String):</strong> Új ellenség létrehozása a megadott típus
+                            alapján.
+                            Paraméterek: type - az ellenség típusa.
+                        </li>
+                        <li>
+                            <strong>spawn_item(type: String):</strong> Új tárgy létrehozása a megadott típus alapján.
+                            Paraméterek: type - a tárgy típusa.
+                        </li>
+                    </ul>
+                    <p>
+                        A SpawnManager operációit a szintváltási és játékmechanikai tevékenységek alapján azonosítottuk.
+                    </p>
+                </li>
+                <li>
+                    <strong>Projectile operációi</strong>
+                    <ul>
+                        <li>
+                            <strong>launch(direction: Vector2):</strong> A lövedék elindítása a megadott irányban.
+                            Paraméterek: direction - a lövedék iránya.
+                        </li>
+                        <li>
+                            <strong>on_hit(target: Node):</strong> A lövedék megsemmisítése, miután elérte célját vagy
+                            hatótávját
+                        </li>
+                        <li>
+                            <strong>destroy():</strong> A lövedék megsemmisítése, miután elérte célját vagy hatótávját
+                        </li>
+                    </ul>
+                    <p>
+                        A Projectile operációit az ellenségekkel és játékossal való interakciókra, valamint a
+                        funkcionális modellben leírt lövedékkezelési folyamatra alapoztuk.
+                    </p>
+                </li>
+            </ul>
 
             <b id="analizis-modell-osztalydiagram">3.5. Az analízis modell osztálydiagramja</b>
             <p>
-                Az osztálydiagramot az attribútumokkal és operációkkal kiegészítve csatoltuk. Az ábra bemutatja az osztályok közötti kapcsolatrendszert, és az alrendszerek közötti együttműködést is.
+                Az osztálydiagramot az attribútumokkal és operációkkal kiegészítve csatoltuk. Az ábra bemutatja az
+                osztályok közötti kapcsolatrendszert, és az alrendszerek közötti együttműködést is.
             </p>
-
+            <img src="../assets/szoftvertech/img/analizisdiagram.png" alt="analizis diagram">
+            <br><br>
             <b id="analizis-modell-osztaly-lista">3.6. Az analízis modell osztályainak listája</b>
             <br><br>
 
-            <b id="jatekos">3.6.1. Játékos (Player)</b>
+            <b id="jatekos">3.6.1. Player osztály</b>
             <p>
-                <strong>Felelőssége:</strong> A játékos irányítása, állapotváltásai.
+                <strong>Felelőssége, feladata:</strong> A Player osztály kezeli a játékos karakterét, beleértve a
+                mozgást, az interakciókat, az állapotokat és a támadásokat. Felelős a játékos alapvető
+                funkcionalitásainak biztosításáért és a környezethez való kapcsolódásért.
+
             </p>
-            <p>
-                <strong>Együttműködők:</strong> StateManager, Enemy, Level.
-            </p>
+            <strong>Együttműködők:</strong>
+            <ul>
+                <li>
+                    StateManager: A játékos állapotainak kezelése.
+                </li>
+                <li>
+                    HUD: A játékos életerejének és pontszámának frissítése.
+                </li>
+                <li>
+                    Projectile: A játékos által indított lövedékek kezelése.
+                </li>
+                <li>
+                    Camera: A játékos követése a nézetben.
+                </li>
+            </ul>
             <strong>Attribútumok:</strong>
             <ul>
                 <li>
-                    sebesség (float)
+                    health: int – A játékos életereje.
                 </li>
                 <li>
-                    életerő (int)
+                    speed: float – A mozgási sebessége.
                 </li>
                 <li>
-                    pozíció (Vector2)
-                </li>
-                <li>
-                    aktuális állapot (State)
+                    damage: int – A támadások által okozott sebzés
                 </li>
             </ul>
             <strong>Operációk:</strong>
             <ul>
                 <li>
-                    move(direction: Vector2)
+                    move(direction: Vector2): void – Mozgás végrehajtása adott irányba.
                 </li>
                 <li>
-                    attack()
+                    jump(): void – Ugrás végrehajtása.
                 </li>
                 <li>
-                    jump()
+                    take_damage(amount: int): void – Sebzés alkalmazása.
                 </li>
                 <li>
-                    crouch()
-                </li>
-                <li>
-                    dash()
+                    is_alive(): bool – Ellenőrzi, hogy a játékos életben van-e.
                 </li>
             </ul>
 
-            <b id="ellenseg">3.6.2. Ellenség (Enemy)</b>
+            <b id="ellenseg">3.6.2. Ellenség osztály</b>
             <p>
-                <strong>Felelőssége:</strong> A játékos akadályozása és kihívás biztosítása.
+                <strong>Felelőssége, feladata:</strong> Az Enemy osztály kezeli az ellenségek mozgását, támadásait, és
+                interakcióit a játékossal. Intelligens viselkedés biztosításáért felelős, például a játékos üldözése és
+                támadása.
             </p>
             <p>
                 <strong>Együttműködők:</strong> Player, Level
@@ -641,7 +1268,8 @@
 
             <b id="allapotkezelo">3.6.6. Állapotkezelő (StateManager)</b>
             <p>
-                <strong>Felelőssége:</strong> A játékos különböző állapotainak (támadás, ugrás, stb.) kezeléséért felelős. Biztosítja a helyes állapotváltásokat és a megfelelő interakciókat a játékmenet során.
+                <strong>Felelőssége:</strong> A játékos különböző állapotainak (támadás, ugrás, stb.) kezeléséért
+                felelős. Biztosítja a helyes állapotváltásokat és a megfelelő interakciókat a játékmenet során.
             </p>
             <p>
                 <strong>Együttműködők:</strong> Player, AttackState, JumpState, CrouchState, DashState
