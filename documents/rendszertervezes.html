@@ -156,7 +156,7 @@
     </p>
     <p style="margin-bottom: 0cm;" align="right" lang="hu-HU">
         <font size="4">
-            2024. 11. 19.
+            2024. 12. 10.
         </font>
     </p>
     <p style="margin-bottom: 0cm;" align="center"><br></p>
@@ -226,6 +226,24 @@
                     </p>
                 </td>
             </tr>
+            <tr valign="top">
+                <td width="25%" sdval="117974" sdnum="1038;0;@">
+                    <p align="left">2024. 12. 10.</p>
+                </td>
+                <td width="11%">
+                    <p align="left">1.1</p>
+                </td>
+                <td width="35%">
+                    <p>
+                        Adatmodellek módosítása
+                    </p>
+                </td>
+                <td width="29%">
+                    <p style="margin-right: 0.08cm;">
+                        Czibik Lóránt Patrik
+                    </p>
+                </td>
+            </tr>
         </tbody>
     </table>
     <p style="margin-bottom: 0cm;"><br></p>
@@ -259,18 +277,6 @@
 
         <a href="#adatbazis-kezelo" class="text-indent">
             3.1 Adatbázis-kezelő kiválasztása
-        </a>
-
-        <a href="#szemantikai-adatmodell" class="text-indent">
-            3.2 Szemantikai Adatmodell (ER Diagram)
-        </a>
-
-        <a href="#relacios-adatmodell" class="text-indent">
-            3.3 Relációs Adatmodell
-        </a>
-
-        <a href="#adatbazis-kezelo-kapcsolat" class="text-indent">
-            3.4. Az adatbázis kezelővel kapcsolatot tartó osztályok
         </a>
 
         <a href="#funkcionalis-modell">
@@ -308,6 +314,7 @@
                     <strong>Kibővített történeti elem:</strong> A főhős, Sir George története mély narratív alapot biztosít a játékos elköteleződéséhez.
                 </li>
             </ul>
+            <img src="/assets/szoftvertech/img/jatekkep.png" alt="jatekkep" style="width: 100%; max-width: 800px;">
         </div>
     </section>
 
@@ -342,7 +349,8 @@
                     <strong>Kilépés:</strong> Az alkalmazás bezárása.
                 </li>
             </ul>
-
+            <img src="/assets/szoftvertech/img/main-menu.jpg" alt="main menu" style="width: 100%; max-width: 800px;">
+            <br><br>
             <b id="hud">2.2 Játék közbeni HUD</b>
             <br><br>
             A HUD a játék során folyamatosan frissülő információkat jelenít meg:
@@ -370,7 +378,8 @@
                     <strong>Méret:</strong> Az információk jól olvasható méretben, de nem zavarva a játékteret.
                 </li>
             </ul>
-
+            <img src="/assets/szoftvertech/img/hud.png" alt="hud" style="width: 100%; max-width: 800px;">
+            <br><br>
             <b id="interakciok">2.3 Interakciók</b>
             <ul>
                 <li>
@@ -391,7 +400,9 @@
         <div>
             <b id="adatbazis-kezelo">3.1 Adatbázis-kezelő kiválasztása</b>
             <br><br>
-            A rendszer INI fájlokat használ a mentési állapotok és beállítások kezelésére. A választás mögötti okok:
+            A rendszer INI fájlokat használ a mentési állapotok és beállítások kezelésére.
+            <br><br>
+            <strong>A választás indoklása:</strong>
             <ul>
                 <li>
                     <strong>Könnyű integráció:</strong> Az INI fájlok támogatása beépített a Godot játékmotorba.
@@ -403,69 +414,39 @@
                     <strong>Rugalmasság:</strong> A struktúra könnyen bővíthető.
                 </li>
             </ul>
-
-            <b id="szemantikai-adatmodell">3.2 Szemantikai Adatmodell (ER Diagram)</b>
-            <p>
-                A játék osztályainak és attribútumainak kapcsolata az alábbiak szerint épül fel:
-            </p>
-            <strong>Entitánsok:</strong>
-            <ol>
-                <li>
-                    <strong>Player:</strong> A játékos karakter tulajdonságait tartalmazza.
-                </li>
-                <li>
-                    <strong>Enemy:</strong> Az ellenségek típusait és tulajdonságait írja le.
-                </li>
-                <li>
-                    <strong>Projectile:</strong> A lövedékek attribútumait tartalmazza.
-                </li>
-                <li>
-                    <strong>Item:</strong> A gyűjthető tárgyak.
-                </li>
-                <li>
-                    <strong>Level:</strong> A szintek és ellenőrző pontok adatai.
-                </li>
-                <li>
-                    <strong>Settings:</strong> A játék beállításai.
-                </li>
-            </ol>
-            <strong>ER Diagram:</strong>
-            <br><br>
-            <img src="../assets/szoftvertech/img/er-diagram.png" alt="er-diagram" style="width: 100%; max-width: 800px;">
-            <br><br>
-
-            <b id="relacios-adatmodell">3.3 Relációs Adatmodell</b>
-            <p>
-                A relációs modell az adatbázis táblák közötti kapcsolatokat ábrázolja.
-            </p>
-            <strong>Táblák:</strong>
-            <ul>
-                <li>
-                    <strong>Player:</strong> Azonosító, név, egészség, pontszám, képességek.
-                </li>
-                <li>
-                    <strong>Enemy:</strong> Azonosító, típus, egészség, sebzés.
-                </li>
-                <li>
-                    <strong>Projectile:</strong> Azonosító, sebesség, sebzés, típus.
-                </li>
-                <li>
-                    <strong>Item:</strong> Azonosító, név, hatás, ritkaság.
-                </li>
-                <li>
-                    <strong>Level:</strong> Azonosító, aktuális szint, ellenőrző pontok.
-                </li>
-                <li>
-                    <strong>Settings:</strong> Azonosító, hangerő, nehézségi szint.
-                </li>
-            </ul>
-            <strong>Relációs Diagram:</strong>
-            <br><br>
-            <img src="../assets/szoftvertech/img/relacios-diagram.png" alt="relacios-diagram" style="width: 100%; max-width: 1000px;">
-            <br><br>
-            <b id="adatbazis-kezelo-kapcsolat">3.4. Az adatbázis kezelővel kapcsolatot tartó osztályok</b>
-            <br><br>
-            <img src="../assets/szoftvertech/img/adatbazis-kezelo.png" alt="adatbazis-kezelo" style="width: 100%; max-width: 800px;">
+            <strong>Alkalmazási területek:</strong>
+            <p><strong>Mentési állapotok:</strong> A játékbeli előrehaladás (aktuális szint, karakter tulajdonságai, gyűjtött tárgyak) mentése INI fájlokban történik, ahol minden paraméter egy kulcs-érték párként kerül tárolásra.</p>
+            [GameState]
+            <br>
+            Level=3
+            <br>
+            Health=75
+            <br>
+            Score=1200
+            <br>
+            CollectedItems=Ring1,Ring2
+            <p><strong>Beállítások tárolása:</strong> A grafikai, hang- és irányítási beállításokat külön szekciókba rendezi a rendszer.</p>
+            [Graphics]
+            <br>
+            Resolution=1920x1080
+            <br>
+            FullScreen=true
+            <br>
+            [Audio]
+            <br>
+            MusicVolume=80
+            <br>
+            EffectsVolume=70
+            <br>
+            [Controls]
+            <br>
+            Jump=Space
+            <br>
+            MoveLeft=A
+            <br>
+            moveRight=D
+            <br>
+            <p><strong>Hibakezelés:</strong> Sérült INI fájl esetén a rendszer alapértelmezett beállításokat tölt be, biztosítva a játék zavartalan működését.</p>
         </div>
     </section>
 
